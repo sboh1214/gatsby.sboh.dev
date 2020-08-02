@@ -35,10 +35,10 @@ const IndexLayout: React.FC = ({ children }) => (
       <LayoutRoot>
         <Helmet
           title={data.site.siteMetadata.title}
+          htmlAttributes={{ lang: 'ko' }}
           meta={[
             { name: 'description', content: data.site.siteMetadata.description },
-            { name: 'keywords', content: data.site.siteMetadata.keywords },
-            { name: 'lang', content: 'en' }
+            { name: 'keywords', content: data.site.siteMetadata.keywords }
           ]}
         />
         <Header title={data.site.siteMetadata.title} />
