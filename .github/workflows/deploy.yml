@@ -17,4 +17,4 @@ jobs:
     - name: NPM Install
       run: npm i
     - name: Deploy
-      run: gatsby build --prefix-paths && gh-pages -d public -r https://${{ACCESS_TOKEN}}@github.com/sboh1214/sboh1214.github.io.git
+      run: gatsby build --prefix-paths && gh-pages -d public -r https://${{ secrets.ACCESS_TOKEN }}@github.com/sboh1214/sboh1214.github.io.git
