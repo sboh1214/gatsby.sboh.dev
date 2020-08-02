@@ -1,22 +1,26 @@
-name: Deploy
+name: Gatsby Publish
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2.1.1
-    - name: NPM Install
-      run: npm i
-    - name: Build
-      run: npm run build --prefix-paths
-    - name: Deploy
-      run: npm run deploy
+      - uses: actions/checkout@v1
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install
+        run: npm i
+      - name: Build
+        run: npm run build --prefix-paths
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          PUBLISH_BRANCH: deploy
+          PUBLISH_DIR: ./public
