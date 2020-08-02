@@ -12,7 +12,6 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "clean": "rimraf public",
     "deploy": "gh-pages -d public -r https://${{ secrets.ACCESS_TOKEN }}@github.com/sboh1214/sboh1214.github.io.git",
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
@@ -67,7 +66,6 @@
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
     "gh-pages": "^2.0.1",
-    "prettier": "^1.18.2",
-    "rimraf": "^2.6.3"
+    "prettier": "^1.18.2"
   }
 }
