@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: 'gatsby-starter-typescript-plus',
-    description: 'A starter kit for TypeScript-based Gatsby projects with sensible defaults.',
-    keywords: 'gatsbyjs, gatsby, javascript, sample, something',
-    siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
+    title: 'sboh1214.github.io',
+    description: 'sboh1214.github.io',
+    keywords: 'gatsbyjs, gatsby, javascript, seungbin',
+    siteUrl: 'https://sboh1214.github.io/',
     author: {
-      name: 'Resi Respati',
-      url: 'https://twitter.com/resir014',
-      email: 'resir014@gmail.com'
+      name: 'Seungbin Oh',
+      url: 'https://github.com/sboh1214',
+      email: 'sboh1214@gmail.com'
     }
   },
   plugins: [

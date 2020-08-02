@@ -55,7 +55,6 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   if (allMarkdown.errors) {
-    console.error(allMarkdown.errors)
     throw new Error(allMarkdown.errors)
   }
 

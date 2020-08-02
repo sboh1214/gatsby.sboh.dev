@@ -1,11 +1,12 @@
 {
-  "name": "gatsby-starter-typescript-plus",
-  "description": "A starter kit for TypeScript-based Gatsby projects with sensible defaults.",
-  "version": "1.0.0",
+  "name": "sboh1214.github.io",
+  "description": "sboh1214.github.io",
+  "version": "2002.12.14",
   "private": true,
-  "author": "Resi Respati <resir014@gmail.com>",
+  "author": "Seungbin Oh <sboh1214@gmail.com>",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "Seungbin Oh"
   ],
   "license": "MIT",
   "main": "n/a",
@@ -15,7 +16,7 @@
     "deploy": "gh-pages -d public -r https://${{ secrets.ACCESS_TOKEN }}@github.com/sboh1214/sboh1214.github.io.git",
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint": "eslint 'src/**/*.{ts,tsx,js,jsx}'",
     "start": "npm run dev"
   },
   "engines": {
