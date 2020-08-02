@@ -9,12 +9,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup Node.js environment
       uses: actions/setup-node@v2.1.1
     - name: NPM Install
       run: npm i
+    - name: Build
+      run: npm run build --prefix-paths
     - name: Deploy
-      run: gatsby build --prefix-paths && gh-pages -d public -r https://${{ secrets.ACCESS_TOKEN }}@github.com/sboh1214/sboh1214.github.io.git
+      run: npm run deploy
