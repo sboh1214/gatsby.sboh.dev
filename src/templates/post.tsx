@@ -20,6 +20,9 @@ interface PageTemplateProps {
     markdownRemark: {
       html: string
       excerpt: string
+      fields: {
+        path: string
+      }
       frontmatter: {
         title: string
       }
@@ -27,7 +30,7 @@ interface PageTemplateProps {
   }
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => (
+const PostTemplate: React.FC<PageTemplateProps> = ({ data }) => (
   <IndexLayout>
     <Page>
       <Container>
@@ -39,23 +42,12 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => (
   </IndexLayout>
 )
 
-export default PageTemplate
+export default PostTemplate
 
-export const query = graphql`
-  query PageTemplateQuery($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        description
-        author {
-          name
-          url
-        }
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+export const pageQuery = graphql`
+  query BlogPostByPath($path: String!) {
+    markdownRemark(fields: { path: { eq: $path } }) {
       html
-      excerpt
       frontmatter {
         title
       }

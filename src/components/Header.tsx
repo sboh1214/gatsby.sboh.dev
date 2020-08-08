@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { transparentize } from 'polished'
 import { Link } from 'gatsby'
-
+// import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 import { heights, dimensions, colors } from '../styles/variables'
 import Container from './Container'
 
@@ -39,6 +39,13 @@ const Header: React.FC<HeaderProps> = ({ title }) => (
   <StyledHeader>
     <HeaderInner>
       <HomepageLink to="/">{title}</HomepageLink>
+      {/* <ThemeToggler>
+        {({ theme, toggleTheme }) => (
+          <label>
+            <input type="checkbox" onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')} checked={theme === 'dark'} /> Dark mode
+          </label>
+        )}
+      </ThemeToggler> */}
     </HeaderInner>
   </StyledHeader>
 )
