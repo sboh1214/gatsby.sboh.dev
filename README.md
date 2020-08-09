@@ -1,3 +1,9 @@
+# Platypus Dev Blog
+
+![Gatsby Publish](https://github.com/sboh1214/sboh1214.github.io/workflows/Gatsby%20Publish/badge.svg)
+![Test](https://github.com/sboh1214/sboh1214.github.io/workflows/Test/badge.svg)
+[![codecov](https://codecov.io/gh/sboh1214/sboh1214.github.io/branch/master/graph/badge.svg)](https://codecov.io/gh/sboh1214/sboh1214.github.io)
+
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
