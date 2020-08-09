@@ -3,7 +3,8 @@ import { graphql } from 'gatsby'
 
 import Page from '../components/Page'
 import Container from '../components/Container'
-import IndexLayout from '../layouts'
+import IndexLayout from '..'
+import Utterances from '../components/Utterances'
 
 interface PageTemplateProps {
   data: {
@@ -30,18 +31,19 @@ interface PageTemplateProps {
   }
 }
 
-const PostTemplate: React.FC<PageTemplateProps> = ({ data }) => (
+const Post: React.FC<PageTemplateProps> = ({ data }) => (
   <IndexLayout>
     <Page>
       <Container>
         <h1>{data.markdownRemark.frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        <Utterances />
       </Container>
     </Page>
   </IndexLayout>
 )
 
-export default PostTemplate
+export default Post
 
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {

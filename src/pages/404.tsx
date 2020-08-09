@@ -3,9 +3,9 @@ import { Link } from 'gatsby'
 
 import Page from '../components/Page'
 import Container from '../components/Container'
-import IndexLayout from '../layouts'
+import IndexLayout from '..'
 
-const NotFoundPage = () => (
+const Code404 = () => (
   <IndexLayout>
     <Page>
       <Container>
@@ -18,4 +18,4 @@ const NotFoundPage = () => (
   </IndexLayout>
 )
 
-export default NotFoundPage
+export default Code404
