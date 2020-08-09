@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { transparentize } from 'polished'
 import { Link } from 'gatsby'
 // import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 import { heights, dimensions, colors } from '../styles/variables'
@@ -10,7 +9,7 @@ const StyledHeader = styled.header`
   height: ${heights.header}px;
   padding: 0 ${dimensions.containerPadding}rem;
   background-color: ${colors.brand};
-  color: ${transparentize(0.5, colors.white)};
+  color: ${colors.white};
 `
 
 const HeaderInner = styled(Container)`
