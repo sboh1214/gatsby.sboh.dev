@@ -16,6 +16,8 @@
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "start": "npm run dev"
   },
   "engines": {
@@ -58,16 +60,23 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/jest": "^26.0.9",
     "@types/node": "^14.0.27",
     "@types/react": "^16.9.45",
     "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.1.0",
+    "@types/react-test-renderer": "^16.9.2",
     "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.8.0",
+    "babel-jest": "^26.2.2",
+    "babel-preset-gatsby": "^0.5.5",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "gh-pages": "^3.1.0",
-    "prettier": "^2.0.5"
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.2.2",
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.13.1"
   }
 }
