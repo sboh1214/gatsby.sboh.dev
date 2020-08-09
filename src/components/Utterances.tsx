@@ -21,7 +21,7 @@ export default function Utterances() {
     })
 
     containerRef!!.current!!.appendChild(utterances)
-  }, [])
+  }, [containerRef])
 
   return <div ref={containerRef} />
 }

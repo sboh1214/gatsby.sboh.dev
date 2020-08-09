@@ -1,6 +1,9 @@
 module.exports = {
+  globals: {
+    __PATH_PREFIX__: true
+  },
   parser: '@typescript-eslint/parser',
-  extends: ['prettier/@typescript-eslint', 'prettier/react', 'plugin:prettier/recommended'],
+  extends: ['react-app', 'prettier/@typescript-eslint', 'prettier/react', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
