@@ -42,6 +42,16 @@ const IndexLayout: React.FC = ({ children }) => (
             { name: 'keywords', content: data.site.siteMetadata.keywords },
             { name: 'google-site-verification', content: '5qAz7-fx88YJKFF95FsgcUq40tLfbycOgCjb08i2lw4' }
           ]}
+          script={[
+            {
+              type: 'text/javascript',
+              innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WRDHGWF');`
+            }
+          ]}
         />
         <Header title={data.site.siteMetadata.title} />
         <LayoutMain>{children}</LayoutMain>

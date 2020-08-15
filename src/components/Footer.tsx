@@ -19,18 +19,7 @@ const FooterInner = styled(Container)`
   height: 100%;
 `
 
-const HomepageLink = styled(Link)`
-  color: ${colors.white};
-  font-size: 1.5rem;
-  font-weight: 600;
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-`
-
-const Header: React.FC<void> = () => (
+const Header = () => (
   <StyledFooter>
     <FooterInner>
       <a href="https://github.com/sboh1214/sboh1214.github.io/workflows/Gatsby%20Publish">
