@@ -16,6 +16,8 @@ import InputBase from '@material-ui/core/InputBase'
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
 import MailIcon from '@material-ui/icons/Mail'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles'
 import { graphql } from 'gatsby'
 
@@ -191,17 +193,19 @@ export default function IndexPage({ data }: any) {
           <h1>Recent Posts</h1>
           <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
           {data.allMarkdownRemark.edges.map(({ node }: any) => (
-            <div
+            <Card
               key={node.id}
               onClick={() => {
                 window.location = node.fields.path
               }}
             >
-              <h3>
-                {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
-              </h3>
-              <p>{node.excerpt}</p>
-            </div>
+              <CardContent>
+                <h3>
+                  {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
+                </h3>
+                <p>{node.excerpt}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
         <Typography paragraph>
