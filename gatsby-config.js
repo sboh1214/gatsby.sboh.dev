@@ -74,6 +74,7 @@ module.exports = {
         icon: `src/icon.png`,
         cache_busting_mode: 'none'
       }
-    }
+    },
+    'gatsby-plugin-sitemap'
   ]
 }
