@@ -1,10 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import Footer from '../Footer'
 
-import Layout from '../Layout'
-
-describe('Layout', () => {
+describe('Footer', () => {
   it('renders correctly', () => {
-    renderer.create(<Layout />)
+    renderer.create(<Footer />)
   })
 })

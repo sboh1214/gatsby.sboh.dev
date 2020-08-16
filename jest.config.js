@@ -12,5 +12,6 @@ module.exports = {
     __PATH_PREFIX__: ``
   },
   testURL: `http://localhost`,
-  collectCoverageFrom: ['src/**/*.{ts,tsx}']
+  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
+  setupFilesAfterEnv: ['<rootDir>/__mocks__/gatsby.js']
 }
