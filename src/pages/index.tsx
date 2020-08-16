@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import Container from '../components/Layout'
 
 export default function IndexPage({ data }: any) {
@@ -13,7 +13,7 @@ export default function IndexPage({ data }: any) {
         <Card
           key={node.id}
           onClick={() => {
-            window.location = node.fields.path
+            navigate(node.fields.path)
           }}
         >
           <CardContent>

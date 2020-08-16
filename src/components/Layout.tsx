@@ -17,6 +17,8 @@ import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
 import MailIcon from '@material-ui/icons/Mail'
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles'
+import { Link, navigate } from 'gatsby'
+import Footer from './Footer'
 
 const drawerWidth = 240
 
@@ -92,7 +94,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-export default function Layout({ children, data }: any) {
+export default function Layout({ children }: any) {
   const classes = useStyles()
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -141,6 +143,7 @@ export default function Layout({ children, data }: any) {
           <Typography variant="h6" noWrap>
             Platypus Dev Blog
           </Typography>
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
