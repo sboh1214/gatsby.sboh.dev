@@ -1,10 +1,10 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Container from '../Layout'
+import Layout from '../Layout'
 
-describe('Container', () => {
+describe('Layout', () => {
   it('renders correctly', () => {
-    renderer.create(<Container />)
+    renderer.create(<Layout />)
   })
 })

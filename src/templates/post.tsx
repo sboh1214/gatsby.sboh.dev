@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-
-import Page from '../components/Page'
-import Container from '../components/Layout'
-import IndexLayout from '..'
 import Utterances from '../components/Utterances'
+import Container from '../components/Container'
 
 interface PageTemplateProps {
   data: {
@@ -32,11 +29,11 @@ interface PageTemplateProps {
 }
 
 const Post: React.FC<PageTemplateProps> = ({ data }) => (
-  <>
+  <Container>
     <h1>{data.markdownRemark.frontmatter.title}</h1>
     <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
     <Utterances />
-  </>
+  </Container>
 )
 
 export default Post
