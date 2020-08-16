@@ -52,7 +52,6 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -62,12 +61,6 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-147173530-1'
-      }
-    },
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `sboh1214`
       }
     },
     {

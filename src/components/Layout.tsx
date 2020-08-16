@@ -18,6 +18,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import MailIcon from '@material-ui/icons/Mail'
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles'
 import { navigate } from 'gatsby'
+import Footer from './Footer'
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme: Theme) =>
@@ -195,7 +196,10 @@ export default function Layout({ children }: any) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <div>{children}</div>
+        <article>{children}</article>
+        <footer>
+          <Footer />
+        </footer>
       </main>
     </div>
   )
