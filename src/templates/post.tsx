@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 
 import Page from '../components/Page'
-import Container from '../components/Container'
+import Container from '../components/Layout'
 import IndexLayout from '..'
 import Utterances from '../components/Utterances'
 
@@ -32,15 +32,11 @@ interface PageTemplateProps {
 }
 
 const Post: React.FC<PageTemplateProps> = ({ data }) => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-        <Utterances />
-      </Container>
-    </Page>
-  </IndexLayout>
+  <>
+    <h1>{data.markdownRemark.frontmatter.title}</h1>
+    <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+    <Utterances />
+  </>
 )
 
 export default Post
