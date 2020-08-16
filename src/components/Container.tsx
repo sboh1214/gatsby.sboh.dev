@@ -29,7 +29,7 @@ export default function Container({ children }: any) {
       render={(data: StaticQueryProps) => (
         <>
           <Helmet
-            title={data.site.siteMetadata.title}
+            title={data.site.siteMetadata.title ?? 'Platypus Dev Blog'}
             htmlAttributes={{ lang: 'ko' }}
             meta={[
               { name: 'description', content: data.site.siteMetadata.description },
