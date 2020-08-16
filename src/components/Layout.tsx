@@ -17,6 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
 import MailIcon from '@material-ui/icons/Mail'
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles'
+import { navigate } from 'gatsby'
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme: Theme) =>
@@ -137,10 +138,15 @@ export default function Layout({ children }: any) {
           <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} className={classes.menuButton}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Platypus Dev Blog
-          </Typography>
-
+          <div
+            onClick={() => {
+              navigate('/')
+            }}
+          >
+            <Typography variant="h6" noWrap>
+              Platypus Dev Blog
+            </Typography>
+          </div>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
