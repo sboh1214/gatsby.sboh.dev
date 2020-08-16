@@ -4,11 +4,29 @@ title: "새로운 Activity Result API"
 
 # 기존 API
 
-<script src="https://gist.github.com/sboh1214/1584d9de4ae0a04572d68188bb1206bd.js"></script>
+```kt
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
+{
+    if (requestCode == 1)
+    {
+        when (resultCode)
+        {
+            RESULT_OK       -> // TODO
+            RESULT_CANCELED -> // TODO
+            else            -> // TODO
+        }
+    }
+    else
+    {
+        // TODO
+    }
+    super.onActivityResult(requestCode, resultCode, data)
+}
+```
 
 # 새로운 API
 
-``` kotlin
+```kt
 private val startCropActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         when (it.resultCode) {
             RESULT_OK -> // TODO

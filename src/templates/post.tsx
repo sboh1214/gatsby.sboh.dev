@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Utterances from '../components/Utterances'
 import Container from '../components/Container'
+import 'prismjs/themes/prism-okaidia.css'
 
 interface PageTemplateProps {
   data: {
