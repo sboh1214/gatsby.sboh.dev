@@ -1,6 +1,7 @@
 ---
-title: "My First Gatsby Post"
+title: 'My First Gatsby Post'
 ---
+
 Oooooh-weeee, my first blog post!
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum neque leo, ut laoreet massa blandit sit amet. Praesent auctor nisi eu enim lobortis pulvinar. Nullam tristique sapien ligula, vel tempus mi efficitur at. Duis sem nulla, sagittis ut feugiat vel, sollicitudin vitae enim. Vestibulum luctus eleifend dolor. Mauris sollicitudin mauris quis odio imperdiet euismod. Mauris vel nulla mauris.

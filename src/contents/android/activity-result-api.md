@@ -1,5 +1,5 @@
 ---
-title: "새로운 Activity Result API"
+title: '새로운 Activity Result API'
 ---
 
 # 기존 API
@@ -37,4 +37,4 @@ private val startCropActivity = registerForActivityResult(ActivityResultContract
     }
 ```
 
-* 새로운 API는 원하는 Activity Request마다 registerForActivityResult를 실행하기 때문에 requestCode가 존재하지 않습니다.
+- 새로운 API는 원하는 Activity Request마다 registerForActivityResult를 실행하기 때문에 requestCode가 존재하지 않습니다.
