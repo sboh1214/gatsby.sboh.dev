@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import { createMuiTheme, Theme, ThemeProvider } from '@material-ui/core'
 
 export const lightTheme = createMuiTheme({
@@ -31,17 +31,22 @@ const themeMap: { [key: string]: Theme } = {
 export const ThemeContext = React.createContext((_: string): void => {})
 
 const ThemeContextProvider: React.FC = (props) => {
-  const curThemeName = localStorage.getItem('appTheme') || 'lightTheme'
   // State to hold the selected theme name
-  const [themeName, _setThemeName] = useState(curThemeName)
+  const [themeName, _setThemeName] = useState('lightTheme')
 
   // Retrieve the theme object by theme name
   const theme = getThemeByName(themeName)
 
   const setThemeName = (themeName: string): void => {
-    localStorage.setItem('appTheme', themeName)
+    if (window !== undefined) {
+      window.localStorage.setItem('appTheme', themeName)
+    }
     _setThemeName(themeName)
   }
+
+  useLayoutEffect(() => {
+    _setThemeName(window.localStorage.getItem('appTheme') || 'lightTheme')
+  }, [])
 
   return (
     <ThemeContext.Provider value={setThemeName}>

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useCallback } from 'react'
+import React, { useState, useContext, useCallback, useLayoutEffect } from 'react'
 import Switch from 'react-switch'
 import { ThemeContext } from './ThemeContext'
 
@@ -31,8 +31,7 @@ const SunIcon = () => {
 }
 
 export const ThemeSwitch = () => {
-  const curThemeName = localStorage.getItem('appTheme') || 'lightTheme'
-  const [checked, setChecked] = useState<boolean>(curThemeName === 'darkTheme')
+  const [checked, setChecked] = useState<boolean>(false)
   const setThemeName = useContext(ThemeContext)
 
   const handleChange = useCallback(
@@ -46,6 +45,11 @@ export const ThemeSwitch = () => {
     },
     [setThemeName]
   )
+
+  useLayoutEffect(() => {
+    const curThemeName = window !== undefined ? window.localStorage.getItem('appTheme') || 'lightTheme' : 'lightTheme'
+    setChecked(curThemeName === 'darkTheme')
+  }, [])
 
   return (
     <div className="switch-container">
