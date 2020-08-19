@@ -29,7 +29,7 @@ interface PageTemplateProps {
   }
 }
 
-const Post: React.FC<PageTemplateProps> = ({ data }) => (
+const Post = ({ data }: PageTemplateProps) => (
   <Container>
     <h1>{data.markdownRemark.frontmatter.title}</h1>
     <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
