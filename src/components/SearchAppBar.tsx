@@ -10,14 +10,14 @@ export default function SearchAppBar({ onMenuClick, drawerWidth }: any) {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       appBar: {
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
           width: `calc(100% - ${drawerWidth}px)`,
           marginLeft: drawerWidth
         }
       },
       menuButton: {
         marginRight: theme.spacing(2),
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
           display: 'none'
         }
       },
@@ -31,7 +31,7 @@ export default function SearchAppBar({ onMenuClick, drawerWidth }: any) {
         marginRight: theme.spacing(2),
         marginLeft: 0,
         width: '100%',
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
           marginLeft: theme.spacing(3),
           width: 'auto'
         }
@@ -54,7 +54,7 @@ export default function SearchAppBar({ onMenuClick, drawerWidth }: any) {
         paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
         width: '100%',
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up("md")]: {
           width: '20ch'
         }
       }

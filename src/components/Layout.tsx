@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex'
     },
     drawer: {
-      [theme.breakpoints.up('sm')]: {
+      [theme.breakpoints.up('md')]: {
         width: drawerWidth,
         flexShrink: 0
       }
@@ -40,15 +40,10 @@ export default function Layout({ children }: any) {
   const classes = useStyles()
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [container, setContainer] = useState<any>(undefined)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
-
-  useLayoutEffect(() => {
-    setContainer(window !== undefined ? window.document.body : undefined)
-  }, [])
 
   return (
     <ThemeContextProvider>
@@ -58,9 +53,8 @@ export default function Layout({ children }: any) {
           <SearchAppBar drawerWidth={drawerWidth} onMenuClick={handleDrawerToggle} />
           <nav className={classes.drawer} aria-label="mailbox folders">
             {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-            <Hidden smUp implementation="css">
+            <Hidden mdUp implementation="css">
               <Drawer
-                container={container}
                 variant="temporary"
                 anchor={theme.direction === 'rtl' ? 'right' : 'left'}
                 open={mobileOpen}
@@ -75,7 +69,7 @@ export default function Layout({ children }: any) {
                 <DrawerInner />
               </Drawer>
             </Hidden>
-            <Hidden xsDown implementation="css">
+            <Hidden smDown implementation="css">
               <Drawer
                 classes={{
                   paper: classes.drawerPaper
