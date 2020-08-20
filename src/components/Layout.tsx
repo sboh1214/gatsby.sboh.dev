@@ -21,8 +21,8 @@ import { navigate } from 'gatsby'
 import Footer from './Footer'
 import { ThemeSwitch } from './ThemeSwitch'
 import ThemeContextProvider from './ThemeContext'
-import 'fontsource-roboto'
 import { ListSubheader } from '@material-ui/core'
+import 'fontsource-roboto/index.css'
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme: Theme) =>
