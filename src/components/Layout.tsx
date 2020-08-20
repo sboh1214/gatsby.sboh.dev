@@ -4,7 +4,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Divider from '@material-ui/core/Divider'
 import Drawer from '@material-ui/core/Drawer'
 import Hidden from '@material-ui/core/Hidden'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
+import AndroidIcon from '@material-ui/icons/Android'
+import PermIdentityIcon from '@material-ui/icons/PermIdentity'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -15,12 +16,13 @@ import Typography from '@material-ui/core/Typography'
 import InputBase from '@material-ui/core/InputBase'
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
-import MailIcon from '@material-ui/icons/Mail'
 import { fade, makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles'
 import { navigate } from 'gatsby'
 import Footer from './Footer'
 import { ThemeSwitch } from './ThemeSwitch'
 import ThemeContextProvider from './ThemeContext'
+import 'fontsource-roboto'
+import { ListSubheader } from '@material-ui/core'
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme: Theme) =>
@@ -110,21 +112,33 @@ export default function Layout({ children }: any) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListSubheader>Info</ListSubheader>
+        <ListItem button key="About Me">
+          <ListItemIcon>
+            <PermIdentityIcon />
+          </ListItemIcon>
+          <ListItemText primary="About Me" />
+        </ListItem>
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListSubheader>Apps</ListSubheader>
+        <ListItem button key="Board To Note">
+          <ListItemText primary="Board To Note" />
+        </ListItem>
+        <ListItem button key="News App">
+          <ListItemText primary="News App" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListSubheader>Posts</ListSubheader>
+        <ListItem button key="Android">
+          <ListItemIcon>
+            <AndroidIcon />
+          </ListItemIcon>
+          <ListItemText primary="Android" />
+        </ListItem>
       </List>
     </div>
   )
