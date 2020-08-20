@@ -4,6 +4,7 @@ import { ThemeSwitch } from './ThemeSwitch'
 import { navigate } from 'gatsby'
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
+import HideOnScroll from './HideOnScroll'
 
 export default function SearchAppBar({ onMenuClick, drawerWidth }: any) {
   const useStyles = makeStyles((theme: Theme) =>
@@ -62,37 +63,39 @@ export default function SearchAppBar({ onMenuClick, drawerWidth }: any) {
   const classes = useStyles()
 
   return (
-    <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar>
-        <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={onMenuClick} className={classes.menuButton}>
-          <MenuIcon />
-        </IconButton>
-        <div
-          onClick={() => {
-            navigate('/')
-          }}
-        >
-          <Typography variant="h6" noWrap>
-            Platypus Dev Blog
-          </Typography>
-        </div>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            placeholder="Search…"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput
+    <HideOnScroll>
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={onMenuClick} className={classes.menuButton}>
+            <MenuIcon />
+          </IconButton>
+          <div
+            onClick={() => {
+              navigate('/')
             }}
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </div>
-        <div>
-          <ThemeSwitch />
-        </div>
-      </Toolbar>
-    </AppBar>
+          >
+            <Typography variant="h6" noWrap>
+              Platypus Dev Blog
+            </Typography>
+          </div>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          <div>
+            <ThemeSwitch />
+          </div>
+        </Toolbar>
+      </AppBar>
+    </HideOnScroll>
   )
 }
