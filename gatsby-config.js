@@ -1,14 +1,15 @@
 const name = 'Platypus Dev Blog'
+const url = 'https://sboh1214.github.io/'
 
 module.exports = {
   siteMetadata: {
     title: name,
     description: 'sboh1214.github.io',
     keywords: 'gatsbyjs, gatsby, javascript, seungbin',
-    siteUrl: 'https://sboh1214.github.io/',
+    siteUrl: url,
     author: {
       name: 'Seungbin Oh',
-      url: 'https://github.com/sboh1214',
+      url,
       email: 'sboh1214@gmail.com'
     }
   },
@@ -76,6 +77,15 @@ module.exports = {
         cache_busting_mode: 'none'
       }
     },
-    'gatsby-plugin-sitemap'
+    'gatsby-plugin-offline',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: url,
+        sitemap: `${url}/sitemap.xml`,
+        policy: [{ userAgent: '*', disallow: '' }]
+      }
+    }
   ]
 }

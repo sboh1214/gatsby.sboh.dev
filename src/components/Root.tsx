@@ -13,7 +13,7 @@ interface StaticQueryProps {
   }
 }
 
-export default function Container({ children }: any) {
+export default function Root({ children }: any) {
   return (
     <StaticQuery
       query={graphql`

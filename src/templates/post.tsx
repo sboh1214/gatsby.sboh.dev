@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Utterances from '../components/Utterances'
-import Container from '../components/Container'
+import Root from '../components/Root'
 import 'prismjs/themes/prism-okaidia.css'
+import { Container } from '@material-ui/core'
 
 interface PageTemplateProps {
   data: {
@@ -30,11 +31,13 @@ interface PageTemplateProps {
 }
 
 const Post = ({ data }: PageTemplateProps) => (
-  <Container>
-    <h1>{data.markdownRemark.frontmatter.title}</h1>
-    <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-    <Utterances />
-  </Container>
+  <Root>
+    <Container maxWidth="md">
+      <h1>{data.markdownRemark.frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      <Utterances />
+    </Container>
+  </Root>
 )
 
 export default Post
