@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react'
-import { createMuiTheme, Theme, ThemeProvider } from '@material-ui/core'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core'
+import { ThemeType } from './ThemeSwitch'
 
 export const lightTheme = createMuiTheme({
   palette: {
@@ -19,37 +20,43 @@ export const darkTheme = createMuiTheme({
   }
 })
 
-export function getThemeByName(theme: string): Theme {
-  return themeMap[theme]
-}
-
-const themeMap: { [key: string]: Theme } = {
-  lightTheme,
-  darkTheme
-}
-
-export const ThemeContext = React.createContext((_: string): void => {})
+export const ThemeContext = React.createContext((_: ThemeType): void => {})
 
 const ThemeContextProvider: React.FC = (props) => {
   // State to hold the selected theme name
-  const [themeName, _setThemeName] = useState('lightTheme')
+  const [themeType, _setThemeType] = useState<ThemeType>(ThemeType.SYSTEM)
+  const [colorScheme, setColorScheme] = useState<ThemeType>(ThemeType.LIGHT)
 
-  // Retrieve the theme object by theme name
-  const theme = getThemeByName(themeName)
-
-  const setThemeName = (themeName: string): void => {
+  const setThemeType = (themeType: ThemeType): void => {
     if (window !== undefined) {
-      window.localStorage.setItem('appTheme', themeName)
+      window.localStorage.setItem(ThemeType.NAME.toString(), themeType)
     }
-    _setThemeName(themeName)
+    _setThemeType(themeType)
   }
 
   useLayoutEffect(() => {
-    _setThemeName(window.localStorage.getItem('appTheme') || 'lightTheme')
+    if (window) {
+      const curThemeName = window.localStorage.getItem(ThemeType.NAME.toString()) || ThemeType.SYSTEM
+      _setThemeType(curThemeName as ThemeType)
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        setColorScheme(e.matches ? ThemeType.DARK : ThemeType.LIGHT)
+      })
+    }
   }, [])
 
+  let theme
+  if (themeType === ThemeType.LIGHT) {
+    theme = lightTheme
+  } else if (themeType === ThemeType.DARK) {
+    theme = darkTheme
+  } else if (colorScheme === ThemeType.LIGHT) {
+    theme = lightTheme
+  } else {
+    theme = darkTheme
+  }
+
   return (
-    <ThemeContext.Provider value={setThemeName}>
+    <ThemeContext.Provider value={setThemeType}>
       <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
     </ThemeContext.Provider>
   )
