@@ -2,6 +2,7 @@ import React from 'react'
 import { Divider, List, ListSubheader, ListItem, ListItemIcon, ListItemText, makeStyles, createStyles, Theme } from '@material-ui/core'
 import AndroidIcon from '@material-ui/icons/Android'
 import PermIdentityIcon from '@material-ui/icons/PermIdentity'
+import { navigate } from 'gatsby'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,10 +30,22 @@ export default function DrawerInner() {
       <Divider />
       <List>
         <ListSubheader>Apps</ListSubheader>
-        <ListItem button key="Board To Note">
+        <ListItem
+          button
+          key="Board To Note"
+          onClick={() => {
+            navigate('/apps/board-to-note/')
+          }}
+        >
           <ListItemText primary="Board To Note" />
         </ListItem>
-        <ListItem button key="News App">
+        <ListItem
+          button
+          key="News App"
+          onClick={() => {
+            navigate('/apps/news-app/')
+          }}
+        >
           <ListItemText primary="News App" />
         </ListItem>
       </List>

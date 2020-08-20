@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: 'path',
-      value: `/p${relativeFilePath}`
+      value: `/posts${relativeFilePath}`
     })
   }
 }
