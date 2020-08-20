@@ -1,6 +1,7 @@
 import React, { useState, useContext, useLayoutEffect } from 'react'
 import { ThemeContext } from './ThemeContext'
-import { Menu, MenuItem, ListItemIcon, ListItemText, Button } from '@material-ui/core'
+import { Menu, MenuItem, ListItemIcon, ListItemText, IconButton } from '@material-ui/core'
+import PaletteIcon from '@material-ui/icons/Palette'
 import BrightnessAutoIcon from '@material-ui/icons/BrightnessAuto'
 import Brightness7Icon from '@material-ui/icons/Brightness7'
 import Brightness4Icon from '@material-ui/icons/Brightness4'
@@ -41,9 +42,9 @@ export const ThemeSwitch = () => {
 
   return (
     <div className="switch-container">
-      <Button aria-controls="customized-menu" aria-haspopup="true" variant="contained" color="primary" onClick={handleClick}>
-        Theme
-      </Button>
+      <IconButton aria-controls="customized-menu" aria-haspopup="true" color="inherit" onClick={handleClick}>
+        <PaletteIcon />
+      </IconButton>
       <Menu id="customized-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         <MenuItem
           selected={type === ThemeType.LIGHT}
