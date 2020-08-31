@@ -13,19 +13,21 @@ interface StaticQueryProps {
   }
 }
 
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`
+
 export default function Root({ children }: any) {
   return (
     <StaticQuery
-      query={graphql`
-        query IndexLayoutQuery {
-          site {
-            siteMetadata {
-              title
-              description
-            }
-          }
-        }
-      `}
+      query={detailsQuery}
       render={(data: StaticQueryProps) => (
         <>
           <Helmet htmlAttributes={{ lang: 'ko' }} defer={false}>

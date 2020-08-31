@@ -56,7 +56,6 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-dark-mode',
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -73,11 +72,11 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `standalone`,
-        icon: `src/icon.png`,
-        cache_busting_mode: 'none'
+        icon: `src/icon.png`
       }
     },
     'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-robots-txt',
