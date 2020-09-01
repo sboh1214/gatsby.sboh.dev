@@ -2,11 +2,11 @@ import React from 'react'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import { graphql, navigate } from 'gatsby'
-import Container from '../components/Layout'
+import Root from '../components/Root'
 
 export default function IndexPage({ data }: any) {
   return (
-    <Container>
+    <Root>
       <h1>Recent Posts</h1>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
       {data.allMarkdownRemark.edges.map(({ node }: any) => (
@@ -24,7 +24,7 @@ export default function IndexPage({ data }: any) {
           </CardContent>
         </Card>
       ))}
-    </Container>
+    </Root>
   )
 }
 

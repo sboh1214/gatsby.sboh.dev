@@ -2,14 +2,23 @@ import * as React from 'react'
 import { render } from '@testing-library/react'
 
 import Index from '../index'
+import { StaticQuery } from 'gatsby'
+
+beforeEach(() => {
+  StaticQuery.mockImplementationOnce(({ render }) =>
+    render({
+      site: {
+        siteMetadata: {
+          title: `GatsbyJS`
+        }
+      }
+    })
+  )
+})
 
 const data = {
-  site: {
-    siteMetadata: {
-      title: `GatsbyJS`
-    }
-  },
   allMarkdownRemark: {
+    totalCount: 1,
     edges: [
       {
         node: {
