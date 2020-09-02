@@ -30,7 +30,7 @@ export default function Root({ children }: any) {
       query={detailsQuery}
       render={(data: StaticQueryProps) => (
         <>
-          <Helmet htmlAttributes={{ lang: 'ko' }} defer={false}>
+          <Helmet htmlAttributes={{ lang: 'ko' }}>
             <title>{data.site.siteMetadata.title}</title>
             <meta charSet="utf-8" />
             <meta name="description" content={data.site.siteMetadata.description} />
