@@ -1,20 +1,9 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-
 import Index from '../index'
-import { StaticQuery } from 'gatsby'
+import { mockStaticQuery } from '../../utils/mock'
 
-beforeEach(() => {
-  StaticQuery.mockImplementationOnce(({ render }) =>
-    render({
-      site: {
-        siteMetadata: {
-          title: `GatsbyJS`
-        }
-      }
-    })
-  )
-})
+beforeEach(mockStaticQuery)
 
 const data = {
   allMarkdownRemark: {

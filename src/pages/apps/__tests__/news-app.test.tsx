@@ -1,12 +1,12 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import Code404 from '../404'
-import { mockStaticQuery } from '../../utils/mock'
+import NewsApp from '../news-app'
+import { mockStaticQuery } from '../../../utils/mock'
 
 beforeEach(mockStaticQuery)
 
-describe(`404`, () => {
+describe(`news-app`, () => {
   it(`renders correctly`, () => {
-    render(<Code404 />)
+    render(<NewsApp />)
   })
 })
