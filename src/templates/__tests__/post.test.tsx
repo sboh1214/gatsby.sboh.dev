@@ -1,9 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import Post from '../post'
-import { mockStaticQuery } from '../../utils/mock'
-
-beforeEach(mockStaticQuery)
 
 const data = {
   markdownRemark: {

@@ -12,6 +12,14 @@ module.exports = {
         href: to
       })
   ),
-  StaticQuery: jest.fn(),
+  StaticQuery: jest.fn().mockImplementation(({ render }) =>
+    render({
+      site: {
+        siteMetadata: {
+          title: `GatsbyJS`
+        }
+      }
+    })
+  ),
   useStaticQuery: jest.fn()
 }
