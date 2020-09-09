@@ -36,9 +36,9 @@ override fun onCreateView(
 
 이것은 메모리 누수를 발생시킵니다.
 
-![Leak 1](leak1.jpeg)
-
-![Leak 2](leak2.jpeg)
+|메모리 누수 발견|세부 정보|
+|------------|-------|
+|![Leak 1](leak1.jpeg)|![Leak 2](leak2.jpeg)|
 
 LeakCanary는 우리의 `binding`이 Fragment에 있는 `onDestroyView()`가 호출된 이후 View에 대한 Reference(`mRoot`)를 계속 참조하고 있으며 이로 인해 메모리 누수가 발생할 수 있다고 말하고 있습니다.
 View Binding에 관한 [구글 공식 문서](https://developer.android.com/topic/libraries/view-binding#fragments)에서는 실제로 메모리 누출을 피하기 위한 적절한 방법을 알려주고 있습니다.
