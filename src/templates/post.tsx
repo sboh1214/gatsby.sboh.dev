@@ -3,39 +3,37 @@ import { graphql } from 'gatsby'
 import Utterances from '../components/Utterances'
 import Root from '../components/Root'
 import 'prismjs/themes/prism-okaidia.css'
-import { Container } from '@material-ui/core'
+import { Container, Typography } from '@material-ui/core'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-interface PageTemplateProps {
-  data: {
-    markdownRemark: {
-      html: string
-      excerpt: string
-      fields: {
-        path: string
-      }
-      frontmatter: {
-        title: string
-      }
-    }
-  }
+function Post({ data }) {
+  const { title } = data.mdx.frontmatter
+  const { body } = data.mdx
+  return (
+    <Root>
+      <Container maxWidth="md">
+        <h1>{title}</h1>
+        <MDXRenderer
+          components={{
+            h1: (props) => <Typography variant="h1" {...props} />,
+            h2: (props) => <Typography variant="h1" {...props} />,
+            h3: () => <Typography variant="h1" />
+          }}
+        >
+          {body}
+        </MDXRenderer>
+        <Utterances />
+      </Container>
+    </Root>
+  )
 }
-
-const Post = ({ data }: PageTemplateProps) => (
-  <Root>
-    <Container maxWidth="md">
-      <h1>{data.markdownRemark.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      <Utterances />
-    </Container>
-  </Root>
-)
 
 export default Post
 
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
-    markdownRemark(fields: { path: { eq: $path } }) {
-      html
+    mdx(fields: { path: { eq: $path } }) {
+      body
       frontmatter {
         title
       }

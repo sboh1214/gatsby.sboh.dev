@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import Index from '../index'
 
 const data = {
-  allMarkdownRemark: {
+  allMdx: {
     totalCount: 1,
     edges: [
       {

@@ -108,3 +108,5 @@ public abstract class ViewDataBinding extends BaseObservable implements ViewBind
 
 이것은 우리가 view binding이나 data binding중 무엇을 사용하든 상관없이 이 게시물에서 했던 모든 것이 적용될 수 있다는 것을 의미합니다!
 이것이 도움이 되었는지, 또는 질문이 있거나, 어떤 실수나 개선 사항이 있는지 저에게 알려주십시요.
+
+[ViewBindingPropertyDelegate](https://github.com/kirich1409/ViewBindingPropertyDelegate)

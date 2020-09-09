@@ -24,9 +24,9 @@ export default function IndexPage({ data }: any) {
   return (
     <Root>
       <h1>Recent Posts</h1>
-      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      <h4>{data.allMdx.totalCount} Posts</h4>
       <GridList cellHeight={160}>
-        {data.allMarkdownRemark.edges.map(({ node }: any) => (
+        {data.allMdx.edges.map(({ node }: any) => (
           <Card
             className={classes.card}
             key={node.id}
@@ -49,18 +49,16 @@ export default function IndexPage({ data }: any) {
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
-      totalCount
+    allMdx {
       edges {
         node {
-          id
           fields {
             path
           }
           frontmatter {
             title
           }
-          excerpt
+          excerpt(pruneLength: 160)
         }
       }
     }
