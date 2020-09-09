@@ -3,14 +3,14 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
 import Hidden from '@material-ui/core/Hidden'
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles'
-import Footer from './Footer'
-import ThemeContextProvider from './ThemeContext'
+import Footer from '../layout/Footer'
+import ThemeContextProvider from '../components/ThemeContext'
 import 'fontsource-roboto/index.css'
 import DrawerInner from './DrawerInner'
-import SearchAppBar from './SearchAppBar'
+import SearchAppBar from '../components/SearchAppBar'
 import { Fab } from '@material-ui/core'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
-import ScrollTop from './ScrollTop'
+import ScrollTop from '../components/ScrollTop'
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme: Theme) =>

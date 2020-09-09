@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Utterances from '../components/Utterances'
-import Root from '../components/Root'
+import Root from '../layout/Root'
 import 'prismjs/themes/prism-okaidia.css'
 import { Container, Typography, CardContent, Card } from '@material-ui/core'
 import { MDXProvider } from '@mdx-js/react'

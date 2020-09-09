@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Root from '../components/Root'
+import Root from '../layout/Root'
 
 export default function Code404(_: any) {
   return (

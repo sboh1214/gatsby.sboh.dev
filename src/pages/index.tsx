@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import { graphql, navigate } from 'gatsby'
-import Root from '../components/Root'
+import Root from '../layout/Root'
 import { GridList, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
