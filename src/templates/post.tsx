@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Utterances from '../components/Utterances'
 import Root from '../layout/Root'
-import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/themes/prism.css'
 import { Container, Typography, CardContent, Card, makeStyles } from '@material-ui/core'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
   },
   h3: {
     marginTop: '16px',
-    marginBottom: '36px'
+    marginBottom: '36px',
+    fontWeight: 'bold'
   },
   h4: {
     marginTop: '72px',
