@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent'
 import { graphql, navigate } from 'gatsby'
 import Root from '../layout/Root'
 import { GridList, makeStyles } from '@material-ui/core'
+import { AllMdxPageQuery, MdxPageNode } from '../utils/type'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function IndexPage({ data }: any) {
+export default function IndexPage({ data }: AllMdxPageQuery) {
   const classes = useStyles()
 
   return (
@@ -26,7 +27,7 @@ export default function IndexPage({ data }: any) {
       <h1>Recent Posts</h1>
       <h4>{data.allMdx.totalCount} Posts</h4>
       <GridList cellHeight={160}>
-        {data.allMdx.edges.map(({ node }: any) => (
+        {data.allMdx.edges.map(({ node }: MdxPageNode) => (
           <Card
             className={classes.card}
             key={node.id}
@@ -35,9 +36,7 @@ export default function IndexPage({ data }: any) {
             }}
           >
             <CardContent>
-              <h3>
-                {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
-              </h3>
+              <h3>{node.frontmatter.title}</h3>
               <p>{node.excerpt}</p>
             </CardContent>
           </Card>

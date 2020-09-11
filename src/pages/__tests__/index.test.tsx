@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import Index from '../index'
+import { AllMdxPageData } from '../../utils/type'
 
-const data = {
+const data: AllMdxPageData = {
   allMdx: {
     totalCount: 1,
     edges: [
