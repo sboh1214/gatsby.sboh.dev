@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Utterances from '../components/Utterances'
 import Root from '../layout/Root'
 import 'prismjs/themes/prism.css'
-import { Container, Typography, CardContent, Card, makeStyles } from '@material-ui/core'
+import { Container, Typography, CardContent, Card, makeStyles, Table } from '@material-ui/core'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MdxPageQuery } from '../utils/type'
@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '21px',
     marginBottom: '21px',
     fontSize: '16px'
+  },
+  table: {
+    //minWidth: '400px'
   }
 }))
 
@@ -48,7 +51,8 @@ function Post({ data }: MdxPageQuery) {
               <Card className={styles.card}>
                 <CardContent {...props} />
               </Card>
-            )
+            ),
+            table: (props) => <Table {...props} className={styles.table} />
           }}
         >
           <MDXRenderer>{body}</MDXRenderer>
