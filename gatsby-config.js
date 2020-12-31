@@ -35,8 +35,7 @@ module.exports = {
         link: meta.links.github,
         name: 'Github'
       }
-    ],
-    plugins: ['gatsby-plugin-robots-txt', `gatsby-plugin-sitemap`, `gatsby-plugin-feed`]
+    ]
   },
   plugins: [
     {
@@ -102,11 +101,21 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: meta.siteUrl,
+        sitemap: `${meta.siteUrl}/sitemap.xml`,
+        policy: [{ userAgent: '*', disallow: '' }]
+      }
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-alias-imports`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-feed`
   ]
 }
