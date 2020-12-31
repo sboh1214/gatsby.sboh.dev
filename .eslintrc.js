@@ -1,23 +1,28 @@
+/* eslint-disable no-undef */
+
 module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+  },
+  extends: [
+    `eslint:recommended`,
+    `plugin:react/recommended`,
+    `plugin:react-hooks/recommended`,
+  ],
   globals: {
-    __PATH_PREFIX__: true
+    Atomics: `readonly`,
+    SharedArrayBuffer: `readonly`,
   },
-  parser: '@typescript-eslint/parser',
-  extends: ['react-app', 'prettier/@typescript-eslint', 'prettier/react', 'plugin:prettier/recommended'],
   parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: `module`,
   },
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  },
+  plugins: [`react`],
   rules: {
-    'max-len': ['error', { code: 140, ignoreUrls: true }],
-    'import/prefer-default-export': 'off'
-  }
-}
+    'react/prop-types': 0,
+  },
+};

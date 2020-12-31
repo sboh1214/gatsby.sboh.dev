@@ -1,93 +1,105 @@
-const name = 'Platypus Dev Blog'
-const url = 'https://sboh1214.github.io/'
+const meta = require('./gatsby-meta-config');
 
 module.exports = {
   siteMetadata: {
-    title: name,
-    description: 'sboh1214.github.io',
-    keywords: 'gatsbyjs, gatsby, javascript, seungbin',
-    siteUrl: url,
-    author: {
-      name: 'Seungbin Oh',
-      url,
-      email: 'sboh1214@gmail.com'
-    }
+    title: meta.title,
+    description: meta.description,
+    author: meta.author,
+    siteUrl: meta.siteUrl,
+    lang: meta.lang,
+    utterances: {
+      repo: meta.utterances,
+    },
+    postTitle: 'All',
+    menuLinks: [
+      {
+        link: '/',
+        name: 'Home',
+      },
+      {
+        link: '/about/',
+        name: 'About',
+      },
+      {
+        link: meta.links.github,
+        name: 'Github',
+      },
+    ],
+    plugins: [
+      'gatsby-plugin-robots-txt',
+      `gatsby-plugin-sitemap`,
+      `gatsby-plugin-feed`,
+    ],
   },
   plugins: [
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'contents',
-        path: `${__dirname}/contents`
-      }
+        name: `src`,
+        path: `${__dirname}/src`,
+      },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        extensions: [`.mdx`, `.md`]
-      }
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
     },
     {
-      resolve: 'gatsby-plugin-mdx',
+      resolve: `gatsby-plugin-typography`,
       options: {
-        defaultLayouts: {
-          posts: require.resolve('./src/templates/post.tsx'),
-          default: require.resolve('./src/templates/post.tsx')
-        },
-        gatsbyRemarkPlugins: [
+        pathToConfigModule: `src/styles/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-copy-linked-files`,
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-vscode`,
             options: {
-              maxWidth: 1140,
-              quality: 90,
-              linkImagesToOriginal: false
-            }
+              theme: {
+                default: 'Github Light Theme',
+                parentSelector: {
+                  'body[data-theme=dark]': 'Dark Github',
+                },
+              },
+              extensions: ['vscode-theme-github-light', 'dark-theme-github'],
+            },
           },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-images'
-        ]
-      }
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
     },
     {
-      resolve: 'gatsby-plugin-material-ui',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        stylesProvider: {
-          injectFirst: true
-        }
-      }
-    },
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-dark-mode',
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-147173530-1'
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name,
-        short_name: name,
+        name: meta.title,
+        short_name: meta.title,
+        description: meta.description,
+        lang: meta.lang,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
         display: `standalone`,
-        icon: `src/icon.png`
-      }
+        icon: meta.icon,
+        icon_options: {
+          purpose: `any maskable`,
+        },
+      },
     },
-    'gatsby-plugin-offline',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: url,
-        sitemap: `${url}/sitemap.xml`,
-        policy: [{ userAgent: '*', disallow: '' }]
-      }
-    }
-  ]
-}
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-alias-imports`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+  ],
+};

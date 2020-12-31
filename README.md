@@ -1,100 +1,120 @@
-# Platypus Dev Blog
+# Gatsby Starter Apple
 
-![Gatsby Publish](https://github.com/sboh1214/sboh1214.github.io/workflows/Gatsby%20Publish/badge.svg)
-![Test](https://github.com/sboh1214/sboh1214.github.io/workflows/Test/badge.svg)
-[![codecov](https://codecov.io/gh/sboh1214/sboh1214.github.io/branch/master/graph/badge.svg)](https://codecov.io/gh/sboh1214/sboh1214.github.io)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1407ade3-7666-4cab-a3e7-08380ce44735/deploy-status)](https://app.netlify.com/sites/gatsby-starter-apple/deploys)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fsungik-choi%2Fgatsby-starter-apple&count_bg=%23FC2350&title_bg=%23555555&icon=gatsby.svg&icon_color=%23E7E7E7&title=HITS&edge_flat=false)](https://hits.seeyoufarm.com)
 
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  gatsby-starter-typescript-plus
-</h1>
+**Gatsby blog starter kit with beautiful responsive design**
 
-> A starter kit for TypeScript-based Gatsby projects with sensible defaults.
+![Screenshot](.github/screenshot.png)
 
-This is a starter kit for [Gatsby.js](https://www.gatsbyjs.org/) websites written in TypeScript. It includes the bare essentials for you to get started (styling, Markdown parsing, minimal toolset).
+## 🍎 Demo
 
-## 🗒️ Features
+👉 **View [Demo Page](https://gatsby-starter-apple.netlify.app/)**
 
-- TypeScript
-- ESLint (with custom ESLint rules)
-- Markdown rendering with Remark
-- Basic component structure
-- Styling with [emotion](https://emotion.sh/)
+## ✨ Features
 
-## 🚀 Quick start
+- Lighthouse 100 + PWA
+- styled-components
+- Apple style responsive design
+- Prefect dynamic theme (Comment + Code highlight)
+- Beautiful mobile menu animation
+- Code highlighting with [gatsby-remark-vscode](https://github.com/andrewbranch/gatsby-remark-vscode)
+- [Utterances](https://utteranc.es/) Comment
+- Categories support
+- Infinite Scroll with Intersection Observer
+- RSS Feed
+- SEO
+- Offline support
+- Prettier & ESLint
 
-> A nodejs >= 6.0.0 setup with [yarn](https://yarnpkg.com/) is recommended.
+## 🚀 Quick Start
 
-1.  **Create a Gatsby site.**
+### 1. Create a Gatsby site
 
-    Install `gatsby-cli` package globally on your machine.
+Use the Gatsby CLI to create a new site, specifying the blog starter.
 
-    ```bash
-    # using NPM
-    npm install -g gatsby-cli
+```shell
+# create a new Gatsby site using the blog starter
+gatsby new my-blog-starter https://github.com/sungik-choi/gatsby-starter-apple
+```
 
-    # using YARN
-    yarn global add gatsby-cli
-    ```
+### 2. Start developing
 
-    Use the `gatsby-cli` to create a new site and install its dependencies.
+Navigate into your new site’s directory and start it up.
 
-    ```bash
-    gatsby new project-name https://github.com/resir014/gatsby-starter-typescript-plus
-    ```
+```shell
+cd my-blog-starter/
+gatsby develop
+```
 
-2.  **Start developing.**
+### 3. Open the source code and start editing
 
-    Move to project's directory.
+Your site is now running at `http://localhost:8000`!
 
-    ```bash
-    cd project-name/
-    ```
+_Note: You'll also see a second link:_`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-    Start your site.
+Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-    ```bash
-    # using npm
-    npm start
+### 4. Fix meta data
 
-    # using yarn
-    yarn start
-    ```
+Open **`gatsby-meta-config.js`** and fix meta data of your blog.
 
-    Open source code using your favorite IDE/Text editor and navigate to `src/` directory, this is where your application live.
+```js
+module.exports = {
+  title: 'Dev Ed', // Your website title
+  description: `Ed's Blog`, // Your website description
+  author: 'Ed', // Maybe your name
+  siteUrl: 'https://gatsby-starter-apple.netlify.app', // Your website URL
+  lang: 'en', // Language
+  utterances: 'sungik-choi/gatsby-starter-apple-comment', // Github repository to store comments
+  links: {
+    github: 'https://github.com/sungik-choi/gatsby-starter-apple', // Your github repository
+  },
+  icon: 'src/images/icon.png', //  Favicon Path
+};
+```
 
-3.  **Build your application for production.**
+## 🤔 What's Inside
 
-    Once you're finished, you can make production build of your app using:
-
-    ```bash
-    # using npm
-    npm run build
-
-    # using yarn
-    yarn build
-    ```
-
-4.  **Deploy your app to Github pages!**
-
-    After building your application in step 3, you're ready to publish your app and go online!
-
-    ```bash
-    # using npm
-    npm run deploy
-
-    # using yarn
-    yarn deploy
-    ```
-
-## ❤️ Credits
-
-Built with [Gatsby](https://www.gatsbyjs.org/) - the blazing-fast static site generator for [React](https://facebook.github.io/react/).
+```js
+.
+├── node_modules
+├── src
+│   ├── build
+│   ├── components // React components
+│   ├── constants
+│   ├── hooks
+│   ├── images
+│   ├── layout
+│   ├── pages
+│   │   ├── index.js // Index page
+│   │   ├── about.js // About page
+│   │   └── 404.js // 404 page
+│   └── posts
+│   │   ├── blog
+│   │   │   ├── images // Blog post images
+│   │   │   ├── getting-started.md // Blog post markdown
+│   │   │   └── ...
+│   │   └── about.md // About page markdown
+│   ├── store
+│   ├── styles // Reusable styled components, animations
+│   ├── templates
+│   │   └── blogPost.js // Blog post template
+│   └── utils
+├── .gitignore
+├── .eslintrc.js
+├── .prettierrc
+├── gatsby-meta-config.js // Gatsby meta data config
+├── gatsby-config.js // Gatsby config
+├── gatsby-node.js // Gatsby node config
+├── gatsby-ssr.js
+├── LICENSE
+├── package-lock.json
+├── package.json
+└── README.md
+```
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/resir014/gatsby-starter-typescript-plus)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sungik-choi/gatsby-starter-apple)
