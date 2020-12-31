@@ -5,6 +5,7 @@ module.exports = {
     es6: true
   },
   parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'react'],
   extends: ['react-app', 'prettier'],
   globals: {
     __PATH_PREFIX__: true,
@@ -18,7 +19,6 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: `module`
   },
-  plugins: [`react`],
   rules: {
     'react/prop-types': 0,
     'import/prefer-default-export': 'off'
