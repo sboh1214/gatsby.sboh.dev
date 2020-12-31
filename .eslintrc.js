@@ -5,15 +5,7 @@ module.exports = {
     es6: true
   },
   parser: '@typescript-eslint/parser',
-  extends: [
-    'react-app',
-    'prettier/@typescript-eslint',
-    'prettier/react',
-    'plugin:prettier/recommended',
-    `eslint:recommended`,
-    `plugin:react/recommended`,
-    `plugin:react-hooks/recommended`
-  ],
+  extends: ['react-app', 'prettier'],
   globals: {
     __PATH_PREFIX__: true,
     Atomics: `readonly`,

@@ -1,7 +1,22 @@
 const PI2 = Math.PI * 2
 
+interface ConstructorProps {
+  x: number
+  y: number
+  radius: number
+  rgb: { r: number; g: number; b: number }
+}
+
 class GlowParticle {
-  constructor({ x, y, radius, rgb }) {
+  x: number
+  y: number
+  radius: number
+  rgb: any
+  vx: number
+  vy: number
+  sinValue: number
+
+  constructor({ x, y, radius, rgb }: ConstructorProps) {
     this.x = x
     this.y = y
     this.radius = radius
@@ -13,7 +28,7 @@ class GlowParticle {
     this.sinValue = Math.random()
   }
 
-  animate(ctx, stageWidth, stageHeight) {
+  animate(ctx: any, stageWidth: number, stageHeight: number) {
     this.sinValue += 0.01
     this.radius += Math.sin(this.sinValue)
     this.x += this.vx

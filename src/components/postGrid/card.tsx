@@ -4,7 +4,16 @@ import CenteredImg from './centeredImg'
 import Category from 'styles/category'
 import DateTime from 'styles/dateTime'
 
-const Card = ({ thumbnail, alt, category, title, desc, date }) => {
+interface Props {
+  thumbnail: string
+  alt: string
+  category: string
+  title: string
+  desc: string
+  date: string
+}
+
+const Card = ({ thumbnail, alt, category, title, desc, date }: Props) => {
   return (
     <Wrapper>
       <CenteredImg src={thumbnail} alt={alt} />

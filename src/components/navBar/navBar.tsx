@@ -4,12 +4,17 @@ import { Link } from 'gatsby'
 import LinkList from './linkList'
 import ThemeToggleButton from './themeToggleButton/themeToggleButton'
 import MenuIcon from './menuIcon'
-import Background from 'styles/background'
-import { listAnimationCSS, navBackgroundAnimationCSS, curtainAnimationCSS } from 'styles/navBarAnimation'
-import useSiteMetadata from 'hooks/useSiteMetadata'
-import useMenu from 'hooks/useMenu'
+import Background from '../../styles/background'
+import { listAnimationCSS, navBackgroundAnimationCSS, curtainAnimationCSS } from '../../styles/navBarAnimation'
+import useSiteMetadata from '../../hooks/useSiteMetadata'
+import useMenu from '../../hooks/useMenu'
 
-const NavBar = ({ title, themeToggler }) => {
+interface Props {
+  title: string
+  themeToggler: () => void
+}
+
+const NavBar = ({ title, themeToggler }: Props) => {
   const site = useSiteMetadata()
   const { menuLinks } = site.siteMetadata
   const { device } = useContext(ThemeContext)
@@ -108,7 +113,8 @@ const LinkUl = styled.ul`
     font-weight: var(--font-weight-regular);
   }
 
-  a:hover, a:focus {
+  a:hover,
+  a:focus {
     color: var(--color-blue);
   }
 

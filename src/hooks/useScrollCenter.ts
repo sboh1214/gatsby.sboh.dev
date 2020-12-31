@@ -1,6 +1,11 @@
 import { useLayoutEffect } from 'react'
 
-const useScrollCenter = ({ ref, targetId }) => {
+interface Props {
+  ref: any
+  targetId: any
+}
+
+const useScrollCenter = ({ ref, targetId }: Props) => {
   useLayoutEffect(() => {
     if (!ref) return
     const categoryWrapEl = ref.current

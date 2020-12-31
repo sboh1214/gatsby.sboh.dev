@@ -1,15 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import Layout from 'layout/layout'
-import SEO from 'components/seo'
-import Comment from 'components/comment'
-import { rhythm } from 'styles/typography'
-import Category from 'styles/category'
-import DateTime from 'styles/dateTime'
-import Markdown from 'styles/markdown'
+import Layout from '../layout/layout'
+import SEO from '../components/seo'
+import Comment from '../components/comment'
+import { rhythm } from '../styles/typography'
+import Category from '../styles/category'
+import DateTime from '../styles/dateTime'
+import Markdown from '../styles/markdown'
 
-const BlogPost = ({ data }) => {
+interface Props {
+  data: any
+}
+
+const BlogPost = ({ data }: Props) => {
   const {
     markdownRemark: {
       frontmatter: { title, desc, thumbnail, date, category },

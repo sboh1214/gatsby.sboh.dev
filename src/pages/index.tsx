@@ -1,21 +1,26 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import Layout from 'layout/layout'
-import SEO from 'components/seo'
-import PostGrid from 'components/postGrid/postGrid'
-import CategoryFilter from 'components/categoryFilter'
-import useSiteMetadata from 'hooks/useSiteMetadata'
+import Layout from '../layout/layout'
+import SEO from '../components/seo'
+import PostGrid from '../components/postGrid/postGrid'
+import CategoryFilter from '../components/categoryFilter'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 
-const Home = ({ pageContext, data }) => {
+interface Props {
+  pageContext: any
+  data: any
+}
+
+const Home = ({ pageContext, data }: Props) => {
   const [posts, setPosts] = useState([])
   const currentCategory = pageContext.category
   const postData = data.allMarkdownRemark.edges
 
   useLayoutEffect(() => {
-    const filteredPostData = currentCategory ? postData.filter(({ node }) => node.frontmatter.category === currentCategory) : postData
+    const filteredPostData = currentCategory ? postData.filter(({ node }: any) => node.frontmatter.category === currentCategory) : postData
 
-    filteredPostData.forEach(({ node }) => {
+    filteredPostData.forEach(({ node }: any) => {
       const {
         id,
         fields: { slug },

@@ -1,9 +1,16 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import useSiteMetadata from 'hooks/useSiteMetadata'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 import defaultOpenGraphImage from '../images/og-default.png'
 
-const SEO = ({ description = '', meta = [], image = null, title }) => {
+interface Props {
+  description?: string
+  meta?: any
+  image?: any
+  title: string
+}
+
+const SEO = ({ description = '', meta = [], image = null, title }: Props) => {
   const site = useSiteMetadata()
   const metaDescription = description || site.siteMetadata.description
   const ogImageUrl = site.siteMetadata.siteUrl + (image || defaultOpenGraphImage)

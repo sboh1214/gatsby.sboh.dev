@@ -1,7 +1,14 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import disableScroll from 'disable-scroll'
 
-const useMenu = ({ navRef, curtainRef, listRef, device }) => {
+interface Props {
+  navRef: any
+  curtainRef: any
+  listRef: any
+  device: any
+}
+
+const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
   const [toggle, setToggle] = useState(false)
   const mql = useRef(null)
 

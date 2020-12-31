@@ -1,10 +1,14 @@
 import React from 'react'
-import { DARK } from 'constants/constants'
+import { Theme } from '../../../constants/theme'
 
-const ThemeIcon = ({ theme }) => {
+interface Props {
+  theme: Theme
+}
+
+const ThemeIcon = ({ theme }: Props) => {
   return (
     <>
-      {theme === DARK ? (
+      {theme === Theme.DARK ? (
         <>
           <g>
             <circle cx="12" cy="12" r="6" />

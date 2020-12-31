@@ -1,7 +1,7 @@
 import React, { useRef, useContext, useEffect } from 'react'
-import ThemeContext from 'store/themeContext'
-import useSiteMetadata from 'hooks/useSiteMetadata'
-import { DARK } from 'constants/constants'
+import ThemeContext from '../store/themeContext'
+import useSiteMetadata from '../hooks/useSiteMetadata'
+import { Theme } from '../constants/theme'
 
 const src = 'https://utteranc.es'
 const utterancesSelector = 'iframe.utterances-frame'
@@ -17,11 +17,11 @@ const Comment = () => {
 
   useEffect(() => {
     if (!repo) return
-    let themeMode = null
+    let themeMode: string | null = null
 
     if (!isUtterancesCreated.current) {
-      themeMode = document.body.dataset.theme === DARK ? DARK_THEME : LIGHT_THEME
-    } else themeMode = theme === DARK ? DARK_THEME : LIGHT_THEME
+      themeMode = document.body.dataset.theme === Theme.DARK ? DARK_THEME : LIGHT_THEME
+    } else themeMode = theme === Theme.DARK ? DARK_THEME : LIGHT_THEME
 
     const createUtterancesEl = () => {
       const comment = document.createElement('script')

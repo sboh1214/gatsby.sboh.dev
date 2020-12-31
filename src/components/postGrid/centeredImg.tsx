@@ -3,7 +3,12 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
-const CenteredImg = ({ src, alt }) => {
+interface Props {
+  src: string
+  alt: string
+}
+
+const CenteredImg = ({ src, alt }: Props) => {
   const data = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -20,7 +25,7 @@ const CenteredImg = ({ src, alt }) => {
     }
   `)
 
-  const image = data.allImageSharp.edges.find((edge) => edge.node.id === src)
+  const image = data.allImageSharp.edges.find((edge: any) => edge.node.id === src)
 
   if (!alt) alt = 'Thumbnail Image'
 

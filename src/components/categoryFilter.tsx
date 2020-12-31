@@ -2,13 +2,22 @@ import React, { useRef } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
-import useScrollCenter from 'hooks/useScrollCenter'
-import { ACTIVE } from 'constants/constants'
+import useScrollCenter from '../hooks/useScrollCenter'
+import { ACTIVE } from '../constants/constants'
+import { Category } from '../utils/type'
 
-const CategoryFilter = ({ categoryList }) => {
+interface Props {
+  categoryList: any
+}
+
+interface Current {
+  isCurrent: boolean
+}
+
+const CategoryFilter = ({ categoryList }: Props) => {
   const categoryRef = useRef(null)
   const ALL_CATEGORY_NAME = 'All'
-  const isActive = ({ isCurrent }) => (isCurrent ? { id: ACTIVE, tabIndex: -1 } : {})
+  const isActive = ({ isCurrent }: Current) => (isCurrent ? { id: ACTIVE, tabIndex: -1 } : {})
 
   useScrollCenter({ ref: categoryRef, targetId: ACTIVE })
 
@@ -21,8 +30,8 @@ const CategoryFilter = ({ categoryList }) => {
       <Divider />
       <CategoryUl ref={categoryRef} className="invisible-scrollbar">
         {categoryList
-          .sort((a, b) => b.totalCount - a.totalCount)
-          .map((category) => {
+          .sort((a: Category, b: Category) => b.totalCount - a.totalCount)
+          .map((category: Category) => {
             const { fieldValue } = category
             return (
               <li key={fieldValue}>

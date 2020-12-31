@@ -1,10 +1,17 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 
-const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 400 }) => {
-  const [hasMore, setHasMore] = useState(false)
+interface Props {
+  posts: [never]
+  scrollEdgeRef: any
+  maxPostNum: number
+  offsetY: number
+}
+
+const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 400 }: Props) => {
+  const [hasMore, setHasMore] = useState<boolean>(false)
   const [currentList, setCurrentList] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [observerLoading, setObserverLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [observerLoading, setObserverLoading] = useState<boolean>(false)
 
   const observer = useRef(null)
 
@@ -15,7 +22,7 @@ const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 40
     setIsLoading(true)
   }, [isLoading, posts, maxPostNum])
 
-  useEffect(() => {
+  useEffect((): void => {
     const loadEdges = () => {
       const currentLength = currentList.length
       const more = currentLength < posts.length

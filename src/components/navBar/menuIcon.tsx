@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const MenuIcon = ({ onClickHandler, toggle }) => {
+interface Props {
+  onClickHandler: any
+  toggle: any
+}
+
+const MenuIcon = ({ onClickHandler, toggle }: Props) => {
   return (
     <MenuIconButton onClick={onClickHandler} toggle={toggle} aria-label="Menu">
       <MenuIconBreadTop>

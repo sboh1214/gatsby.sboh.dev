@@ -1,8 +1,8 @@
 import React, { useState, useLayoutEffect, useRef } from 'react'
 import styled from 'styled-components'
-import SEO from 'components/seo'
-import Layout from 'layout/layout'
-import GlowParticle from 'utils/glowParticle'
+import SEO from '../components/seo'
+import Layout from '../layout/layout'
+import GlowParticle from '../utils/GlowParticle'
 
 const COLORS = [
   { r: 255, g: 149, b: 0 }, // orange
@@ -50,7 +50,7 @@ const NotFound = () => {
     const render = () => {
       ctx.clearRect(0, 0, stageWidth, stageHeight)
       for (let i = 0; i < totalParticles; i++) {
-        const item = particles[i]
+        const item: GlowParticle = particles[i]
         if (!item) return
         item.animate(ctx, stageWidth, stageHeight)
       }

@@ -1,13 +1,17 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import ThemeContext from 'store/themeContext'
+import ThemeContext from '../../../store/themeContext'
 import ThemeIcon from './themeIcon'
-import Background from 'styles/background'
-import { DARK } from 'constants/constants'
+import Background from '../../../styles/background'
+import { Theme } from '../../../constants/theme'
 
-const ThemeToggleButton = ({ themeToggler }) => {
-  const theme = useContext(ThemeContext)
-  const LABEL_TEXT = theme === DARK ? 'Light theme' : 'Dark theme'
+interface Props {
+  themeToggler: any
+}
+
+const ThemeToggleButton = ({ themeToggler }: Props) => {
+  const theme = useContext<Theme>(ThemeContext)
+  const LABEL_TEXT = theme === Theme.DARK ? 'Light theme' : 'Dark theme'
 
   return (
     <Button onClick={themeToggler}>

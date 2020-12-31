@@ -3,9 +3,24 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Card from './card'
 import { ThumbnailWrapper } from './centeredImg'
-import useInfiniteScroll from 'hooks/useInfiniteScroll'
+import useInfiniteScroll from '../../hooks/useInfiniteScroll'
 
-const PostGrid = ({ posts }) => {
+interface Props {
+  posts: any
+}
+
+interface Data {
+  id: any
+  slug: any
+  title: any
+  desc: any
+  date: any
+  category: any
+  thumbnail: any
+  alt: any
+}
+
+const PostGrid = ({ posts }: Props) => {
   const scrollEdgeRef = useRef(null)
   const currentList = useInfiniteScroll({
     posts,
@@ -16,7 +31,7 @@ const PostGrid = ({ posts }) => {
 
   return (
     <Grid role="list">
-      {currentList.map((data) => {
+      {currentList.map((data: Data) => {
         const { id, slug, title, desc, date, category, thumbnail, alt } = data
         const ariaLabel = `${title} - ${category} - Posted on ${date}`
         return (
