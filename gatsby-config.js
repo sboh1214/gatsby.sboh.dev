@@ -1,15 +1,15 @@
 const meta = {
-  title: "오승빈의 개발 블로그", // Your website title
-  description: "오승빈의 개발 블로그", // Your website description
+  title: '오승빈의 개발 블로그', // Your website title
+  description: '오승빈의 개발 블로그', // Your website description
   author: '오승빈', // Maybe your name
   siteUrl: 'https://blog.sboh.dev', // Your website URL
   lang: 'ko', // Language
   utterances: 'sboh1214/blog.sboh.dev', // Github repository to store comments
   links: {
-    github: 'https://github.com/sboh1214/blog.sboh.dev', // Your github repository
+    github: 'https://github.com/sboh1214/blog.sboh.dev' // Your github repository
   },
-  icon: 'src/images/icon.png', //  Favicon Path
-};
+  icon: 'src/images/icon.png' //  Favicon Path
+}
 
 module.exports = {
   siteMetadata: {
@@ -19,7 +19,7 @@ module.exports = {
     siteUrl: meta.siteUrl,
     lang: meta.lang,
     utterances: {
-      repo: meta.utterances,
+      repo: meta.utterances
     },
     postTitle: 'All',
     menuLinks: [
@@ -33,8 +33,8 @@ module.exports = {
       },
       {
         link: meta.links.github,
-        name: 'Github',
-      },
+        name: 'Github'
+      }
     ],
     plugins: ['gatsby-plugin-robots-txt', `gatsby-plugin-sitemap`, `gatsby-plugin-feed`]
   },
