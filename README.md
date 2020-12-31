@@ -69,10 +69,10 @@ module.exports = {
   lang: 'en', // Language
   utterances: 'sungik-choi/gatsby-starter-apple-comment', // Github repository to store comments
   links: {
-    github: 'https://github.com/sungik-choi/gatsby-starter-apple', // Your github repository
+    github: 'https://github.com/sungik-choi/gatsby-starter-apple' // Your github repository
   },
-  icon: 'src/images/icon.png', //  Favicon Path
-};
+  icon: 'src/images/icon.png' //  Favicon Path
+}
 ```
 
 ## 🤔 What's Inside

@@ -1,23 +1,19 @@
-import React, { useState, useLayoutEffect } from 'react';
-import { graphql } from 'gatsby';
-import styled from 'styled-components';
-import Layout from 'layout/layout';
-import SEO from 'components/seo';
-import PostGrid from 'components/postGrid/postGrid';
-import CategoryFilter from 'components/categoryFilter';
-import useSiteMetadata from 'hooks/useSiteMetadata';
+import React, { useState, useLayoutEffect } from 'react'
+import { graphql } from 'gatsby'
+import styled from 'styled-components'
+import Layout from 'layout/layout'
+import SEO from 'components/seo'
+import PostGrid from 'components/postGrid/postGrid'
+import CategoryFilter from 'components/categoryFilter'
+import useSiteMetadata from 'hooks/useSiteMetadata'
 
 const Home = ({ pageContext, data }) => {
-  const [posts, setPosts] = useState([]);
-  const currentCategory = pageContext.category;
-  const postData = data.allMarkdownRemark.edges;
+  const [posts, setPosts] = useState([])
+  const currentCategory = pageContext.category
+  const postData = data.allMarkdownRemark.edges
 
   useLayoutEffect(() => {
-    const filteredPostData = currentCategory
-      ? postData.filter(
-          ({ node }) => node.frontmatter.category === currentCategory
-        )
-      : postData;
+    const filteredPostData = currentCategory ? postData.filter(({ node }) => node.frontmatter.category === currentCategory) : postData
 
     filteredPostData.forEach(({ node }) => {
       const {
@@ -29,9 +25,9 @@ const Home = ({ pageContext, data }) => {
           date,
           category,
           thumbnail: { childImageSharp },
-          alt,
-        },
-      } = node;
+          alt
+        }
+      } = node
 
       setPosts((prevPost) => [
         ...prevPost,
@@ -43,14 +39,14 @@ const Home = ({ pageContext, data }) => {
           date,
           category,
           thumbnail: childImageSharp.id,
-          alt,
-        },
-      ]);
-    });
-  }, [currentCategory, postData]);
+          alt
+        }
+      ])
+    })
+  }, [currentCategory, postData])
 
-  const site = useSiteMetadata();
-  const postTitle = currentCategory || site.siteMetadata.postTitle;
+  const site = useSiteMetadata()
+  const postTitle = currentCategory || site.siteMetadata.postTitle
 
   return (
     <Layout>
@@ -63,14 +59,14 @@ const Home = ({ pageContext, data }) => {
         </Content>
       </Main>
     </Layout>
-  );
-};
+  )
+}
 
 const Main = styled.main`
   min-width: var(--min-width);
   min-height: calc(100vh - var(--nav-height) - var(--footer-height));
   background-color: var(--color-background);
-`;
+`
 
 const Content = styled.div`
   box-sizing: content-box;
@@ -84,7 +80,7 @@ const Content = styled.div`
     padding-top: var(--grid-gap-lg);
     width: 87.5%;
   }
-`;
+`
 
 const PostTitle = styled.h2`
   font-size: 2rem;
@@ -95,7 +91,7 @@ const PostTitle = styled.h2`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     font-size: 1.75rem;
   }
-`;
+`
 
 export const query = graphql`
   query {
@@ -132,6 +128,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default Home;
+export default Home

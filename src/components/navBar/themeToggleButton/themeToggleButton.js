@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import ThemeContext from 'store/themeContext';
-import ThemeIcon from './themeIcon';
-import Background from 'styles/background';
-import { DARK } from 'constants/constants';
+import React, { useContext } from 'react'
+import styled from 'styled-components'
+import ThemeContext from 'store/themeContext'
+import ThemeIcon from './themeIcon'
+import Background from 'styles/background'
+import { DARK } from 'constants/constants'
 
 const ThemeToggleButton = ({ themeToggler }) => {
-  const theme = useContext(ThemeContext);
-  const LABEL_TEXT = theme === DARK ? 'Light theme' : 'Dark theme';
+  const theme = useContext(ThemeContext)
+  const LABEL_TEXT = theme === DARK ? 'Light theme' : 'Dark theme'
 
   return (
     <Button onClick={themeToggler}>
@@ -19,8 +19,8 @@ const ThemeToggleButton = ({ themeToggler }) => {
         <Text>{LABEL_TEXT}</Text>
       </Content>
     </Button>
-  );
-};
+  )
+}
 
 const Icon = styled.svg`
   width: 1.125rem;
@@ -33,7 +33,7 @@ const Icon = styled.svg`
     height: 1rem;
     transition: width 0.3s ease;
   }
-`;
+`
 
 const ButtonBackground = styled(Background)`
   border: none;
@@ -47,7 +47,7 @@ const ButtonBackground = styled(Background)`
     border-radius: 0;
     box-shadow: none;
   }
-`;
+`
 
 const Content = styled.div`
   z-index: 2;
@@ -55,7 +55,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-`;
+`
 
 const Text = styled.span`
   color: var(--color-floating-button-text);
@@ -67,7 +67,7 @@ const Text = styled.span`
     font-weight: var(--font-weight-medium);
     border-radius: 50%;
   }
-`;
+`
 
 const Button = styled.button`
   cursor: pointer;
@@ -134,6 +134,6 @@ const Button = styled.button`
       }
     }
   }
-`;
+`
 
-export default ThemeToggleButton;
+export default ThemeToggleButton

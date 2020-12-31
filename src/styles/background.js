@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Background = styled.div`
   position: absolute;
@@ -10,6 +10,6 @@ const Background = styled.div`
   backdrop-filter: saturate(180%) blur(20px);
   background-color: var(--color-nav-bar);
   border-bottom: 1px solid var(--color-nav-border);
-`;
+`
 
-export default Background;
+export default Background

@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import CenteredImg from './centeredImg';
-import Category from 'styles/category';
-import DateTime from 'styles/dateTime';
+import React from 'react'
+import styled from 'styled-components'
+import CenteredImg from './centeredImg'
+import Category from 'styles/category'
+import DateTime from 'styles/dateTime'
 
 const Card = ({ thumbnail, alt, category, title, desc, date }) => {
   return (
@@ -17,8 +17,8 @@ const Card = ({ thumbnail, alt, category, title, desc, date }) => {
         <DateTime dateTime={date}>{date}</DateTime>
       </Text>
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   position: relative;
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 
   /* Fix Safari overflow:hidden with border radius not working error */
   transform: translateZ(0);
-`;
+`
 
 const Text = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ const Text = styled.div`
   & > * {
     display: block;
   }
-`;
+`
 
 const Title = styled.h3`
   margin-top: var(--sizing-xs);
@@ -58,7 +58,7 @@ const Title = styled.h3`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     font-size: var(--text-md);
   }
-`;
+`
 
 const Desc = styled.p`
   line-height: 1.5;
@@ -71,6 +71,6 @@ const Desc = styled.p`
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
-`;
+`
 
-export default Card;
+export default Card

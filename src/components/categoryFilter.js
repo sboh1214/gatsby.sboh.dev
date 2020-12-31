@@ -1,17 +1,16 @@
-import React, { useRef } from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
-import kebabCase from 'lodash/kebabCase';
-import useScrollCenter from 'hooks/useScrollCenter';
-import { ACTIVE } from 'constants/constants';
+import React, { useRef } from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import kebabCase from 'lodash/kebabCase'
+import useScrollCenter from 'hooks/useScrollCenter'
+import { ACTIVE } from 'constants/constants'
 
 const CategoryFilter = ({ categoryList }) => {
-  const categoryRef = useRef(null);
-  const ALL_CATEGORY_NAME = 'All';
-  const isActive = ({ isCurrent }) =>
-    isCurrent ? { id: ACTIVE, tabIndex: -1 } : {};
+  const categoryRef = useRef(null)
+  const ALL_CATEGORY_NAME = 'All'
+  const isActive = ({ isCurrent }) => (isCurrent ? { id: ACTIVE, tabIndex: -1 } : {})
 
-  useScrollCenter({ ref: categoryRef, targetId: ACTIVE });
+  useScrollCenter({ ref: categoryRef, targetId: ACTIVE })
 
   return (
     <Nav aria-label="Category Filter">
@@ -24,22 +23,19 @@ const CategoryFilter = ({ categoryList }) => {
         {categoryList
           .sort((a, b) => b.totalCount - a.totalCount)
           .map((category) => {
-            const { fieldValue } = category;
+            const { fieldValue } = category
             return (
               <li key={fieldValue}>
-                <CategoryButton
-                  getProps={isActive}
-                  to={`/category/${kebabCase(fieldValue)}/`}
-                >
+                <CategoryButton getProps={isActive} to={`/category/${kebabCase(fieldValue)}/`}>
                   {fieldValue}
                 </CategoryButton>
               </li>
-            );
+            )
           })}
       </CategoryUl>
     </Nav>
-  );
-};
+  )
+}
 
 const Nav = styled.nav`
   display: flex;
@@ -57,7 +53,7 @@ const Nav = styled.nav`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     padding: 12px;
   }
-`;
+`
 
 const CategoryTitle = styled.em`
   position: static;
@@ -80,7 +76,7 @@ const CategoryTitle = styled.em`
     clip: rect(1px, 1px, 1px, 1px);
     white-space: no-wrap;
   }
-`;
+`
 
 const CategoryButton = styled(Link)`
   cursor: pointer;
@@ -104,7 +100,7 @@ const CategoryButton = styled(Link)`
     color: var(--color-white);
     background-color: var(--color-blue);
   }
-`;
+`
 
 const Divider = styled.div`
   width: 1px;
@@ -112,7 +108,7 @@ const Divider = styled.div`
   margin: 0 var(--sizing-sm);
   transform: translateX(-50%);
   background-color: var(--color-divider);
-`;
+`
 
 const CategoryUl = styled.ul`
   display: flex;
@@ -124,6 +120,6 @@ const CategoryUl = styled.ul`
   li + li {
     margin-left: 6px;
   }
-`;
+`
 
-export default CategoryFilter;
+export default CategoryFilter

@@ -1,23 +1,23 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import styled from 'styled-components';
-import Layout from 'layout/layout';
-import SEO from 'components/seo';
-import Comment from 'components/comment';
-import { rhythm } from 'styles/typography';
-import Category from 'styles/category';
-import DateTime from 'styles/dateTime';
-import Markdown from 'styles/markdown';
+import React from 'react'
+import { graphql } from 'gatsby'
+import styled from 'styled-components'
+import Layout from 'layout/layout'
+import SEO from 'components/seo'
+import Comment from 'components/comment'
+import { rhythm } from 'styles/typography'
+import Category from 'styles/category'
+import DateTime from 'styles/dateTime'
+import Markdown from 'styles/markdown'
 
 const BlogPost = ({ data }) => {
   const {
     markdownRemark: {
       frontmatter: { title, desc, thumbnail, date, category },
-      html,
-    },
-  } = data;
+      html
+    }
+  } = data
 
-  const ogImagePath = thumbnail && thumbnail.childImageSharp.fixed.src;
+  const ogImagePath = thumbnail && thumbnail.childImageSharp.fixed.src
 
   return (
     <Layout>
@@ -36,10 +36,7 @@ const BlogPost = ({ data }) => {
                   <Desc>{desc}</Desc>
                 </header>
                 <Divider />
-                <Markdown
-                  dangerouslySetInnerHTML={{ __html: html }}
-                  rhythm={rhythm}
-                />
+                <Markdown dangerouslySetInnerHTML={{ __html: html }} rhythm={rhythm} />
               </div>
             </InnerWrapper>
           </OuterWrapper>
@@ -49,8 +46,8 @@ const BlogPost = ({ data }) => {
         </CommentWrap>
       </main>
     </Layout>
-  );
-};
+  )
+}
 
 const OuterWrapper = styled.div`
   margin-top: var(--sizing-xl);
@@ -58,7 +55,7 @@ const OuterWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     margin-top: var(--sizing-lg);
   }
-`;
+`
 
 const InnerWrapper = styled.div`
   width: var(--post-width);
@@ -68,7 +65,7 @@ const InnerWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     width: 87.5%;
   }
-`;
+`
 
 const CommentWrap = styled.section`
   width: 100%;
@@ -79,21 +76,21 @@ const CommentWrap = styled.section`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     width: auto;
   }
-`;
+`
 
 const PostCategory = styled(Category)`
   font-size: 0.875rem;
   font-weight: var(--font-weight-semi-bold);
-`;
+`
 
 const Info = styled.div`
   margin-bottom: var(--sizing-md);
-`;
+`
 
 const Time = styled(DateTime)`
   display: block;
   margin-top: var(--sizing-xs);
-`;
+`
 
 const Desc = styled.p`
   margin-top: var(--sizing-lg);
@@ -104,7 +101,7 @@ const Desc = styled.p`
     line-height: 1.31579;
     font-size: 1.1875rem;
   }
-`;
+`
 
 const Divider = styled.div`
   width: 100%;
@@ -112,7 +109,7 @@ const Divider = styled.div`
   background-color: var(--color-gray-3);
   margin-top: var(--sizing-lg);
   margin-bottom: var(--sizing-lg);
-`;
+`
 
 const Title = styled.h1`
   font-weight: var(--font-weight-bold);
@@ -128,7 +125,7 @@ const Title = styled.h1`
     line-height: 1.21875;
     font-size: 2rem;
   }
-`;
+`
 
 export const query = graphql`
   query($slug: String!) {
@@ -149,6 +146,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default BlogPost;
+export default BlogPost

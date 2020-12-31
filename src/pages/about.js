@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import styled from 'styled-components';
-import SEO from 'components/seo';
-import Layout from 'layout/layout';
-import Markdown from 'styles/markdown';
-import { rhythm } from 'styles/typography';
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import styled from 'styled-components'
+import SEO from 'components/seo'
+import Layout from 'layout/layout'
+import Markdown from 'styles/markdown'
+import { rhythm } from 'styles/typography'
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -17,23 +17,20 @@ const About = () => {
         }
       }
     }
-  `);
+  `)
 
-  const md = data.allMarkdownRemark.edges[0].node.html;
+  const md = data.allMarkdownRemark.edges[0].node.html
 
   return (
     <Layout>
       <SEO title="About" />
-      <Container
-        dangerouslySetInnerHTML={{ __html: md }}
-        rhythm={rhythm}
-      ></Container>
+      <Container dangerouslySetInnerHTML={{ __html: md }} rhythm={rhythm}></Container>
     </Layout>
-  );
-};
+  )
+}
 
 const Container = styled(Markdown).attrs({
-  as: 'main',
+  as: 'main'
 })`
   width: var(--post-width);
   margin: 0 auto;
@@ -62,6 +59,6 @@ const Container = styled(Markdown).attrs({
       font-size: 1.25rem;
     }
   }
-`;
+`
 
-export default About;
+export default About

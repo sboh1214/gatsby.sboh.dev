@@ -1,10 +1,10 @@
 ---
-title: "Code Highlight"
-category: "Code"
-date: "2020-02-01 12:00:00 +09:00"
-desc: "Test Markdown Code Highlight"
-thumbnail: "./images/code-block/thumbnail.jpg"
-alt: "code block graphic"
+title: 'Code Highlight'
+category: 'Code'
+date: '2020-02-01 12:00:00 +09:00'
+desc: 'Test Markdown Code Highlight'
+thumbnail: './images/code-block/thumbnail.jpg'
+alt: 'code block graphic'
 ---
 
 ## Using Plugin
@@ -16,14 +16,10 @@ Please refer to the link for more detailed instructions. It's a great plugin. ðŸ
 
 ```jsx
 var ProfileLink = React.createClass({
-  render: function() {
-    return (
-      <a href={'https://www.facebook.com/' + this.props.username}>
-        {this.props.username}
-      </a>
-    );
+  render: function () {
+    return <a href={'https://www.facebook.com/' + this.props.username}>{this.props.username}</a>
   }
-});
+})
 ```
 
 ## Javascript
@@ -74,25 +70,25 @@ export  $initHighlight;
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Hello world</title>
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="index.css" />
-</head>
-<body>
-  <div id="app"></div>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
-  <script src="vendor/prism.js"></script>
-  <script src="examples.bundle.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello world</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
+    <script src="vendor/prism.js"></script>
+    <script src="examples.bundle.js"></script>
+  </body>
 </html>
 ```
 
 ## CSS
 
 ```css
-pre[class*="language-"],
+pre[class*='language-'],
 code {
   color: #5c6e74;
   font-size: 13px;
@@ -107,26 +103,26 @@ code {
   tab-size: 4;
   hyphens: none;
 }
-pre[class*="language-"]::selection,
+pre[class*='language-']::selection,
 code::selection {
   text-shadow: none;
   background: #b3d4fc;
 }
 @media print {
-  pre[class*="language-"],
+  pre[class*='language-'],
   code {
     text-shadow: none;
   }
 }
-pre[class*="language-"] {
+pre[class*='language-'] {
   padding: 1em;
-  margin: .5em 0;
+  margin: 0.5em 0;
   overflow: auto;
   background: #f8f5ec;
 }
 :not(pre) > code {
-  padding: .1em .3em;
-  border-radius: .3em;
+  padding: 0.1em 0.3em;
+  border-radius: 0.3em;
   color: #db4c69;
   background: #f9f2f4;
 }

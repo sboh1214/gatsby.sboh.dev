@@ -1,32 +1,28 @@
-import React, { useRef, useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
-import { Link } from 'gatsby';
-import LinkList from './linkList';
-import ThemeToggleButton from './themeToggleButton/themeToggleButton';
-import MenuIcon from './menuIcon';
-import Background from 'styles/background';
-import {
-  listAnimationCSS,
-  navBackgroundAnimationCSS,
-  curtainAnimationCSS,
-} from 'styles/navBarAnimation';
-import useSiteMetadata from 'hooks/useSiteMetadata';
-import useMenu from 'hooks/useMenu';
+import React, { useRef, useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
+import { Link } from 'gatsby'
+import LinkList from './linkList'
+import ThemeToggleButton from './themeToggleButton/themeToggleButton'
+import MenuIcon from './menuIcon'
+import Background from 'styles/background'
+import { listAnimationCSS, navBackgroundAnimationCSS, curtainAnimationCSS } from 'styles/navBarAnimation'
+import useSiteMetadata from 'hooks/useSiteMetadata'
+import useMenu from 'hooks/useMenu'
 
 const NavBar = ({ title, themeToggler }) => {
-  const site = useSiteMetadata();
-  const { menuLinks } = site.siteMetadata;
-  const { device } = useContext(ThemeContext);
-  const navRef = useRef(null);
-  const curtainRef = useRef(null);
-  const listRef = useRef(null);
+  const site = useSiteMetadata()
+  const { menuLinks } = site.siteMetadata
+  const { device } = useContext(ThemeContext)
+  const navRef = useRef(null)
+  const curtainRef = useRef(null)
+  const listRef = useRef(null)
 
   const [toggle, setToggle, onClickHandler] = useMenu({
     navRef,
     curtainRef,
     listRef,
-    device,
-  });
+    device
+  })
 
   return (
     <Nav ref={navRef} aria-label="Global Navigation">
@@ -49,8 +45,8 @@ const NavBar = ({ title, themeToggler }) => {
         </LinkWrap>
       </Content>
     </Nav>
-  );
-};
+  )
+}
 
 const Nav = styled.nav`
   min-width: var(--min-width);
@@ -64,7 +60,7 @@ const Nav = styled.nav`
   a:hover {
     text-decoration: none;
   }
-`;
+`
 
 const Content = styled.div`
   box-sizing: content-box;
@@ -86,7 +82,7 @@ const Content = styled.div`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     padding: 0 var(--padding-sm);
   }
-`;
+`
 
 const Title = styled.h1`
   z-index: 9999;
@@ -103,7 +99,7 @@ const Title = styled.h1`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     font-size: var(--text-md);
   }
-`;
+`
 
 const LinkUl = styled.ul`
   display: flex;
@@ -138,8 +134,7 @@ const LinkUl = styled.ul`
       display: block;
       margin-left: 0;
       font-size: var(--text-md);
-      transform: ${({ toggle }) =>
-        toggle ? `translateY(var(--sizing-lg))` : `translateY(0)`};
+      transform: ${({ toggle }) => (toggle ? `translateY(var(--sizing-lg))` : `translateY(0)`)};
       opacity: ${({ toggle }) => (toggle ? '1' : '0')};
     }
 
@@ -160,7 +155,7 @@ const LinkUl = styled.ul`
       background-color: var(--color-divider);
     }
   }
-`;
+`
 
 const NavBackground = styled(Background)`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
@@ -176,7 +171,7 @@ const NavBackground = styled(Background)`
       background-color: var(--color-post-background);
     }
   }
-`;
+`
 
 const Curtain = styled.div`
   display: none;
@@ -191,14 +186,14 @@ const Curtain = styled.div`
     height: calc(100% - var(--nav-height) + 1px);
     background-color: var(--color-post-background);
   }
-`;
+`
 
 const LinkContent = styled.div`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     width: 100%;
     z-index: 200;
   }
-`;
+`
 
 const LinkWrap = styled.div`
   display: flex;
@@ -209,6 +204,6 @@ const LinkWrap = styled.div`
     width: 100%;
     height: var(--nav-height);
   }
-`;
+`
 
-export default NavBar;
+export default NavBar

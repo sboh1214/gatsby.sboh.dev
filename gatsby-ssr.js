@@ -1,4 +1,4 @@
-const React = require('react');
+const React = require('react')
 
 exports.onRenderBody = ({ setPreBodyComponents }) => {
   setPreBodyComponents([
@@ -38,8 +38,8 @@ exports.onRenderBody = ({ setPreBodyComponents }) => {
 
             setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
           })()
-        `,
-      },
-    }),
-  ]);
-};
+        `
+      }
+    })
+  ])
+}

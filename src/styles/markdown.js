@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Markdown = styled.article`
   h1,
@@ -159,6 +159,6 @@ const Markdown = styled.article`
     font-size: 85%;
     border-radius: 3px;
   }
-`;
+`
 
-export default Markdown;
+export default Markdown

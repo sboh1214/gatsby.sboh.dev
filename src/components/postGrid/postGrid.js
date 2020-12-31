@@ -1,43 +1,36 @@
-import React, { useRef } from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
-import Card from './card';
-import { ThumbnailWrapper } from './centeredImg';
-import useInfiniteScroll from 'hooks/useInfiniteScroll';
+import React, { useRef } from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import Card from './card'
+import { ThumbnailWrapper } from './centeredImg'
+import useInfiniteScroll from 'hooks/useInfiniteScroll'
 
 const PostGrid = ({ posts }) => {
-  const scrollEdgeRef = useRef(null);
+  const scrollEdgeRef = useRef(null)
   const currentList = useInfiniteScroll({
     posts,
     scrollEdgeRef,
     maxPostNum: 10,
-    offsetY: 200,
-  });
+    offsetY: 200
+  })
 
   return (
     <Grid role="list">
       {currentList.map((data) => {
-        const { id, slug, title, desc, date, category, thumbnail, alt } = data;
-        const ariaLabel = `${title} - ${category} - Posted on ${date}`;
+        const { id, slug, title, desc, date, category, thumbnail, alt } = data
+        const ariaLabel = `${title} - ${category} - Posted on ${date}`
         return (
           <List key={id} role="listitem">
             <Link to={slug} aria-label={ariaLabel}>
-              <Card
-                thumbnail={thumbnail}
-                alt={alt}
-                category={category}
-                title={title}
-                desc={desc}
-                date={date}
-              />
+              <Card thumbnail={thumbnail} alt={alt} category={category} title={title} desc={desc} date={date} />
             </Link>
           </List>
-        );
+        )
       })}
       <div ref={scrollEdgeRef} />
     </Grid>
-  );
-};
+  )
+}
 
 const Grid = styled.ul`
   display: grid;
@@ -52,7 +45,7 @@ const Grid = styled.ul`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     grid-gap: var(--grid-gap-lg);
   }
-`;
+`
 
 const List = styled.li`
   box-sizing: border-box;
@@ -81,6 +74,6 @@ const List = styled.li`
   @media (max-width: ${({ theme }) => theme.device.sm}) {
     grid-column: span 2;
   }
-`;
+`
 
-export default PostGrid;
+export default PostGrid

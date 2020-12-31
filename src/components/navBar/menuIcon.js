@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const MenuIcon = ({ onClickHandler, toggle }) => {
   return (
@@ -11,16 +11,16 @@ const MenuIcon = ({ onClickHandler, toggle }) => {
         <div />
       </MenuIconBreadBottom>
     </MenuIconButton>
-  );
-};
+  )
+}
 
 const MenuIconBreadTop = styled.div`
   top: 22px;
-`;
+`
 
 const MenuIconBreadBottom = styled.div`
   bottom: 22px;
-`;
+`
 
 const MenuIconButton = styled.button`
   z-index: 9999;
@@ -42,34 +42,27 @@ const MenuIconButton = styled.button`
       height: 1px;
       right: var(--padding-sm);
       opacity: 0.8;
-      transition: opacity 0.3s ease,
-        transform
-          ${({ toggle }) => (toggle === true ? '0.1s ease' : '0.2s ease 0.1s')};
+      transition: opacity 0.3s ease, transform ${({ toggle }) => (toggle === true ? '0.1s ease' : '0.2s ease 0.1s')};
     }
 
     & > div > div {
       width: 100%;
       height: 100%;
       background-color: var(--color-text);
-      transition: transform
-        ${({ toggle }) => (toggle === true ? '0.2s ease 0.1s' : '0.1s ease')};
+      transition: transform ${({ toggle }) => (toggle === true ? '0.2s ease 0.1s' : '0.1s ease')};
     }
 
     ${MenuIconBreadTop} {
-      transform: ${({ toggle }) =>
-        toggle === false ? 'none' : 'translateY(4.5px)'};
+      transform: ${({ toggle }) => (toggle === false ? 'none' : 'translateY(4.5px)')};
       div {
-        transform: ${({ toggle }) =>
-          toggle === false ? 'none' : 'rotate(45deg)'};
+        transform: ${({ toggle }) => (toggle === false ? 'none' : 'rotate(45deg)')};
       }
     }
 
     ${MenuIconBreadBottom} {
-      transform: ${({ toggle }) =>
-        toggle === false ? 'none' : 'translateY(-4.5px)'};
+      transform: ${({ toggle }) => (toggle === false ? 'none' : 'translateY(-4.5px)')};
       div {
-        transform: ${({ toggle }) =>
-          toggle === false ? 'none' : 'rotate(-45deg)'};
+        transform: ${({ toggle }) => (toggle === false ? 'none' : 'rotate(-45deg)')};
       }
     }
 
@@ -77,6 +70,6 @@ const MenuIconButton = styled.button`
       opacity: 1;
     }
   }
-`;
+`
 
-export default MenuIcon;
+export default MenuIcon
