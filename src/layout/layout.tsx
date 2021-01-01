@@ -4,10 +4,19 @@ import NavBar from '../components/navBar/navBar'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import GlobalStyle from '../styles/globalStyle'
 import { useColorMode } from '@chakra-ui/react'
-import styledTheme from '../styles/theme'
+import { ChakraProvider } from '@chakra-ui/react'
 
-interface Props {
+type Props = {
   children: React.ReactNode
+}
+
+const styledTheme = {
+  device: {
+    xs: '419px',
+    sm: '767px',
+    md: '1023px',
+    lg: '1441px',
+  },
 }
 
 const Layout = ({ children }: Props) => {
@@ -19,21 +28,23 @@ const Layout = ({ children }: Props) => {
   const repoSrc = 'https://github.com/sungik-choi/gatsby-starter-apple'
 
   return (
-    <ThemeProvider theme={styledTheme}>
-      <GlobalStyle />
-      <Container>
-        <NavBar title={title} themeToggler={toggleColorMode} />
-        {children}
-      </Container>
-      <Footer role="contentinfo">
-        <Copyright aria-label="Copyright">
-          {copyrightStr}
-          <RepoLink href={repoSrc} target="__blank">
-            {repoName}
-          </RepoLink>
-        </Copyright>
-      </Footer>
-    </ThemeProvider>
+    <ChakraProvider>
+      <ThemeProvider theme={styledTheme}>
+        <GlobalStyle />
+        <Container>
+          <NavBar title={title} themeToggler={toggleColorMode} />
+          {children}
+        </Container>
+        <Footer role="contentinfo">
+          <Copyright aria-label="Copyright">
+            {copyrightStr}
+            <RepoLink href={repoSrc} target="__blank">
+              {repoName}
+            </RepoLink>
+          </Copyright>
+        </Footer>
+      </ThemeProvider>
+    </ChakraProvider>
   )
 }
 
