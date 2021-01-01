@@ -1,7 +1,6 @@
-import React, { useRef, useContext, useEffect } from 'react'
-import ThemeContext from '../store/themeContext'
+import React, { useRef, useEffect } from 'react'
 import useSiteMetadata from '../hooks/useSiteMetadata'
-import { Theme } from '../constants/theme'
+import { useColorMode } from '@chakra-ui/react'
 
 const src = 'https://utteranc.es'
 const utterancesSelector = 'iframe.utterances-frame'
@@ -11,17 +10,14 @@ const DARK_THEME = 'github-dark'
 const Comment = () => {
   const site = useSiteMetadata()
   const { repo } = site.siteMetadata.utterances
-  const theme = useContext(ThemeContext)
+  const { colorMode } = useColorMode()
   const containerRef = useRef<HTMLDivElement>(null)
   const isUtterancesCreated = useRef(false)
 
   useEffect(() => {
     if (!repo) return
-    let themeMode: string | null = null
 
-    if (!isUtterancesCreated.current) {
-      themeMode = document.body.dataset.theme === Theme.DARK ? DARK_THEME : LIGHT_THEME
-    } else themeMode = theme === Theme.DARK ? DARK_THEME : LIGHT_THEME
+    let themeMode = colorMode === 'dark' ? DARK_THEME : LIGHT_THEME
 
     const createUtterancesEl = () => {
       const comment = document.createElement('script')
@@ -55,7 +51,7 @@ const Comment = () => {
     }
 
     isUtterancesCreated.current ? postThemeMessage(utterancesEl) : createUtterancesEl()
-  }, [repo, theme])
+  }, [repo, colorMode])
 
   return <div ref={containerRef} />
 }

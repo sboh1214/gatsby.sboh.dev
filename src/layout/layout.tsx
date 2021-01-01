@@ -1,19 +1,17 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import NavBar from '../components/navBar/navBar'
-import ThemeContext from '../store/themeContext'
-import useTheme from '../hooks/useTheme'
 import useSiteMetadata from '../hooks/useSiteMetadata'
-import styledTheme from '../styles/theme'
 import GlobalStyle from '../styles/globalStyle'
-import { Theme } from '../constants/theme'
+import { useColorMode } from '@chakra-ui/react'
+import styledTheme from '../styles/theme'
 
 interface Props {
   children: React.ReactNode
 }
 
 const Layout = ({ children }: Props) => {
-  const [theme, themeToggler] = useTheme()
+  const { toggleColorMode } = useColorMode()
   const site = useSiteMetadata()
   const { title, author } = site.siteMetadata
   const copyrightStr = `Copyright © ${author}. Built with `
@@ -22,21 +20,19 @@ const Layout = ({ children }: Props) => {
 
   return (
     <ThemeProvider theme={styledTheme}>
-      <ThemeContext.Provider value={theme as Theme}>
-        <GlobalStyle />
-        <Container>
-          <NavBar title={title} themeToggler={themeToggler} />
-          {children}
-        </Container>
-        <Footer role="contentinfo">
-          <Copyright aria-label="Copyright">
-            {copyrightStr}
-            <RepoLink href={repoSrc} target="__blank">
-              {repoName}
-            </RepoLink>
-          </Copyright>
-        </Footer>
-      </ThemeContext.Provider>
+      <GlobalStyle />
+      <Container>
+        <NavBar title={title} themeToggler={toggleColorMode} />
+        {children}
+      </Container>
+      <Footer role="contentinfo">
+        <Copyright aria-label="Copyright">
+          {copyrightStr}
+          <RepoLink href={repoSrc} target="__blank">
+            {repoName}
+          </RepoLink>
+        </Copyright>
+      </Footer>
     </ThemeProvider>
   )
 }

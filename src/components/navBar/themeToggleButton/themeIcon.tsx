@@ -1,14 +1,14 @@
 import React from 'react'
-import { Theme } from '../../../constants/theme'
+import { ColorMode } from '@chakra-ui/react'
 
 type Props = {
-  theme: Theme
+  theme: ColorMode
 }
 
 export default function ThemeIcon({ theme }: Props): JSX.Element {
   return (
     <>
-      {theme === Theme.DARK ? (
+      {theme === 'dark' ? (
         <>
           <g>
             <circle cx="12" cy="12" r="6" />

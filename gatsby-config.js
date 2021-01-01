@@ -109,6 +109,7 @@ module.exports = {
         policy: [{ userAgent: '*', disallow: '' }],
       },
     },
+    '@chakra-ui/gatsby-plugin',
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,

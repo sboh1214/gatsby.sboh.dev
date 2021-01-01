@@ -1,24 +1,23 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import ThemeContext from '../../../store/themeContext'
 import ThemeIcon from './themeIcon'
 import Background from '../../../styles/background'
-import { Theme } from '../../../constants/theme'
+import { useColorMode } from '@chakra-ui/react'
 
 interface Props {
   themeToggler: any
 }
 
 export default function ThemeToggleButton({ themeToggler }: Props): JSX.Element {
-  const theme = useContext<Theme>(ThemeContext)
-  const LABEL_TEXT = theme === Theme.DARK ? 'Light theme' : 'Dark theme'
+  const { colorMode } = useColorMode()
+  const LABEL_TEXT = colorMode === 'dark' ? 'Light theme' : 'Dark theme'
 
   return (
     <Button onClick={themeToggler}>
       <ButtonBackground />
       <Content>
         <Icon version="1.1" x="0px" y="0px" viewBox="0 0 24 24">
-          <ThemeIcon theme={theme} />
+          <ThemeIcon theme={colorMode} />
         </Icon>
         <Text>{LABEL_TEXT}</Text>
       </Content>
