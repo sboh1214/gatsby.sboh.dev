@@ -8,7 +8,6 @@ interface Props {
   device: any
 }
 
-
 const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
   const [toggle, setToggle] = useState(false)
   const mql = useRef<MediaQueryList | null>(null)

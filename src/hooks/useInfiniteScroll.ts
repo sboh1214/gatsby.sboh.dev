@@ -23,7 +23,7 @@ const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 40
     setIsLoading(true)
   }, [isLoading, posts, maxPostNum])
 
-  useEffect((): () => void => {
+  useEffect((): (() => void) => {
     const loadEdges = () => {
       const currentLength = currentList.length
       const more = currentLength < posts.length
