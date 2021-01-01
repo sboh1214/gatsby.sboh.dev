@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true
+    es6: true,
   },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react'],
@@ -10,22 +10,18 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: true,
     Atomics: `readonly`,
-    SharedArrayBuffer: `readonly`
+    SharedArrayBuffer: `readonly`,
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: `module`
-  },
-  rules: {
-    'react/prop-types': 0,
-    'import/prefer-default-export': 'off'
+    sourceType: `module`,
   },
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
 }

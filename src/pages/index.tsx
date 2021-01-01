@@ -31,8 +31,8 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
           date,
           category,
           thumbnail: { childImageSharp },
-          alt
-        }
+          alt,
+        },
       } = node
 
       setPosts((prevPost: IPost[]): IPost[] => [
@@ -45,8 +45,8 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
           date,
           category,
           thumbnail: childImageSharp.id,
-          alt
-        }
+          alt,
+        },
       ])
     })
   }, [currentCategory, postData])

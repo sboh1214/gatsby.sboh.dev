@@ -9,17 +9,17 @@ module.exports = {
     ({ activeClassName, activeStyle, getProps, innerRef, partiallyActive, ref, replace, to, ...rest }) =>
       React.createElement('a', {
         ...rest,
-        href: to
+        href: to,
       })
   ),
   StaticQuery: jest.fn().mockImplementation(({ render }) =>
     render({
       site: {
         siteMetadata: {
-          title: `GatsbyJS`
-        }
-      }
+          title: `GatsbyJS`,
+        },
+      },
     })
   ),
-  useStaticQuery: jest.fn()
+  useStaticQuery: jest.fn(),
 }

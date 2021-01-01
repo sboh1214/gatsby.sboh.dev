@@ -38,8 +38,8 @@ exports.onRenderBody = ({ setPreBodyComponents }) => {
 
             setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
           })()
-        `
-      }
-    })
+        `,
+      },
+    }),
   ])
 }

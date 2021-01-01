@@ -18,55 +18,55 @@ export default function SEO({ description = '', meta = [], image = null, title }
   return (
     <Helmet
       htmlAttributes={{
-        lang: site.siteMetadata.lang
+        lang: site.siteMetadata.lang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: 'description',
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           property: 'og:description',
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: 'og:type',
-          content: 'website'
+          content: 'website',
         },
         {
           name: 'twitter:card',
-          content: 'summary'
+          content: 'summary',
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata.author
+          content: site.siteMetadata.author,
         },
         {
           name: 'twitter:title',
-          content: title
+          content: title,
         },
         {
           name: 'twitter:description',
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: 'image',
-          content: ogImageUrl
+          content: ogImageUrl,
         },
         {
           property: 'og:image',
-          content: ogImageUrl
+          content: ogImageUrl,
         },
         {
           property: 'twitter:image',
-          content: ogImageUrl
-        }
+          content: ogImageUrl,
+        },
       ].concat(meta)}
     />
   )

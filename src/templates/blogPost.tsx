@@ -9,16 +9,16 @@ import Category from '../styles/category'
 import DateTime from '../styles/dateTime'
 import Markdown from '../styles/markdown'
 
-interface Props {
+type Props = {
   data: any
 }
 
-const BlogPost = ({ data }: Props) => {
+export default function BlogPost({ data }: Props): JSX.Element {
   const {
     markdownRemark: {
       frontmatter: { title, desc, thumbnail, date, category },
-      html
-    }
+      html,
+    },
   } = data
 
   const ogImagePath = thumbnail && thumbnail.childImageSharp.fixed.src
@@ -151,5 +151,3 @@ export const query = graphql`
     }
   }
 `
-
-export default BlogPost

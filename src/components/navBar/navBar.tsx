@@ -27,7 +27,7 @@ export default function NavBar({ title, themeToggler }: Props): JSX.Element {
     navRef,
     curtainRef,
     listRef,
-    device
+    device,
   })
 
   return (

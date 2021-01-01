@@ -36,7 +36,7 @@ const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 40
 
     const option = {
       rootMargin: `0px 0px ${offsetY}px 0px`,
-      threshold: [0]
+      threshold: [0],
     }
 
     observer.current = new IntersectionObserver((entries) => {

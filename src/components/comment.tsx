@@ -32,7 +32,7 @@ const Comment = () => {
         label: 'comment',
         theme: themeMode,
         crossOrigin: 'anonymous',
-        async: 'true'
+        async: 'true',
       }
       Object.entries(attributes).forEach(([key, value]) => {
         if (value !== null) {
@@ -49,7 +49,7 @@ const Comment = () => {
       if (!utterancesEl) return
       const message = {
         type: 'set-theme',
-        theme: themeMode
+        theme: themeMode,
       }
       utterancesEl.contentWindow.postMessage(message, src)
     }

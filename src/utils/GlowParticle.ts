@@ -9,11 +9,17 @@ interface ConstructorProps {
 
 class GlowParticle {
   x: number
+
   y: number
+
   radius: number
+
   rgb: any
+
   vx: number
+
   vy: number
+
   sinValue: number
 
   constructor({ x, y, radius, rgb }: ConstructorProps) {

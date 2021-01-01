@@ -44,7 +44,7 @@ const About = () => {
 }
 
 const Container = styled(Markdown).attrs({
-  as: 'main'
+  as: 'main',
 })`
   width: var(--post-width);
   margin: 0 auto;

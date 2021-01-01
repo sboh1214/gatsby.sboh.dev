@@ -58,11 +58,9 @@ const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
             e.preventDefault()
             lastTabStop.focus()
           }
-        } else {
-          if (document.activeElement === lastTabStop) {
-            e.preventDefault()
-            firstTabStop.focus()
-          }
+        } else if (document.activeElement === lastTabStop) {
+          e.preventDefault()
+          firstTabStop.focus()
         }
       }
       if (e.keyCode === ESC_KEYCODE) setToggle(false)

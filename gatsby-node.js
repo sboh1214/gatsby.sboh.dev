@@ -9,7 +9,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug
+      value: slug,
     })
   }
 }
@@ -51,8 +51,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.fields.slug,
       component: blogPostTemplate,
       context: {
-        slug: node.fields.slug
-      }
+        slug: node.fields.slug,
+      },
     })
   })
 
@@ -63,8 +63,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/category/${_.kebabCase(category.fieldValue)}/`,
       component: mainTemplate,
       context: {
-        category: category.fieldValue
-      }
+        category: category.fieldValue,
+      },
     })
   })
 }

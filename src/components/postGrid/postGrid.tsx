@@ -16,7 +16,7 @@ export default function PostGrid({ posts }: Props): JSX.Element {
     posts,
     scrollEdgeRef,
     maxPostNum: 10,
-    offsetY: 200
+    offsetY: 200,
   })
 
   return (

@@ -30,7 +30,7 @@ export default function About(): React.ReactNode {
 }
 
 const Container = styled(Markdown).attrs({
-  as: 'main'
+  as: 'main',
 })`
   width: var(--post-width);
   margin: 0 auto;
