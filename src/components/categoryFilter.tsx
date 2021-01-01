@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
 import useScrollCenter from '../hooks/useScrollCenter'
 import { ACTIVE } from '../constants/constants'
-import { Category } from '../utils/type'
+import { ICategory } from '../utils/type'
 
 interface Props {
-  categoryList: any
+  categoryList: [ICategory]
 }
 
 interface Current {
@@ -30,8 +30,8 @@ const CategoryFilter = ({ categoryList }: Props) => {
       <Divider />
       <CategoryUl ref={categoryRef} className="invisible-scrollbar">
         {categoryList
-          .sort((a: Category, b: Category) => b.totalCount - a.totalCount)
-          .map((category: Category) => {
+          .sort((a: ICategory, b: ICategory) => b.totalCount - a.totalCount)
+          .map((category: ICategory) => {
             const { fieldValue } = category
             return (
               <li key={fieldValue}>

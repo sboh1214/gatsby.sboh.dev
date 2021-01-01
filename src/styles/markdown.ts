@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+type Rhythm = {
+  rhythm: (value: number) => string
+}
+
 const Markdown = styled.article`
   h1,
   h2,
@@ -51,8 +55,8 @@ const Markdown = styled.article`
   h2 {
     font-size: 1.75rem;
     line-height: 1.3;
-    margin-bottom: ${({ rhythm }) => rhythm(1)};
-    margin-top: ${({ rhythm }) => rhythm(2.25)};
+    margin-bottom: ${({ rhythm }: Rhythm) => rhythm(1)};
+    margin-top: ${({ rhythm }: Rhythm) => rhythm(2.25)};
 
     @media (max-width: ${({ theme }) => theme.device.sm}) {
       font-size: 1.3125rem;

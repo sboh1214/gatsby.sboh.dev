@@ -12,7 +12,7 @@ const COLORS = [
   { r: 255, g: 204, b: 0 } //yellow
 ]
 
-const NotFound = () => {
+export default function NotFound(): React.ReactNode {
   const canvasRef = useRef(null)
   const [particles, setParticles] = useState([])
   const isCreated = useRef(false)
@@ -140,5 +140,3 @@ const Canvas = styled.canvas`
   width: 100%;
   height: 100%;
 `
-
-export default NotFound

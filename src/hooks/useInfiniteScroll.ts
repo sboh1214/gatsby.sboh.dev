@@ -1,7 +1,8 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import { IPost } from '../utils/type'
 
-interface Props {
-  posts: [never]
+type Props = {
+  posts: [IPost]
   scrollEdgeRef: any
   maxPostNum: number
   offsetY: number
@@ -9,7 +10,7 @@ interface Props {
 
 const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 400 }: Props) => {
   const [hasMore, setHasMore] = useState<boolean>(false)
-  const [currentList, setCurrentList] = useState([])
+  const [currentList, setCurrentList] = useState<IPost[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [observerLoading, setObserverLoading] = useState<boolean>(false)
 

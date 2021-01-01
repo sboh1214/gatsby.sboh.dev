@@ -6,7 +6,7 @@ import Layout from '../layout/layout'
 import Markdown from '../styles/markdown'
 import { rhythm } from '../styles/typography'
 
-const About = () => {
+export default function About(): React.ReactNode {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/about/" } }) {
@@ -24,7 +24,7 @@ const About = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <Container dangerouslySetInnerHTML={{ __html: md }} rhythm={rhythm}></Container>
+      <Container dangerouslySetInnerHTML={{ __html: md }} rhythm={rhythm} />
     </Layout>
   )
 }
@@ -60,5 +60,3 @@ const Container = styled(Markdown).attrs({
     }
   }
 `
-
-export default About

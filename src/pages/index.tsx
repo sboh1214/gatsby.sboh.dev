@@ -6,14 +6,15 @@ import SEO from '../components/seo'
 import PostGrid from '../components/postGrid/postGrid'
 import CategoryFilter from '../components/categoryFilter'
 import useSiteMetadata from '../hooks/useSiteMetadata'
+import { IPost } from '../utils/type'
 
 interface Props {
   pageContext: any
   data: any
 }
 
-const Home = ({ pageContext, data }: Props) => {
-  const [posts, setPosts] = useState([])
+export default function Home({ pageContext, data }: Props): React.ReactNode {
+  const [posts, setPosts] = useState<IPost[]>([])
   const currentCategory = pageContext.category
   const postData = data.allMarkdownRemark.edges
 
@@ -34,7 +35,7 @@ const Home = ({ pageContext, data }: Props) => {
         }
       } = node
 
-      setPosts((prevPost) => [
+      setPosts((prevPost: IPost[]): IPost[] => [
         ...prevPost,
         {
           id,
@@ -134,5 +135,3 @@ export const query = graphql`
     }
   }
 `
-
-export default Home

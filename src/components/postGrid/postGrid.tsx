@@ -4,20 +4,10 @@ import styled from 'styled-components'
 import Card from './card'
 import { ThumbnailWrapper } from './centeredImg'
 import useInfiniteScroll from '../../hooks/useInfiniteScroll'
+import { IPost } from '../../utils/type'
 
-interface Props {
-  posts: any
-}
-
-interface Data {
-  id: any
-  slug: any
-  title: any
-  desc: any
-  date: any
-  category: any
-  thumbnail: any
-  alt: any
+type Props = {
+  posts: IPost[]
 }
 
 const PostGrid = ({ posts }: Props) => {
@@ -31,7 +21,7 @@ const PostGrid = ({ posts }: Props) => {
 
   return (
     <Grid role="list">
-      {currentList.map((data: Data) => {
+      {currentList.map((data: IPost) => {
         const { id, slug, title, desc, date, category, thumbnail, alt } = data
         const ariaLabel = `${title} - ${category} - Posted on ${date}`
         return (

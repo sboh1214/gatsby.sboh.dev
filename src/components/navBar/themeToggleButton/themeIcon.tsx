@@ -1,7 +1,7 @@
 import React from 'react'
 import { Theme } from '../../../constants/theme'
 
-interface Props {
+type Props = {
   theme: Theme
 }
 
