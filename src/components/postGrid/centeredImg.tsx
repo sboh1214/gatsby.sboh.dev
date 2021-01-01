@@ -8,7 +8,7 @@ type Props = {
   alt: string
 }
 
-const CenteredImg = ({ src, alt }: Props) => {
+export default function CenteredImg({ src, alt }: Props): JSX.Element {
   const data = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -58,5 +58,3 @@ export const ThumbnailWrapper = styled.div`
 const InnerWrapper = styled.div`
   overflow: hidden;
 `
-
-export default CenteredImg

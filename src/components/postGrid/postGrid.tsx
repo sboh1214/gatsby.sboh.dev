@@ -10,7 +10,7 @@ type Props = {
   posts: IPost[]
 }
 
-const PostGrid = ({ posts }: Props) => {
+export default function PostGrid({ posts }: Props): JSX.Element {
   const scrollEdgeRef = useRef(null)
   const currentList = useInfiniteScroll({
     posts,
@@ -80,5 +80,3 @@ const List = styled.li`
     grid-column: span 2;
   }
 `
-
-export default PostGrid

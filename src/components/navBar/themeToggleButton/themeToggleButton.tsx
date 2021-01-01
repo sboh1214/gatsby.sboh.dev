@@ -9,7 +9,7 @@ interface Props {
   themeToggler: any
 }
 
-const ThemeToggleButton = ({ themeToggler }: Props) => {
+export default function ThemeToggleButton({ themeToggler }: Props): JSX.Element {
   const theme = useContext<Theme>(ThemeContext)
   const LABEL_TEXT = theme === Theme.DARK ? 'Light theme' : 'Dark theme'
 
@@ -139,5 +139,3 @@ const Button = styled.button`
     }
   }
 `
-
-export default ThemeToggleButton

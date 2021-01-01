@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { ReactNode, useRef } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
@@ -6,15 +6,15 @@ import useScrollCenter from '../hooks/useScrollCenter'
 import { ACTIVE } from '../constants/constants'
 import { ICategory } from '../utils/type'
 
-interface Props {
+type Props = {
   categoryList: [ICategory]
 }
 
-interface Current {
+type Current = {
   isCurrent: boolean
 }
 
-const CategoryFilter = ({ categoryList }: Props) => {
+export default function CategoryFilter({ categoryList }: Props): ReactNode {
   const categoryRef = useRef(null)
   const ALL_CATEGORY_NAME = 'All'
   const isActive = ({ isCurrent }: Current) => (isCurrent ? { id: ACTIVE, tabIndex: -1 } : {})
@@ -130,5 +130,3 @@ const CategoryUl = styled.ul`
     margin-left: 6px;
   }
 `
-
-export default CategoryFilter

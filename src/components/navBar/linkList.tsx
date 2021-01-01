@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-interface Props {
+type Props = {
   links: any
   setToggle: any
 }
 
-interface LinkProps {
+type LinkProps = {
   link: string
   name: string
 }
 
-const LinkList = ({ links, setToggle }: Props) => {
+export default function LinkList({ links, setToggle }: Props): JSX.Element {
   const generateLink = (link: string, name: string): React.ReactNode => {
     const expression = /(https?:\/\/)?[\w\-~]+(\.[\w\-~]+)+(\/[\w\-~@:%]*)*(#[\w-]*)?(\?[^\s]*)?/gi
     const isExternalLink = expression.test(link)
@@ -40,5 +40,3 @@ const LinkList = ({ links, setToggle }: Props) => {
 
   return <>{links.map(({ link, name }: LinkProps) => generateLink(link, name))}</>
 }
-
-export default LinkList

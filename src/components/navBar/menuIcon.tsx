@@ -6,7 +6,7 @@ interface Props {
   toggle: boolean
 }
 
-const MenuIcon = ({ onClickHandler, toggle }: Props) => {
+export default function MenuIcon({ onClickHandler, toggle }: Props): JSX.Element {
   return (
     <MenuIconButton onClick={onClickHandler} toggle={toggle} aria-label="Menu">
       <MenuIconBreadTop>
@@ -76,5 +76,3 @@ const MenuIconButton = styled.button`
     }
   }
 `
-
-export default MenuIcon

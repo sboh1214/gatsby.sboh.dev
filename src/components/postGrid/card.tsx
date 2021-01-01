@@ -5,7 +5,7 @@ import Category from '../../styles/category'
 import DateTime from '../../styles/dateTime'
 import { ICard } from '../../utils/type'
 
-const Card = ({ thumbnail, alt, category, title, desc, date }: ICard) => {
+export default function Card({ thumbnail, alt, category, title, desc, date }: ICard): JSX.Element {
   return (
     <Wrapper>
       <CenteredImg src={thumbnail} alt={alt} />
@@ -73,5 +73,3 @@ const Desc = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 `
-
-export default Card

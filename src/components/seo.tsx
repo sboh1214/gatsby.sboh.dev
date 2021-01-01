@@ -10,7 +10,7 @@ type Props = {
   title: string
 }
 
-const SEO = ({ description = '', meta = [], image = null, title }: Props) => {
+export default function SEO({ description = '', meta = [], image = null, title }: Props): JSX.Element {
   const site = useSiteMetadata()
   const metaDescription = description || site.siteMetadata.description
   const ogImageUrl = site.siteMetadata.siteUrl + (image || defaultOpenGraphImage)
@@ -71,5 +71,3 @@ const SEO = ({ description = '', meta = [], image = null, title }: Props) => {
     />
   )
 }
-
-export default SEO

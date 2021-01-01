@@ -15,7 +15,7 @@ interface Props {
   themeToggler: Theme | (() => void) | undefined
 }
 
-const NavBar = ({ title, themeToggler }: Props) => {
+export default function NavBar({ title, themeToggler }: Props): JSX.Element {
   const site = useSiteMetadata()
   const { menuLinks } = site.siteMetadata
   const { device } = useContext(ThemeContext)
@@ -212,5 +212,3 @@ const LinkWrap = styled.div`
     height: var(--nav-height);
   }
 `
-
-export default NavBar

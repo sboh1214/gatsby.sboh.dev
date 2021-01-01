@@ -5,7 +5,7 @@ type Props = {
   theme: Theme
 }
 
-const ThemeIcon = ({ theme }: Props) => {
+export default function ThemeIcon({ theme }: Props): JSX.Element {
   return (
     <>
       {theme === Theme.DARK ? (
@@ -31,5 +31,3 @@ const ThemeIcon = ({ theme }: Props) => {
     </>
   )
 }
-
-export default ThemeIcon
