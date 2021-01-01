@@ -8,10 +8,11 @@ import Background from '../../styles/background'
 import { listAnimationCSS, navBackgroundAnimationCSS, curtainAnimationCSS } from '../../styles/navBarAnimation'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
 import useMenu from '../../hooks/useMenu'
+import { Theme } from '../../constants/theme'
 
 interface Props {
   title: string
-  themeToggler: () => void
+  themeToggler: Theme | (() => void) | undefined
 }
 
 const NavBar = ({ title, themeToggler }: Props) => {

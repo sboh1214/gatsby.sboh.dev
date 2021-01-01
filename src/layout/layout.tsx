@@ -6,6 +6,7 @@ import useTheme from '../hooks/useTheme'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import styledTheme from '../styles/theme'
 import GlobalStyle from '../styles/globalStyle'
+import { Theme } from '../constants/theme'
 
 interface Props {
   children: React.ReactNode
@@ -21,7 +22,7 @@ const Layout = ({ children }: Props) => {
 
   return (
     <ThemeProvider theme={styledTheme}>
-      <ThemeContext.Provider value={theme}>
+      <ThemeContext.Provider value={theme as Theme}>
         <GlobalStyle />
         <Container>
           <NavBar title={title} themeToggler={themeToggler} />

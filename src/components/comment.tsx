@@ -12,7 +12,7 @@ const Comment = () => {
   const site = useSiteMetadata()
   const { repo } = site.siteMetadata.utterances
   const theme = useContext(ThemeContext)
-  const containerRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const isUtterancesCreated = useRef(false)
 
   useEffect(() => {
@@ -35,15 +35,17 @@ const Comment = () => {
         async: 'true'
       }
       Object.entries(attributes).forEach(([key, value]) => {
-        comment.setAttribute(key, value)
+        if (value !== null) {
+          comment.setAttribute(key, value)
+        }
       })
-      containerRef.current.appendChild(comment)
+      containerRef.current?.appendChild(comment)
       isUtterancesCreated.current = true
     }
 
-    const utterancesEl = containerRef.current.querySelector(utterancesSelector)
+    const utterancesEl = containerRef.current?.querySelector(utterancesSelector)
 
-    const postThemeMessage = () => {
+    const postThemeMessage = (utterancesEl: any) => {
       if (!utterancesEl) return
       const message = {
         type: 'set-theme',

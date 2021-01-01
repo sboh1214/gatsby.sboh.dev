@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 interface Props {
   onClickHandler: any
-  toggle: any
+  toggle: boolean
 }
 
 const MenuIcon = ({ onClickHandler, toggle }: Props) => {

@@ -13,14 +13,14 @@ const COLORS = [
 ]
 
 export default function NotFound(): React.ReactNode {
-  const canvasRef = useRef(null)
-  const [particles, setParticles] = useState([])
-  const isCreated = useRef(false)
-  const requestRef = useRef(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [particles, setParticles] = useState<GlowParticle[]>([])
+  const isCreated = useRef<boolean>(false)
+  const requestRef = useRef<number | null>(null)
 
   useLayoutEffect(() => {
     const canvasObj = canvasRef.current
-    const ctx = canvasObj.getContext('2d')
+    const ctx = canvasObj?.getContext('2d')
     let stageWidth = document.body.clientWidth
     let stageHeight = document.body.clientHeight
     const pixelRatio = window.devicePixelRatio > 1 ? 2 : 1
@@ -48,7 +48,10 @@ export default function NotFound(): React.ReactNode {
     }
 
     const render = () => {
-      ctx.clearRect(0, 0, stageWidth, stageHeight)
+      if (ctx) {
+        ctx.clearRect(0, 0, stageWidth, stageHeight)
+      }
+
       for (let i = 0; i < totalParticles; i++) {
         const item: GlowParticle = particles[i]
         if (!item) return
@@ -61,11 +64,15 @@ export default function NotFound(): React.ReactNode {
       stageWidth = document.body.clientWidth
       stageHeight = document.body.clientHeight
 
-      canvasObj.width = stageWidth * pixelRatio
-      canvasObj.height = stageHeight * pixelRatio
-      ctx.scale(pixelRatio, pixelRatio)
-      ctx.globalCompositeOperation = 'saturation'
-      ctx.clearRect(0, 0, stageWidth, stageHeight)
+      if (canvasObj) {
+        canvasObj.width = stageWidth * pixelRatio
+        canvasObj.height = stageHeight * pixelRatio
+      }
+      if (ctx) {
+        ctx.scale(pixelRatio, pixelRatio)
+        ctx.globalCompositeOperation = 'saturation'
+        ctx.clearRect(0, 0, stageWidth, stageHeight)
+      }
 
       isCreated.current = true
       createParticles()
@@ -81,7 +88,9 @@ export default function NotFound(): React.ReactNode {
 
     return () => {
       window.removeEventListener('resize', resize)
-      window.cancelAnimationFrame(requestRef.current)
+      if (requestRef.current) {
+        window.cancelAnimationFrame(requestRef.current)
+      }
     }
   })
 

@@ -8,9 +8,10 @@ interface Props {
   device: any
 }
 
+
 const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
   const [toggle, setToggle] = useState(false)
-  const mql = useRef(null)
+  const mql = useRef<MediaQueryList | null>(null)
 
   const onClickHandler = () => (toggle === true ? setToggle(false) : setToggle(true))
 
@@ -25,13 +26,13 @@ const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
     const DISABLE_FOCUS_TABINDEX = -1
     const focusableElements = listRef.current.querySelectorAll(focusableElementsString)
 
-    if (!mql.current.matches) {
-      focusableElements.forEach((e) => e.setAttribute('tabindex', FOCUSABLE_TABINDEX))
+    if (!mql.current?.matches) {
+      focusableElements.forEach((e: any) => e.setAttribute('tabindex', FOCUSABLE_TABINDEX))
       return
     }
 
     const tabIndex = toggle ? FOCUSABLE_TABINDEX : DISABLE_FOCUS_TABINDEX
-    focusableElements.forEach((e) => e.setAttribute('tabindex', tabIndex))
+    focusableElements.forEach((e: any) => e.setAttribute('tabindex', tabIndex))
   }, [focusableElementsString, listRef, toggle])
 
   useEffect(() => {
@@ -39,8 +40,8 @@ const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
   }, [toggleKeyboardFocus])
 
   useEffect(() => {
-    mql.current.addEventListener('change', toggleKeyboardFocus)
-    return () => mql.current.removeEventListener('change', toggleKeyboardFocus)
+    mql.current?.addEventListener('change', toggleKeyboardFocus)
+    return () => mql.current?.removeEventListener('change', toggleKeyboardFocus)
   })
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
     const firstTabStop = focusableElements[0]
     const lastTabStop = focusableElements[focusableElements.length - 1]
 
-    const trapTabKey = (e) => {
+    const trapTabKey = (e: any) => {
       if (!toggle) return
       if (e.keyCode === TAB_KEYCODE) {
         if (e.shiftKey) {
@@ -89,7 +90,7 @@ const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
       }, TIMER)
     }
 
-    const closeMenu = (e) => {
+    const closeMenu = (e: any) => {
       if (e.matches) {
         hideAnimation()
         return
@@ -97,8 +98,8 @@ const useMenu = ({ navRef, curtainRef, listRef, device }: Props) => {
       setToggle(false)
     }
 
-    mql.current.addEventListener('change', closeMenu)
-    return () => mql.current.removeEventListener('change', closeMenu)
+    mql.current?.addEventListener('change', closeMenu)
+    return () => mql.current?.removeEventListener('change', closeMenu)
   })
 
   return [toggle, setToggle, onClickHandler]

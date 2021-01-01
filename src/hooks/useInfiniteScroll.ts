@@ -2,7 +2,7 @@ import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { IPost } from '../utils/type'
 
 type Props = {
-  posts: [IPost]
+  posts: IPost[]
   scrollEdgeRef: any
   maxPostNum: number
   offsetY: number
@@ -14,7 +14,7 @@ const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 40
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [observerLoading, setObserverLoading] = useState<boolean>(false)
 
-  const observer = useRef(null)
+  const observer = useRef<IntersectionObserver | null>(null)
 
   useLayoutEffect(() => {
     if (!posts.length || isLoading) return
@@ -23,7 +23,7 @@ const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 40
     setIsLoading(true)
   }, [isLoading, posts, maxPostNum])
 
-  useEffect((): void => {
+  useEffect((): () => void => {
     const loadEdges = () => {
       const currentLength = currentList.length
       const more = currentLength < posts.length
@@ -51,7 +51,11 @@ const useInfiniteScroll = ({ posts, scrollEdgeRef, maxPostNum = 10, offsetY = 40
     }, option)
 
     observer.current.observe(scrollEdgeElem)
-    return () => observer.current && observer.current.disconnect()
+    return () => {
+      if (observer.current) {
+        observer.current.disconnect()
+      }
+    }
   })
 
   return currentList
