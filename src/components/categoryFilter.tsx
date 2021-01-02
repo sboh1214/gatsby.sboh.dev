@@ -32,7 +32,7 @@ export default function CategoryFilter({ categoryList }: Props): JSX.Element {
         .map((category: ICategory) => {
           const { fieldValue } = category
           return (
-            <Link key={fieldValue} getProps={isActive} to={`/category/${kebabCase(fieldValue)}/`}>
+            <Link key={fieldValue} getProps={isActive} to={`/blog/category/${kebabCase(fieldValue)}/`}>
               <Button colorScheme="teal" variant="solid">
                 {fieldValue}
               </Button>

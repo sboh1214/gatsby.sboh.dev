@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/(posts/blog)/" } }
+        filter: { fileAbsolutePath: { regex: "/posts/" } }
         sort: { fields: frontmatter___date, order: DESC }
         limit: 2000
       ) {
@@ -60,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   categories.forEach((category) => {
     createPage({
-      path: `/category/${_.kebabCase(category.fieldValue)}/`,
+      path: `blog/category/${_.kebabCase(category.fieldValue)}/`,
       component: mainTemplate,
       context: {
         category: category.fieldValue,

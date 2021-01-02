@@ -16,10 +16,6 @@ const useSiteMetadata = () => {
               repo
             }
             postTitle
-            menuLinks {
-              name
-              link
-            }
           }
         }
       }

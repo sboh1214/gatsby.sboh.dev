@@ -2,8 +2,6 @@ import { Button } from '@chakra-ui/react'
 import { Link } from 'gatsby'
 import React from 'react'
 import SbohLayout from 'sboh-layout'
-import useSiteMetadata from '../hooks/useSiteMetadata'
-import LinkList from './linkList'
 
 type Props = {
   children: React.ReactNode
@@ -12,16 +10,16 @@ type Props = {
 function Links() {
   return (
     <>
-      <a href="https://sboh.dev">
+      <Link to="/about">
         <Button variant="ghost">About</Button>
-      </a>
-      <a href="https://sboh.dev/apps">
+      </Link>
+      <a href="/apps">
         <Button variant="ghost">Apps</Button>
       </a>
-      <Link to="/">
+      <Link to="/blog">
         <Button variant="ghost">Blog</Button>
       </Link>
-      <a href="https://sboh.dev/libs">
+      <a href="/libs">
         <Button variant="ghost">Libraries</Button>
       </a>
     </>

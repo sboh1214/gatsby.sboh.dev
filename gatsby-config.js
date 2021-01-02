@@ -1,14 +1,14 @@
 const meta = {
-  title: '오승빈의 개발 블로그', // Your website title
-  description: '오승빈의 개발 블로그', // Your website description
-  author: '오승빈', // Maybe your name
-  siteUrl: 'https://blog.sboh.dev', // Your website URL
-  lang: 'ko', // Language
-  utterances: 'sboh1214/blog.sboh.dev', // Github repository to store comments
+  title: '오승빈의 개발 블로그',
+  description: '오승빈의 개발 블로그',
+  author: '오승빈',
+  siteUrl: 'https://blog.sboh.dev',
+  lang: 'ko',
+  utterances: 'sboh1214/blog.sboh.dev',
   links: {
-    github: 'https://github.com/sboh1214/blog.sboh.dev', // Your github repository
+    github: 'https://github.com/sboh1214/blog.sboh.dev',
   },
-  icon: 'src/images/icon.png', //  Favicon Path
+  icon: 'src/images/icon.png',
 }
 
 module.exports = {
@@ -22,20 +22,6 @@ module.exports = {
       repo: meta.utterances,
     },
     postTitle: 'All',
-    menuLinks: [
-      {
-        link: '/',
-        name: 'Home',
-      },
-      {
-        link: '/about/',
-        name: 'About',
-      },
-      {
-        link: meta.links.github,
-        name: 'Github',
-      },
-    ],
   },
   plugins: [
     {
