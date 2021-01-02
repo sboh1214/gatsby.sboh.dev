@@ -3,7 +3,7 @@ import React from 'react'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 
-export default function NotFound(): React.ReactNode {
+export default function Index(): JSX.Element {
   return (
     <Layout>
       <SEO title="Home" />

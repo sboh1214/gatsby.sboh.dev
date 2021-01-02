@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import useSiteMetadata from '../hooks/useSiteMetadata'
+import useSiteMetadata from '../utils/useSiteMetadata'
 import defaultOpenGraphImage from '../images/og-default.png'
 
 type Props = {

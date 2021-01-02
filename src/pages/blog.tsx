@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostGrid from '../components/postGrid/postGrid'
 import CategoryFilter from '../components/categoryFilter'
-import useSiteMetadata from '../hooks/useSiteMetadata'
+import useSiteMetadata from '../utils/useSiteMetadata'
 import { IPost } from '../utils/type'
 import { Heading } from '@chakra-ui/react'
 

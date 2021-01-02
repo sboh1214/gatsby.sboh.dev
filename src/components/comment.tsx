@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import useSiteMetadata from '../hooks/useSiteMetadata'
+import useSiteMetadata from '../utils/useSiteMetadata'
 import { useColorMode } from '@chakra-ui/react'
 
 const src = 'https://utteranc.es'

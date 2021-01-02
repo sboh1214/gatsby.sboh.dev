@@ -1,5 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
-import { IPost } from '../utils/type'
+import { IPost } from '../../utils/type'
 
 type Props = {
   posts: IPost[]

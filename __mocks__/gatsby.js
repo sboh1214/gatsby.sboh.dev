@@ -21,5 +21,13 @@ module.exports = {
       },
     })
   ),
-  useStaticQuery: jest.fn(),
+  useStaticQuery: jest.fn().mockImplementation(() => ({
+    site: {
+      siteMetadata: {
+        author: 'Florian',
+        description: 'My description',
+        title: 'My Title',
+      },
+    },
+  })),
 }

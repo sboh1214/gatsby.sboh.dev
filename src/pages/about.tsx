@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 
-export default function About(): React.ReactNode {
+export default function About(): JSX.Element {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/about/" } }) {

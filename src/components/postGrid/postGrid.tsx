@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Link } from 'gatsby'
 import Card from './card'
-import useInfiniteScroll from '../../hooks/useInfiniteScroll'
+import useInfiniteScroll from './useInfiniteScroll'
 import { IPost } from '../../utils/type'
 import { SimpleGrid } from '@chakra-ui/react'
 
