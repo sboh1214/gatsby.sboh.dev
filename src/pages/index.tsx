@@ -1,12 +1,12 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import Layout from '../layout/layout'
 import SEO from '../components/seo'
 import PostGrid from '../components/postGrid/postGrid'
 import CategoryFilter from '../components/categoryFilter'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import { IPost } from '../utils/type'
+import { Heading } from '@chakra-ui/react'
 
 interface Props {
   pageContext: any
@@ -57,47 +57,12 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
   return (
     <Layout>
       <SEO title="Home" />
-      <Main>
-        <Content>
-          <CategoryFilter categoryList={data.allMarkdownRemark.group} />
-          <PostTitle>{postTitle}</PostTitle>
-          <PostGrid posts={posts} />
-        </Content>
-      </Main>
+      <CategoryFilter categoryList={data.allMarkdownRemark.group} />
+      <Heading>{postTitle}</Heading>
+      <PostGrid posts={posts} />
     </Layout>
   )
 }
-
-const Main = styled.main`
-  min-width: var(--min-width);
-  min-height: calc(100vh - var(--nav-height) - var(--footer-height));
-  background-color: var(--color-background);
-`
-
-const Content = styled.div`
-  box-sizing: content-box;
-  width: 87.5%;
-  max-width: var(--width);
-  padding-top: var(--sizing-lg);
-  padding-bottom: var(--sizing-lg);
-  margin: 0 auto;
-
-  @media (max-width: ${({ theme }) => theme.device.sm}) {
-    padding-top: var(--grid-gap-lg);
-    width: 87.5%;
-  }
-`
-
-const PostTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: var(--font-weight-extra-bold);
-  margin-bottom: var(--sizing-md);
-  line-height: 1.21875;
-
-  @media (max-width: ${({ theme }) => theme.device.sm}) {
-    font-size: 1.75rem;
-  }
-`
 
 export const query = graphql`
   query {

@@ -16,7 +16,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run lint && npm run test"
+      "pre-commit": "lint-staged && npm run lint"
     }
   },
   "lint-staged": {
@@ -26,12 +26,11 @@
     ]
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.2",
     "@chakra-ui/react": "^1.1.0",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
-    "babel-plugin-styled-components": "^1.12.0",
     "dark-theme-github": "github:remorses/dark-github-theme",
-    "disable-scroll": "^0.6.0",
     "framer-motion": "^3.1.1",
     "gatsby": "^2.29.3",
     "gatsby-alias-imports": "^1.0.6",
@@ -43,9 +42,7 @@
     "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-sharp": "^2.11.2",
     "gatsby-plugin-sitemap": "^2.9.0",
-    "gatsby-plugin-styled-components": "^3.7.0",
     "gatsby-plugin-typescript": "^2.9.0",
-    "gatsby-plugin-typography": "^2.9.0",
     "gatsby-remark-copy-linked-files": "^2.7.0",
     "gatsby-remark-images": "^3.8.1",
     "gatsby-remark-vscode": "^3.2.0",
@@ -56,11 +53,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
-    "react-typography": "^0.16.19",
-    "styled-components": "^5.2.1",
-    "styled-reset": "^4.3.4",
     "typescript": "^4.1.3",
-    "typography": "^0.16.19",
     "vscode-theme-github-light": "github:chuling/vscode-theme-github-light"
   },
   "devDependencies": {
@@ -71,13 +64,11 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-helmet": "^6.1.0",
-    "@types/styled-components": "^5.1.7",
-    "@types/typography": "^0.16.3",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "babel-jest": "^26.6.3",
     "babel-preset-gatsby": "^0.9.1",
-    "eslint": "^7.2.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",

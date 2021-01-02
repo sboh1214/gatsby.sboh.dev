@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Button } from '@chakra-ui/react'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 type Props = {
   links: any
-  setToggle: any
 }
 
 type LinkProps = {
@@ -11,30 +12,30 @@ type LinkProps = {
   name: string
 }
 
-export default function LinkList({ links, setToggle }: Props): JSX.Element {
+export default function LinkList({ links }: Props): JSX.Element {
   const generateLink = (link: string, name: string): React.ReactNode => {
     const expression = /(https?:\/\/)?[\w\-~]+(\.[\w\-~]+)+(\/[\w\-~@:%]*)*(#[\w-]*)?(\?[^\s]*)?/gi
     const isExternalLink = expression.test(link)
     if (link === '/') {
       return (
-        <li key={name} onClick={() => setToggle(false)}>
-          <Link to={link}>{name}</Link>
-        </li>
+        <Link key={name} to={link}>
+          <Button variant="ghost">{name}</Button>
+        </Link>
       )
     }
     if (isExternalLink) {
       return (
-        <li key={name}>
-          <a target="__blank" rel="noreferrer" href={link}>
+        <a key={name} target="__blank" rel="noreferrer" href={link}>
+          <Button variant="ghost" rightIcon={<ExternalLinkIcon />}>
             {name}
-          </a>
-        </li>
+          </Button>
+        </a>
       )
     }
     return (
-      <li key={name}>
-        <Link to={link}>{name}</Link>
-      </li>
+      <Link key={name} to={link}>
+        <Button variant="ghost">{name}</Button>
+      </Link>
     )
   }
 

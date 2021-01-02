@@ -53,12 +53,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/styles/typography`,
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -111,7 +105,6 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-styled-components`,
     `gatsby-alias-imports`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
