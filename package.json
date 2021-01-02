@@ -1,11 +1,10 @@
 {
-  "name": "blog.sboh.dev",
-  "description": "Gatsby blog starter kit with beautiful and simple design",
+  "name": "sboh.dev",
+  "description": "Personal Site for Seungbin Oh",
   "version": "2002.12.14",
   "license": "MIT",
   "scripts": {
-    "start": "npm run develop",
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
@@ -16,7 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run lint"
+      "pre-commit": "lint-staged && npm run lint && npm run tsc && npm t"
     }
   },
   "lint-staged": {
@@ -59,7 +58,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@testing-library/react": "^11.2.2",
     "@types/jest": "^26.0.19",
-    "@types/node": "^14.14.17",
+    "@types/node": "^14.14.19",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-helmet": "^6.1.0",
@@ -67,7 +66,7 @@
     "@typescript-eslint/parser": "^4.11.1",
     "babel-jest": "^26.6.3",
     "babel-preset-gatsby": "^0.9.1",
-    "eslint": "^7.5.0",
+    "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",
@@ -85,7 +84,8 @@
     "url": "https://sboh.dev"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "react"
   ],
   "repository": {
     "type": "git",
@@ -94,8 +94,5 @@
   "bugs": {
     "url": "https://github.com/sboh1214/blog.sboh.dev/issues",
     "email": "sboh1214@gmail.com"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
