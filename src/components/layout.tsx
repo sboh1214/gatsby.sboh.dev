@@ -1,35 +1,32 @@
-import { Button } from '@chakra-ui/react'
+import { ChakraProvider, Container, HStack, Text } from '@chakra-ui/react'
 import { Link } from 'gatsby'
 import React from 'react'
-import SbohLayout from 'sboh-layout'
+import Links from './navBar/links'
+import NavBar from './navBar/navBar'
+import ThemeToggleButton from './navBar/themeToggleButton'
 
 type Props = {
   children: React.ReactNode
 }
 
-function Links() {
-  return (
-    <>
-      <Link to="/about">
-        <Button variant="ghost">About</Button>
-      </Link>
-      <a href="/apps">
-        <Button variant="ghost">Apps</Button>
-      </a>
-      <Link to="/blog">
-        <Button variant="ghost">Blog</Button>
-      </Link>
-      <a href="/libs">
-        <Button variant="ghost">Libraries</Button>
-      </a>
-    </>
-  )
-}
-
 export default function Layout({ children }: Props) {
   return (
-    <SbohLayout title={<Link to="/">오승빈의 개발 블로그</Link>} links={<Links />}>
-      {children}
-    </SbohLayout>
+    <ChakraProvider>
+      <NavBar title={<Link to="/">오승빈의 개발 블로그</Link>}>
+        <Links />
+      </NavBar>
+      <Container maxW="1024px">{children}</Container>
+      <Container centerContent>
+        <HStack aria-label="Copyright">
+          <Text fontSize="md">
+            {`Copyright © Seungbin Oh. Built with `}
+            <a href="https://github.com/sungik-choi/gatsby-starter-apple" target="__blank">
+              'gatsby-starter-apple'
+            </a>
+          </Text>
+        </HStack>
+      </Container>
+      <ThemeToggleButton />
+    </ChakraProvider>
   )
 }

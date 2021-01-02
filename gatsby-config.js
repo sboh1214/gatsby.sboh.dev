@@ -2,12 +2,9 @@ const meta = {
   title: '오승빈의 개발 블로그',
   description: '오승빈의 개발 블로그',
   author: '오승빈',
-  siteUrl: 'https://blog.sboh.dev',
+  siteUrl: 'https://sboh.dev',
   lang: 'ko',
-  utterances: 'sboh1214/blog.sboh.dev',
-  links: {
-    github: 'https://github.com/sboh1214/blog.sboh.dev',
-  },
+  utterances: 'sboh1214/sboh.dev',
   icon: 'src/images/icon.png',
 }
 

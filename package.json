@@ -53,7 +53,6 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
-    "sboh-layout": "^1.0.0",
     "vscode-theme-github-light": "github:chuling/vscode-theme-github-light"
   },
   "devDependencies": {
