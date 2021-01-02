@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import SEO from '../components/seo'
-import Layout from '../layout/layout'
+import Layout from '../components/layout'
 
 export default function About(): React.ReactNode {
   const data = useStaticQuery(graphql`

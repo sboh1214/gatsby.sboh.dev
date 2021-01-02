@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../layout/layout'
+import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Comment from '../components/comment'
 import { Divider, Heading, Text } from '@chakra-ui/react'

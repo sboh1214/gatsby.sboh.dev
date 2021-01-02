@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import kebabCase from 'lodash/kebabCase'
-import { ACTIVE } from '../constants/constants'
 import { ICategory } from '../utils/type'
 import { Button, Heading, HStack, Divider } from '@chakra-ui/react'
 
@@ -12,6 +11,8 @@ type Props = {
 type Current = {
   isCurrent: boolean
 }
+
+const ACTIVE = 'active'
 
 export default function CategoryFilter({ categoryList }: Props): JSX.Element {
   const ALL_CATEGORY_NAME = 'All'
