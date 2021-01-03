@@ -1,4 +1,5 @@
 {
+  "include": ["./src/**/*"],
   "compilerOptions": {
     "module": "commonjs",
     "target": "esnext",
@@ -8,11 +9,14 @@
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "skipLibCheck": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
     "preserveConstEnums": true
-  },
-  "include": ["./src/**/*"]
+  }
 }

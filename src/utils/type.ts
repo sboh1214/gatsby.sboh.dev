@@ -3,7 +3,6 @@ export interface ISite {
     siteMetadata: ISiteMetadata
   }
 }
-
 export interface ISiteMetadata {
   title: string
   description: string
@@ -17,6 +16,28 @@ export interface ISiteMetadata {
   menuLinks: {
     name: string
     link: string
+  }
+}
+
+export interface IData {
+  postsRemark: {
+    edges: [
+      {
+        node: {
+          fields: {
+            blogPath: string
+            category: string
+          }
+          frontmatter: {
+            title: string
+            date: string
+          }
+        }
+      }
+    ]
+  }
+  categoriesGroup: {
+    group: [ICategory]
   }
 }
 
