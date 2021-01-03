@@ -1,15 +1,25 @@
 const path = require(`path`)
-const _ = require('lodash')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `posts` })
+    const relativeFilePath = createFilePath({
+      node,
+      getNode,
+      basePath: 'contents',
+      trailingSlash: false,
+    })
+
     createNodeField({
       node,
-      name: `slug`,
-      value: slug,
+      name: 'blogPath',
+      value: `/blog${relativeFilePath}`,
+    })
+    createNodeField({
+      node,
+      name: 'category',
+      value: `${relativeFilePath.split('/')[1]}`,
     })
   }
 }
@@ -22,21 +32,22 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      postsRemark: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/posts/" } }
-        sort: { fields: frontmatter___date, order: DESC }
-        limit: 2000
-      ) {
+      postsRemark: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }, limit: 2000) {
         edges {
           node {
             fields {
-              slug
+              blogPath
+              category
+            }
+            frontmatter {
+              title
+              date
             }
           }
         }
       }
       categoriesGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___category) {
+        group(field: fields___category) {
           fieldValue
           totalCount
         }
@@ -48,11 +59,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
+      path: node.fields.blogPath,
       component: blogPostTemplate,
-      context: {
-        slug: node.fields.slug,
-      },
+      context: { blogPath: node.fields.blogPath },
     })
   })
 
@@ -60,7 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   categories.forEach((category) => {
     createPage({
-      path: `blog/category/${_.kebabCase(category.fieldValue)}/`,
+      path: `blog/category/${category.fieldValue}`,
       component: blogListTemplate,
       context: {
         category: category.fieldValue,

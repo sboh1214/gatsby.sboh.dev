@@ -15,7 +15,6 @@ const useSiteMetadata = () => {
             utterances {
               repo
             }
-            postTitle
           }
         }
       }

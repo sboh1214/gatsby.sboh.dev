@@ -18,33 +18,23 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
   const postData = data.allMarkdownRemark.edges
 
   useLayoutEffect(() => {
-    const filteredPostData = currentCategory ? postData.filter(({ node }: any) => node.frontmatter.category === currentCategory) : postData
+    const filteredPostData = currentCategory ? postData.filter(({ node }: any) => node.fields.category === currentCategory) : postData
 
     filteredPostData.forEach(({ node }: any) => {
       const {
         id,
-        fields: { slug },
-        frontmatter: {
-          title,
-          desc,
-          date,
-          category,
-          thumbnail: { childImageSharp },
-          alt,
-        },
+        fields: { blogPath, category },
+        frontmatter: { title, date },
       } = node
 
       setPosts((prevPost: IPost[]): IPost[] => [
         ...prevPost,
         {
           id,
-          slug,
+          blogPath,
           title,
-          desc,
           date,
           category,
-          thumbnail: childImageSharp.id,
-          alt,
         },
       ])
     })
@@ -64,12 +54,8 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(posts/blog)/" } }
-      limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      group(field: frontmatter___category) {
+    allMarkdownRemark(limit: 2000, sort: { fields: [frontmatter___date], order: DESC }) {
+      group(field: fields___category) {
         fieldValue
         totalCount
       }
@@ -77,21 +63,13 @@ export const query = graphql`
       edges {
         node {
           id
+          fields {
+            blogPath
+            category
+          }
           frontmatter {
             title
-            category
             date(formatString: "YYYY-MM-DD")
-            desc
-            thumbnail {
-              childImageSharp {
-                id
-              }
-              base
-            }
-            alt
-          }
-          fields {
-            slug
           }
         }
       }

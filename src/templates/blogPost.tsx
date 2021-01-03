@@ -11,25 +11,22 @@ type Props = {
 export default function BlogPost({ data }: Props): JSX.Element {
   const {
     markdownRemark: {
-      frontmatter: { title, desc, thumbnail, date, category },
+      fields: { category },
+      frontmatter: { title },
       html,
     },
   } = data
 
-  const ogImagePath = thumbnail && thumbnail.childImageSharp.fixed.src
-
   return (
-    <Layout title={title} description={desc} image={ogImagePath}>
+    <Layout title={title}>
       <main>
         <article>
           <div>
             <header>
               <div>
                 <Text>{category}</Text>
-                <Text>{date}</Text>
               </div>
               <Heading>{title}</Heading>
-              <Text>{desc}</Text>
             </header>
             <Divider />
             <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -42,21 +39,16 @@ export default function BlogPost({ data }: Props): JSX.Element {
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query BlogPostByPath($blogPath: String!) {
+    markdownRemark(fields: { blogPath: { eq: $blogPath } }) {
       html
+      fields {
+        blogPath
+        category
+      }
       frontmatter {
         title
-        desc
-        thumbnail {
-          childImageSharp {
-            fixed {
-              src
-            }
-          }
-        }
         date(formatString: "YYYY-MM-DD")
-        category
       }
     }
   }

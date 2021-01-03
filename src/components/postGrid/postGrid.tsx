@@ -21,11 +21,11 @@ export default function PostGrid({ posts }: Props): JSX.Element {
   return (
     <SimpleGrid minChildWidth="360px" spacing="24px" role="list">
       {currentList.map((data: IPost) => {
-        const { id, slug, title, desc, date, category, thumbnail, alt } = data
+        const { id, blogPath, title, date, category } = data
         const ariaLabel = `${title} - ${category} - Posted on ${date}`
         return (
-          <Link to={slug} aria-label={ariaLabel} key={id}>
-            <Card thumbnail={thumbnail} alt={alt} category={category} title={title} desc={desc} date={date} />
+          <Link to={blogPath} aria-label={ariaLabel} key={id}>
+            <Card category={category.fieldValue} title={title} date={date} />
           </Link>
         )
       })}

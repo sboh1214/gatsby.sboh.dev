@@ -22,21 +22,15 @@ export interface ISiteMetadata {
 
 export interface IPost {
   id: any
-  slug: any
-  title: any
-  desc: any
+  blogPath: string
+  title: string
   date: any
   category: ICategory
-  thumbnail: any
-  alt: any
 }
 
 export interface ICard {
-  thumbnail: any
-  alt: any
-  category: any
-  title: any
-  desc: any
+  category: string
+  title: string
   date: any
 }
 

@@ -18,63 +18,32 @@ module.exports = {
     utterances: {
       repo: meta.utterances,
     },
-    postTitle: 'All',
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `src`,
-        path: `${__dirname}/src`,
+        name: 'contents',
+        path: `${__dirname}/contents`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+      resolve: 'gatsby-transformer-remark',
     },
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-copy-linked-files`,
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              theme: {
-                default: 'Github Light Theme',
-                parentSelector: {
-                  'body[data-theme=dark]': 'Dark Github',
-                },
-              },
-              extensions: ['vscode-theme-github-light', 'dark-theme-github'],
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: meta.title,
         short_name: meta.title,
         description: meta.description,
         lang: meta.lang,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#ffffff`,
-        display: `standalone`,
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+        display: 'standalone',
         icon: meta.icon,
         icon_options: {
-          purpose: `any maskable`,
+          purpose: 'any maskable',
         },
       },
     },
@@ -86,11 +55,9 @@ module.exports = {
         policy: [{ userAgent: '*', disallow: '' }],
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-feed`,
+    'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-feed',
   ],
 }
