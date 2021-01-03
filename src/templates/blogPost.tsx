@@ -39,11 +39,11 @@ export default function BlogPost({ data }: Props): JSX.Element {
 }
 
 export const query = graphql`
-  query BlogPostByPath($blogPath: String!) {
-    markdownRemark(fields: { blogPath: { eq: $blogPath } }) {
+  query BlogPostByPath($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       fields {
-        blogPath
+        slug
         category
       }
       frontmatter {

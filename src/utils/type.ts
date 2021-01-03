@@ -25,7 +25,7 @@ export interface IData {
       {
         node: {
           fields: {
-            blogPath: string
+            slug: string
             category: string
           }
           frontmatter: {
@@ -43,7 +43,7 @@ export interface IData {
 
 export interface IPost {
   id: any
-  blogPath: string
+  slug: string
   title: string
   date: any
   category: ICategory

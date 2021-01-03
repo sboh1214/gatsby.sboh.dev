@@ -23,7 +23,7 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
     filteredPostData.forEach(({ node }: any) => {
       const {
         id,
-        fields: { blogPath, category },
+        fields: { slug, category },
         frontmatter: { title, date },
       } = node
 
@@ -31,7 +31,7 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
         ...prevPost,
         {
           id,
-          blogPath,
+          slug,
           title,
           date,
           category,
@@ -64,7 +64,7 @@ export const query = graphql`
         node {
           id
           fields {
-            blogPath
+            slug
             category
           }
           frontmatter {

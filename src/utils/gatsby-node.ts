@@ -15,7 +15,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, action
 
     createNodeField({
       node,
-      name: 'blogPath',
+      name: 'slug',
       value: `/blog${relativeFilePath}`,
     })
     createNodeField({
@@ -38,7 +38,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         edges {
           node {
             fields {
-              blogPath
+              slug
               category
             }
             frontmatter {
@@ -61,9 +61,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 
   posts?.forEach(({ node }) => {
     createPage({
-      path: node.fields.blogPath,
+      path: node.fields.slug,
       component: blogPostTemplate,
-      context: { blogPath: node.fields.blogPath },
+      context: { slug: node.fields.slug },
     })
   })
 
