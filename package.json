@@ -32,7 +32,6 @@
     "dark-theme-github": "github:remorses/dark-github-theme",
     "framer-motion": "^3.1.1",
     "gatsby": "^2.29.3",
-    "gatsby-alias-imports": "^1.0.6",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-feed": "^2.10.0",
     "gatsby-plugin-manifest": "^2.9.1",

@@ -1,7 +1,7 @@
 const meta = {
-  title: '오승빈의 개발 블로그',
-  description: '오승빈의 개발 블로그',
-  author: '오승빈',
+  title: '오승빈(Seungbin Oh)',
+  description: '오승빈(Seungbin Oh)의 개인 사이트',
+  author: '오승빈(Seungbin Oh)',
   siteUrl: 'https://sboh.dev',
   lang: 'ko',
   utterances: 'sboh1214/sboh.dev',
@@ -88,7 +88,6 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-alias-imports`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,

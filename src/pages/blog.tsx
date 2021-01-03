@@ -1,7 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 import PostGrid from '../components/postGrid/postGrid'
 import CategoryFilter from '../components/categoryFilter'
 import useSiteMetadata from '../utils/useSiteMetadata'
@@ -55,8 +54,7 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
   const postTitle = currentCategory || site.siteMetadata.postTitle
 
   return (
-    <Layout>
-      <SEO title="Home" />
+    <Layout title="Blog">
       <CategoryFilter categoryList={data.allMarkdownRemark.group} />
       <Heading>{postTitle}</Heading>
       <PostGrid posts={posts} />

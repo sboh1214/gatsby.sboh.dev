@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 import Comment from '../components/comment'
 import { Divider, Heading, Text } from '@chakra-ui/react'
 
@@ -20,8 +19,7 @@ export default function BlogPost({ data }: Props): JSX.Element {
   const ogImagePath = thumbnail && thumbnail.childImageSharp.fixed.src
 
   return (
-    <Layout>
-      <SEO title={title} description={desc} image={ogImagePath} />
+    <Layout title={title} description={desc} image={ogImagePath}>
       <main>
         <article>
           <div>

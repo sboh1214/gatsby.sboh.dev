@@ -3,5 +3,5 @@ import { render } from '@testing-library/react'
 import Layout from '../layout'
 
 test('render', async () => {
-  render(<Layout>Hello</Layout>)
+  render(<Layout title="Hello">Hello</Layout>)
 })

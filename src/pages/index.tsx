@@ -1,12 +1,10 @@
 import { Heading, Text, Divider, VStack } from '@chakra-ui/react'
 import React from 'react'
-import SEO from '../components/seo'
 import Layout from '../components/layout'
 
 export default function Index(): JSX.Element {
   return (
-    <Layout>
-      <SEO title="Home" />
+    <Layout title="Home">
       <VStack>
         <Heading>Hello</Heading>
         <Divider />

@@ -3,14 +3,19 @@ import React from 'react'
 import Links from './navBar/links'
 import NavBar from './navBar/navBar'
 import ThemeToggleButton from './navBar/themeToggleButton'
+import SEO from './seo'
 
 type Props = {
+  title: string
+  description?: string
+  image?: string
   children: React.ReactNode
 }
 
-export default function Layout({ children }: Props) {
+export default function Layout({ title, description, image, children }: Props) {
   return (
     <ChakraProvider>
+      <SEO title={title} description={description} image={image} />
       <NavBar>
         <Links />
       </NavBar>
