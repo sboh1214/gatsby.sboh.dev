@@ -6,6 +6,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Install
+
+node@12 (because of Netlify Deploy)
+
 ## Credits
 
 Copyright © 오승빈. Built with [gatsby-starter-apple](https://github.com/sungik-choi/gatsby-starter-apple)
