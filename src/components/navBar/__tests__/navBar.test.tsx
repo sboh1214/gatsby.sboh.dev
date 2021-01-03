@@ -4,7 +4,7 @@ import NavBar from '../navBar'
 
 test('render', async () => {
   render(
-    <NavBar title={<div />}>
+    <NavBar>
       <div />
     </NavBar>
   )

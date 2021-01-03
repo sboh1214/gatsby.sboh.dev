@@ -2,21 +2,22 @@ import React from 'react'
 import { Link } from 'gatsby'
 import kebabCase from 'lodash/kebabCase'
 import { ICategory } from '../utils/type'
-import { Button, Heading, HStack, Divider } from '@chakra-ui/react'
+import { Button, Heading, Divider, Wrap } from '@chakra-ui/react'
 
 type Props = {
   categoryList: [ICategory]
 }
 
 export default function CategoryFilter({ categoryList }: Props): JSX.Element {
-  const ALL_CATEGORY_NAME = 'All'
-
   return (
-    <HStack>
-      <Heading size="sm">Category</Heading>
+    <Wrap>
+      <Heading alignSelf="center" size="sm">
+        Category
+      </Heading>
+      <Divider orientation="vertical" />
       <Link to="/blog">
-        <Button colorScheme="teal" variant="solid">
-          {ALL_CATEGORY_NAME}
+        <Button colorScheme="teal" variant="solid" margin="6px">
+          All
         </Button>
       </Link>
       <Divider orientation="vertical" />
@@ -26,12 +27,12 @@ export default function CategoryFilter({ categoryList }: Props): JSX.Element {
           const { fieldValue } = category
           return (
             <Link key={fieldValue} to={`/blog/category/${kebabCase(fieldValue)}/`}>
-              <Button colorScheme="teal" variant="solid">
+              <Button colorScheme="teal" variant="solid" margin="6px">
                 {fieldValue}
               </Button>
             </Link>
           )
         })}
-    </HStack>
+    </Wrap>
   )
 }

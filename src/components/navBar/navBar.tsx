@@ -1,13 +1,30 @@
 import * as React from 'react'
-import { Box, Heading, HStack, useColorMode } from '@chakra-ui/react'
+import {
+  Box,
+  Heading,
+  HStack,
+  useColorMode,
+  useMediaQuery,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerBody,
+  IconButton,
+  CloseButton,
+} from '@chakra-ui/react'
+import {} from '@chakra-ui/react'
+import { Link } from 'gatsby'
+import { HamburgerIcon } from '@chakra-ui/icons'
 
 type Props = {
-  title: JSX.Element
   children: JSX.Element
 }
 
-export default function NavBar({ title, children }: Props): JSX.Element {
+export default function NavBar({ children }: Props): JSX.Element {
   const { colorMode } = useColorMode()
+  const [isLarge] = useMediaQuery('(min-width: 540px)')
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Box
@@ -16,19 +33,34 @@ export default function NavBar({ title, children }: Props): JSX.Element {
       borderBottomWidth="1px"
       style={{ backdropFilter: 'blur(10px)' }}
       w="100%"
-      minW="540px"
       h="54px"
       top="0"
       left="0"
       position="sticky"
       zIndex={10}
-      aria-label="Global Navigation"
     >
-      <HStack padding="6px">
-        <Heading as="h1" size="md">
-          {title}
+      <HStack padding="6px" h="100%" maxWidth="1280px" width="100%" marginStart="auto" marginEnd="auto" alignContent="space-between">
+        <Heading as="h1" size="md" marginX="6px" flex={1}>
+          <Link to="/">오승빈</Link>
         </Heading>
-        {children}
+        {isLarge ? (
+          <>{children}</>
+        ) : (
+          <>
+            {isOpen ? (
+              <CloseButton onClick={onClose} />
+            ) : (
+              <IconButton variant="ghost" aria-label="hamburger" icon={<HamburgerIcon />} onClick={onOpen} />
+            )}
+            <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
+              <DrawerOverlay zIndex={5}>
+                <DrawerContent>
+                  <DrawerBody marginTop="54px">{children}</DrawerBody>
+                </DrawerContent>
+              </DrawerOverlay>
+            </Drawer>
+          </>
+        )}
       </HStack>
     </Box>
   )

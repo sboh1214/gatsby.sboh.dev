@@ -9,6 +9,7 @@ export default function ThemeToggleButton(): JSX.Element {
   return (
     <Button
       leftIcon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+      style={{ backdropFilter: 'blur(10px)' }}
       variant="solid"
       zIndex={100}
       bottom={0}

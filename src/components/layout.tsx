@@ -1,5 +1,4 @@
 import { ChakraProvider, Container, HStack, Text } from '@chakra-ui/react'
-import { Link } from 'gatsby'
 import React from 'react'
 import Links from './navBar/links'
 import NavBar from './navBar/navBar'
@@ -12,10 +11,10 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <ChakraProvider>
-      <NavBar title={<Link to="/">오승빈의 개발 블로그</Link>}>
+      <NavBar>
         <Links />
       </NavBar>
-      <Container maxW="1024px">{children}</Container>
+      <Container maxW="1280px">{children}</Container>
       <Container centerContent>
         <HStack aria-label="Copyright">
           <Text fontSize="md">
