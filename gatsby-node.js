@@ -1,4 +1,4 @@
-const { onCreateNode, createPages } = require('./src/utils/gatsby-node.ts')
+const { onCreateNode, createPages } = require('./src/utils/gatsby-node')
 
 /** @type { import("gatsby").GatsbyNode } */
 const config = {}
