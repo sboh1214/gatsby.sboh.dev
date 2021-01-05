@@ -66,6 +66,12 @@ export const plugins = [
       policy: [{ userAgent: '*', disallow: '' }],
     },
   },
+  {
+    resolve: 'gatsby-plugin-canonical-urls',
+    options: {
+      siteUrl: 'https://sboh.dev',
+    },
+  },
   'gatsby-plugin-offline',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sitemap',
