@@ -12,7 +12,7 @@ interface Props {
   data: any
 }
 
-export default function Home({ pageContext, data }: Props): React.ReactNode {
+export default function Home({ pageContext, data }: Props): JSX.Element {
   const [posts, setPosts] = useState<IPost[]>([])
   const currentCategory = pageContext.category
   const postData = data.allMarkdownRemark.edges
@@ -23,6 +23,7 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
     filteredPostData.forEach(({ node }: any) => {
       const {
         id,
+        excerpt,
         fields: { slug, category },
         frontmatter: { title, date },
       } = node
@@ -31,6 +32,7 @@ export default function Home({ pageContext, data }: Props): React.ReactNode {
         ...prevPost,
         {
           id,
+          excerpt,
           slug,
           title,
           date,
@@ -63,6 +65,7 @@ export const query = graphql`
       edges {
         node {
           id
+          excerpt(format: PLAIN)
           fields {
             slug
             category

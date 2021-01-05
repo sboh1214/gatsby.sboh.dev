@@ -43,6 +43,7 @@ export interface IData {
 
 export interface IPost {
   id: any
+  excerpt: string
   slug: string
   title: string
   date: any
@@ -53,6 +54,7 @@ export interface ICard {
   category: string
   title: string
   date: any
+  excerpt: string
 }
 
 export interface ICategory {

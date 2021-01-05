@@ -115,3 +115,4 @@ public abstract class ViewDataBinding extends BaseObservable implements ViewBind
 이것이 도움이 되었는지, 또는 질문이 있거나, 어떤 실수나 개선 사항이 있는지 저에게 알려주십시요.
 
 [ViewBindingPropertyDelegate](https://github.com/kirich1409/ViewBindingPropertyDelegate)
+

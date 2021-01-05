@@ -40,7 +40,7 @@ export default function NavBar({ children }: Props): JSX.Element {
       zIndex={10}
     >
       <HStack padding="6px" h="100%" maxWidth="1280px" width="100%" marginStart="auto" marginEnd="auto" alignContent="space-between">
-        <Heading as="h1" size="md" marginX="6px" flex={1}>
+        <Heading size="md" marginX="6px" flex={1}>
           <Link to="/">오승빈</Link>
         </Heading>
         {isLarge ? (
