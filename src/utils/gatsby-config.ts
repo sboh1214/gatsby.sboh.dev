@@ -72,6 +72,12 @@ export const plugins = [
       siteUrl: 'https://sboh.dev',
     },
   },
+  {
+    resolve: 'gatsby-plugin-google-tagmanager',
+    options: {
+      id: 'GTM-KGLH85S',
+    },
+  },
   'gatsby-plugin-offline',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sitemap',
