@@ -23,7 +23,7 @@ type Props = {
 
 export default function NavBar({ children }: Props): JSX.Element {
   const { colorMode } = useColorMode()
-  const [isLarge] = useMediaQuery('(min-width: 540px)')
+  const [isLarge] = useMediaQuery('(min-width: 560px)')
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
@@ -41,7 +41,7 @@ export default function NavBar({ children }: Props): JSX.Element {
     >
       <HStack padding="6px" h="100%" maxWidth="1280px" width="100%" marginStart="auto" marginEnd="auto" alignContent="space-between">
         <Heading size="md" marginX="6px" flex={1}>
-          <Link to="/">오승빈</Link>
+          <Link to="/">오승빈 | Seungbin Oh</Link>
         </Heading>
         {isLarge ? (
           <>{children}</>

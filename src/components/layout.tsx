@@ -1,4 +1,4 @@
-import { ChakraProvider, Container, HStack, Text } from '@chakra-ui/react'
+import { ChakraProvider, Container, Heading, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
 import Links from './navBar/links'
 import NavBar from './navBar/navBar'
@@ -19,7 +19,10 @@ export default function Layout({ title, description, image, children }: Props) {
       <NavBar>
         <Links />
       </NavBar>
-      <Container maxW="1280px">{children}</Container>
+      <Container maxW="1280px">
+        <Heading>{title}</Heading>
+        {children}
+      </Container>
       <Container centerContent>
         <HStack aria-label="Copyright">
           <Text fontSize="md">
