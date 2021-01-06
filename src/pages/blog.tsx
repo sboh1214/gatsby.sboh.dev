@@ -7,7 +7,7 @@ import useSiteMetadata from '../utils/useSiteMetadata'
 import { IPost } from '../utils/type'
 import { Heading } from '@chakra-ui/react'
 
-interface Props {
+type Props = {
   pageContext: any
   data: any
 }
