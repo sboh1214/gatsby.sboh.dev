@@ -39,7 +39,7 @@ export default function NavBar({ children }: Props): JSX.Element {
       position="sticky"
       zIndex={10}
     >
-      <HStack padding="6px" h="100%" maxWidth="1280px" width="100%" marginStart="auto" marginEnd="auto" alignContent="space-between">
+      <HStack padding="6px" h="100%" maxWidth="1024px" width="100%" marginStart="auto" marginEnd="auto" alignContent="space-between">
         <Heading size="md" marginX="6px" flex={1}>
           <Link to="/">오승빈 | Seungbin Oh</Link>
         </Heading>

@@ -33,9 +33,15 @@ export const plugins = [
     options: {
       plugins: [
         {
-          resolve: `gatsby-remark-images`,
+          resolve: 'gatsby-remark-images',
           options: {
             maxWidth: 800,
+          },
+        },
+        {
+          resolve: 'gatsby-remark-prismjs',
+          options: {
+            showLineNumbers: true,
           },
         },
       ],

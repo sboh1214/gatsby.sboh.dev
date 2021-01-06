@@ -8,15 +8,15 @@ export default function Links() {
       <Link to="/about">
         <Button variant="ghost">About</Button>
       </Link>
-      <a href="/apps">
+      <Link to="/apps">
         <Button variant="ghost">Apps</Button>
-      </a>
+      </Link>
       <Link to="/blog">
         <Button variant="ghost">Blog</Button>
       </Link>
-      <a href="/libs">
+      <Link to="/libs">
         <Button variant="ghost">Libraries</Button>
-      </a>
+      </Link>
     </>
   )
 }
