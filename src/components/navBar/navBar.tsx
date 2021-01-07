@@ -16,6 +16,7 @@ import {
 import {} from '@chakra-ui/react'
 import { Link } from 'gatsby'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import { Acrylic } from '../../utils/style'
 
 type Props = {
   children: JSX.Element
@@ -31,7 +32,7 @@ export default function NavBar({ children }: Props): JSX.Element {
       bg={colorMode === 'light' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(29, 29, 29, 0.7)'}
       borderBottomColor={colorMode === 'light' ? 'rgba(200, 200, 200, 0.7)' : 'rgba(255, 255, 255, 0.2)'}
       borderBottomWidth="1px"
-      style={{ backdropFilter: 'blur(10px)' }}
+      style={Acrylic}
       w="100%"
       h="54px"
       top="0"

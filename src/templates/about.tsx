@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
-import Markdown from '../utils/markdown'
+import Markdown from '../components/markdown'
 
 type Props = {
   pageContext: any

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Button, useColorMode } from '@chakra-ui/react'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
+import { Acrylic } from '../../utils/style'
 
 export default function ThemeToggleButton(): JSX.Element {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -9,8 +10,9 @@ export default function ThemeToggleButton(): JSX.Element {
   return (
     <Button
       leftIcon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-      style={{ backdropFilter: 'blur(10px)' }}
+      style={Acrylic}
       variant="solid"
+      borderRadius="full"
       zIndex={100}
       bottom={0}
       right={0}

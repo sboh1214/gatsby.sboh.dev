@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import Comment from '../components/comment'
 import { Divider, Heading, Text } from '@chakra-ui/react'
 import '../utils/theme.css'
-import Markdown from '../utils/markdown'
+import Markdown from '../components/markdown'
 
 type Props = {
   data: any

@@ -3,7 +3,7 @@ title: '새로운 Activity Result API'
 date: '2021-01-06'
 ---
 
->  출처 [https://developer.android.com/training/basics/intents/result?hl=ko](https://developer.android.com/training/basics/intents/result?hl=ko)
+> 출처 [https://developer.android.com/training/basics/intents/result?hl=ko](https://developer.android.com/training/basics/intents/result?hl=ko)
 
 # 기존 API
 
@@ -11,7 +11,7 @@ date: '2021-01-06'
 
 기본 startActivityForResult() 및 onActivityResult() API는 모든 API 수준의 Activity 클래스에서 사용할 수 있습니다.
 
-일반적으로 어떤 Activity 클래스에서 다른 Activity 실행 결과를 가져오는 코드는 다음과 같습니다. 
+일반적으로 어떤 Activity 클래스에서 다른 Activity 실행 결과를 가져오는 코드는 다음과 같습니다.
 
 ```kt
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
@@ -52,7 +52,7 @@ Activity Result API는 AndroidX Activity 1.2.0-alpha02와 Fragment 1.3.0-alpha02
         // Kotlin
         implementation "androidx.activity:activity-ktx:$activity_version"
     }
-    
+
 ```
 
 기존 API에서의 onActivityResult 메서드를 아래 코드로 변경합니다.

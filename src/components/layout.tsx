@@ -23,7 +23,11 @@ export default function Layout({ title, description, image, children }: Props) {
       <Container centerContent>
         <HStack aria-label="Copyright">
           <Text fontSize="md">
-            {`Copyright © Seungbin Oh. Built with `}
+            {'Copyright © '}
+            <a href="mailto:sboh1214@gmail.com" target="_top">
+              Seungbin Oh
+            </a>
+            {'. Built with '}
             <a href="https://github.com/sungik-choi/gatsby-starter-apple" target="__blank">
               'gatsby-starter-apple'
             </a>
