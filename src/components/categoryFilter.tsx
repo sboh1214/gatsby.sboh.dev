@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import kebabCase from 'lodash/kebabCase'
 import { ICategory } from '../utils/type'
-import { Button, Heading, Divider, Wrap } from '@chakra-ui/react'
+import { Heading, Divider, Wrap, Tag, TagLabel } from '@chakra-ui/react'
 
 type Props = {
   categoryList: [ICategory]
@@ -10,15 +9,15 @@ type Props = {
 
 export default function CategoryFilter({ categoryList }: Props): JSX.Element {
   return (
-    <Wrap>
+    <Wrap margin="6px">
       <Heading alignSelf="center" size="sm">
         Category
       </Heading>
       <Divider orientation="vertical" />
       <Link to="/blog">
-        <Button colorScheme="teal" variant="solid" margin="6px">
-          All
-        </Button>
+        <Tag size="lg" borderRadius="full" variant="outline" colorScheme="green">
+          <TagLabel>All</TagLabel>
+        </Tag>
       </Link>
       <Divider orientation="vertical" />
       {categoryList
@@ -26,10 +25,10 @@ export default function CategoryFilter({ categoryList }: Props): JSX.Element {
         .map((category: ICategory) => {
           const { fieldValue } = category
           return (
-            <Link key={fieldValue} to={`/blog/category/${kebabCase(fieldValue)}/`}>
-              <Button colorScheme="teal" variant="solid" margin="6px">
-                {fieldValue}
-              </Button>
+            <Link key={fieldValue} to={`/blog/category/${fieldValue}/`}>
+              <Tag size="lg" borderRadius="full" variant="outline" colorScheme="green">
+                <TagLabel>{fieldValue}</TagLabel>
+              </Tag>
             </Link>
           )
         })}
