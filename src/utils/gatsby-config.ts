@@ -89,4 +89,5 @@ export const plugins = [
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sitemap',
   'gatsby-plugin-feed',
+  'gatsby-plugin-remove-trailing-slashes',
 ]
