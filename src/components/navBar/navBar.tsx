@@ -17,6 +17,7 @@ import {} from '@chakra-ui/react'
 import { Link } from 'gatsby'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { Acrylic } from '../../utils/style'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   children: JSX.Element
@@ -24,6 +25,7 @@ type Props = {
 
 export default function NavBar({ children }: Props): JSX.Element {
   const { colorMode } = useColorMode()
+  const { t } = useTranslation()
   const [isLarge] = useMediaQuery('(min-width: 560px)')
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -42,7 +44,7 @@ export default function NavBar({ children }: Props): JSX.Element {
     >
       <HStack padding="6px" h="100%" maxWidth="1024px" width="100%" marginStart="auto" marginEnd="auto" alignContent="space-between">
         <Heading size="md" marginX="6px" flex={1}>
-          <Link to="/">오승빈 | Seungbin Oh</Link>
+          <Link to="/">{t('nav.home')}</Link>
         </Heading>
         {isLarge ? (
           <>{children}</>
