@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import NavBar from '../navBar'
+import NavBar from '../NavBar'
 
 test('render', async () => {
   render(
