@@ -1,4 +1,4 @@
-import { Container, HStack, Text } from '@chakra-ui/react'
+import { Container, HStack, Text, useMediaQuery } from '@chakra-ui/react'
 import i18next from '../i18n/config'
 import React from 'react'
 import { I18nextProvider } from 'react-i18next'
@@ -15,6 +15,8 @@ type Props = {
 }
 
 export default function Layout({ title, description, image, children }: Props) {
+  const [isLarge] = useMediaQuery('(min-width: 560px)')
+
   return (
     <I18nextProvider i18n={i18next}>
       <SEO title={title} description={description} image={image} />
@@ -36,7 +38,7 @@ export default function Layout({ title, description, image, children }: Props) {
           </Text>
         </HStack>
       </Container>
-      <ThemeToggleButton />
+      {isLarge && <ThemeToggleButton fixedPostion />}
     </I18nextProvider>
   )
 }
