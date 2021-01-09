@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import {
   Box,
   Heading,
@@ -13,11 +13,11 @@ import {
   IconButton,
   CloseButton,
 } from '@chakra-ui/react'
-import {} from '@chakra-ui/react'
 import { Link } from 'gatsby'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { Acrylic } from '../../utils/style'
 import { useTranslation } from 'react-i18next'
+import SelectTranslation from './selectTranslation'
 
 type Props = {
   children: JSX.Element
@@ -64,6 +64,7 @@ export default function NavBar({ children }: Props): JSX.Element {
             </Drawer>
           </>
         )}
+        <SelectTranslation />
       </HStack>
     </Box>
   )
