@@ -2,6 +2,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons'
 import { Button, IconButton, Menu, MenuButton, MenuItemOption, MenuList, MenuOptionGroup } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { LanguageNames } from '../../i18n/config'
 import { TranslateIcon } from '../icon'
 
 enum Language {
@@ -26,7 +27,7 @@ export default function SelectTranslation({ isLarge }: Props): JSX.Element {
     <Menu>
       {isLarge ? (
         <MenuButton as={Button} leftIcon={<TranslateIcon />} rightIcon={<ChevronDownIcon />}>
-          {language}
+          {LanguageNames[language]}
         </MenuButton>
       ) : (
         <MenuButton as={IconButton} icon={<TranslateIcon />} />
@@ -40,8 +41,8 @@ export default function SelectTranslation({ isLarge }: Props): JSX.Element {
           title="Languages"
           type="radio"
         >
-          <MenuItemOption value={Language.KO}>한국어</MenuItemOption>
-          <MenuItemOption value={Language.EN}>English</MenuItemOption>
+          <MenuItemOption value={Language.KO}>{LanguageNames[Language.KO]}</MenuItemOption>
+          <MenuItemOption value={Language.EN}>{LanguageNames[Language.EN]}</MenuItemOption>
         </MenuOptionGroup>
       </MenuList>
     </Menu>
