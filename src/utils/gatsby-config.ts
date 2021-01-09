@@ -84,7 +84,6 @@ export const plugins = [
       id: 'GTM-KGLH85S',
     },
   },
-  '@chakra-ui/gatsby-plugin',
   'gatsby-plugin-offline',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sitemap',
