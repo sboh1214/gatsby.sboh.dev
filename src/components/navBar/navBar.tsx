@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import {
   Box,
   Heading,
@@ -11,12 +11,13 @@ import {
   DrawerContent,
   DrawerBody,
   IconButton,
-  CloseButton,
 } from '@chakra-ui/react'
-import {} from '@chakra-ui/react'
 import { Link } from 'gatsby'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { Acrylic } from '../../utils/style'
+import { useTranslation } from 'react-i18next'
+import SelectTranslation from './selectTranslation'
+import ThemeToggleButton from './themeToggleButton'
 
 type Props = {
   children: JSX.Element
@@ -24,6 +25,7 @@ type Props = {
 
 export default function NavBar({ children }: Props): JSX.Element {
   const { colorMode } = useColorMode()
+  const { t } = useTranslation()
   const [isLarge] = useMediaQuery('(min-width: 560px)')
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -38,28 +40,49 @@ export default function NavBar({ children }: Props): JSX.Element {
       top="0"
       left="0"
       position="sticky"
-      zIndex={10}
+      zIndex={9999}
     >
-      <HStack padding="6px" h="100%" maxWidth="1024px" width="100%" marginStart="auto" marginEnd="auto" alignContent="space-between">
+      <HStack
+        padding="6px"
+        h="100%"
+        maxWidth="1024px"
+        width="100%"
+        zIndex={10}
+        marginStart="auto"
+        marginEnd="auto"
+        alignContent="space-between"
+      >
         <Heading size="md" marginX="6px" flex={1}>
-          <Link to="/">오승빈 | Seungbin Oh</Link>
+          <Link to="/">{t('nav.home')}</Link>
         </Heading>
+        {!isLarge && (
+          <>
+            <ThemeToggleButton />
+            <SelectTranslation />
+          </>
+        )}
         {isLarge ? (
           <>{children}</>
         ) : (
           <>
-            {isOpen ? (
-              <CloseButton onClick={onClose} />
-            ) : (
-              <IconButton variant="ghost" aria-label="hamburger" icon={<HamburgerIcon />} onClick={onOpen} />
-            )}
+            <IconButton
+              variant="ghost"
+              aria-label="hamburger"
+              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+              onClick={isOpen ? onClose : onOpen}
+            />
             <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
-              <DrawerOverlay zIndex={5}>
+              <DrawerOverlay>
                 <DrawerContent>
                   <DrawerBody marginTop="54px">{children}</DrawerBody>
                 </DrawerContent>
               </DrawerOverlay>
             </Drawer>
+          </>
+        )}
+        {isLarge && (
+          <>
+            <SelectTranslation />
           </>
         )}
       </HStack>
