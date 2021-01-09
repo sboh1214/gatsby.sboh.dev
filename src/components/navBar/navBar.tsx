@@ -15,8 +15,8 @@ import {
 import { Link } from 'gatsby'
 import { Acrylic } from '../../utils/style'
 import { useTranslation } from 'react-i18next'
-import SelectTranslation from './SelectTranslation'
-import ThemeToggleButton from './ThemeToggleButton'
+import SelectTranslation from './selectTranslation'
+import ThemeToggleButton from './themeToggleButton'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 
 type Props = {
