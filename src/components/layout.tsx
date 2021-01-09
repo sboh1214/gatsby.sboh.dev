@@ -1,4 +1,4 @@
-import { ChakraProvider, Container, HStack, Text } from '@chakra-ui/react'
+import { Container, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
 import Links from './navBar/links'
 import NavBar from './navBar/navBar'
@@ -14,7 +14,7 @@ type Props = {
 
 export default function Layout({ title, description, image, children }: Props) {
   return (
-    <ChakraProvider>
+    <>
       <SEO title={title} description={description} image={image} />
       <NavBar>
         <Links />
@@ -35,6 +35,6 @@ export default function Layout({ title, description, image, children }: Props) {
         </HStack>
       </Container>
       <ThemeToggleButton />
-    </ChakraProvider>
+    </>
   )
 }
