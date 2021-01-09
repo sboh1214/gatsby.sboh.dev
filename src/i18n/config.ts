@@ -25,3 +25,5 @@ i18next.init({
 i18next.languages = ['ko', 'en']
 
 export default i18next
+
+export const LanguageNames = { ko: '한국어', en: 'English' }

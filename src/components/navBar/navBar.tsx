@@ -13,11 +13,11 @@ import {
   IconButton,
 } from '@chakra-ui/react'
 import { Link } from 'gatsby'
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { Acrylic } from '../../utils/style'
 import { useTranslation } from 'react-i18next'
 import SelectTranslation from './selectTranslation'
 import ThemeToggleButton from './themeToggleButton'
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 
 type Props = {
   children: JSX.Element
@@ -57,8 +57,8 @@ export default function NavBar({ children }: Props): JSX.Element {
         </Heading>
         {!isLarge && (
           <>
-            <ThemeToggleButton />
-            <SelectTranslation />
+            <ThemeToggleButton isLarge={isLarge} />
+            <SelectTranslation isLarge={isLarge} />
           </>
         )}
         {isLarge ? (
@@ -82,7 +82,7 @@ export default function NavBar({ children }: Props): JSX.Element {
         )}
         {isLarge && (
           <>
-            <SelectTranslation />
+            <SelectTranslation isLarge={isLarge} />
           </>
         )}
       </HStack>

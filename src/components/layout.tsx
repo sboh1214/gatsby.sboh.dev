@@ -38,7 +38,7 @@ export default function Layout({ title, description, image, children }: Props) {
           </Text>
         </HStack>
       </Container>
-      {isLarge && <ThemeToggleButton fixedPostion />}
+      {isLarge && <ThemeToggleButton isLarge={isLarge} />}
     </I18nextProvider>
   )
 }
