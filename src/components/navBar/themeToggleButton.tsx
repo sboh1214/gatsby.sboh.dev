@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Button, IconButton, useColorMode } from '@chakra-ui/react'
-import { Acrylic } from '../../utils/style'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 type Props = {
@@ -14,18 +13,7 @@ export default function ThemeToggleButton({ isLarge }: Props): JSX.Element {
 
   if (isLarge) {
     return (
-      <Button
-        leftIcon={icon}
-        style={Acrylic}
-        variant="solid"
-        borderRadius="full"
-        zIndex={100}
-        bottom={isLarge ? 0 : undefined}
-        right={isLarge ? 0 : undefined}
-        position={isLarge ? 'fixed' : undefined}
-        margin={isLarge ? '12px' : undefined}
-        onClick={toggleColorMode}
-      >
+      <Button leftIcon={icon} variant="solid" onClick={toggleColorMode}>
         {text}
       </Button>
     )
