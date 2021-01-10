@@ -151,4 +151,5 @@ python@3.9 3.9.1_5 -> 3.9.1_6
 본 글에서는 Homebrew의 기본적인 명령어들을 통해 주로 개발에 사용되는 프로그램들을 관리하는 방법을 알아보았습니다. 
 
 Homebrew를 통해 macOS앱들의 설치, 업데이트, 제거를 관리하기 위해서는 Homebrew Cask를 이용하면 됩니다.
+[Homebrew Cask로 macOS의 앱 관리하기](https://sboh.dev/blog/macOS/brew-cask) 를 참조하세요.
 
