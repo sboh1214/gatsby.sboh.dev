@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Comment from '../components/comment'
-import { Divider, Heading, Tag } from '@chakra-ui/react'
+import { Divider, Tag } from '@chakra-ui/react'
 import './theme.css'
 import Markdown from './markdown'
 import { useTranslation } from 'react-i18next'
@@ -30,7 +30,6 @@ export default function BlogPost({ data }: Props): JSX.Element {
               <div>
                 <Tag>{t(`category.${category}`)}</Tag>
               </div>
-              <Heading>{title}</Heading>
             </header>
             <Divider />
             <Markdown dangerouslySetInnerHTML={{ __html: html }} />

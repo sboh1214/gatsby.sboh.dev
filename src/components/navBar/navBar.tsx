@@ -50,7 +50,7 @@ export default function NavBar(): JSX.Element {
         alignContent="space-between"
       >
         <Heading size="md" marginX="6px" flex={1}>
-          <Link to="/">{t('nav.home')}</Link>
+          <Link to="/">{t('nav.title')}</Link>
         </Heading>
         {!isLarge && (isMedium ? <ToolBar isLarge={true} /> : <ToolBar isLarge={false} />)}
         {isLarge ? (

@@ -5,14 +5,14 @@ date: '2021-01-10'
 
 # Homebrew Tap이란?
 
-```sh
+```bash
 ❯ brew search mongodb
 ==> Casks
 gcollazo-mongodb                   mongodb-compass-beta               mongodb-compass-readonly           mongodbpreferencepane
 mongodb-compass                    mongodb-compass-isolated-edition   mongodb-realm-studio               nosqlbooster-for-mongodb
 ```
 
-```sh
+```bash
 ❯ brew tap mongodb/brew
 Updating Homebrew...
 ==> Auto-updated Homebrew!
@@ -30,7 +30,7 @@ Resolving deltas: 100% (238/238), done.
 Tapped 11 formulae (40 files, 181.9KB).
 ```
 
-```sh
+```bash
 ❯ brew search mongodb
 ==> Formulae
 mongodb/brew/libmongocrypt                     mongodb/brew/mongodb-community@3.2             mongodb/brew/mongodb-community@4.2
@@ -42,7 +42,7 @@ gcollazo-mongodb                   mongodb-compass-beta               mongodb-co
 mongodb-compass                    mongodb-compass-isolated-edition   mongodb-realm-studio               nosqlbooster-for-mongodb
 ```
 
-```sh
+```bash
 ❯ brew install mongodb-community
 ==> Installing mongodb-community from mongodb/brew
 ...
@@ -54,7 +54,7 @@ Or, if you don't want/need a background service you can just run:
   mongod --config /usr/local/etc/mongod.conf
 ```
 
-```sh
+```bash
 ❯ brew services start mongodb-community
 Service `mongodb-community` already started, use `brew services restart mongodb-community` to restart.
 ```
