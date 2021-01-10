@@ -5,5 +5,16 @@
     "apps": "Apps",
     "libs": "Libraries",
     "blog": "Blog"
+  },
+  "toolBar": {
+    "languages": "Languages",
+    "light": "Light Theme",
+    "dark": "Dark Theme"
+  },
+  "category": {
+    "name": "Category",
+    "all": "All",
+    "android": "Android",
+    "js-ts": "JavaScript & TypeScript"
   }
 }

@@ -2,10 +2,6 @@ import { GatsbyNode } from 'gatsby'
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
 import { IData } from './type'
-import axios from 'axios'
-import markdown from 'remark-parse'
-import html from 'remark-html'
-import unified from 'unified'
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -35,7 +31,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 
   const blogListTemplate = path.resolve(`src/pages/blog.tsx`)
   const blogPostTemplate = path.resolve(`src/templates/blogPost.tsx`)
-  const aboutTemplate = path.resolve('src/templates/about.tsx')
 
   const result = await graphql<IData>(`
     {
@@ -83,20 +78,4 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       },
     })
   })
-
-  const res = await axios.get('https://raw.githubusercontent.com/sboh1214/sboh1214/master/README.md')
-  unified()
-    .use(markdown)
-    .use(html)
-    .process(res.data, (err, file) => {
-      if (err) {
-        console.log(err)
-      }
-
-      createPage({
-        path: '/about',
-        component: aboutTemplate,
-        context: { html: file.contents },
-      })
-    })
 }

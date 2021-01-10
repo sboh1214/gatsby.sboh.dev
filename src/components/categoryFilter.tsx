@@ -2,21 +2,24 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { ICategory } from '../utils/type'
 import { Heading, Divider, Wrap, Tag, TagLabel } from '@chakra-ui/react'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   categoryList: [ICategory]
 }
 
 export default function CategoryFilter({ categoryList }: Props): JSX.Element {
+  const { t } = useTranslation()
+
   return (
     <Wrap margin="6px">
       <Heading alignSelf="center" size="sm">
-        Category
+        {t('category.name')}
       </Heading>
       <Divider orientation="vertical" />
       <Link to="/blog">
         <Tag size="lg" borderRadius="full" variant="outline" colorScheme="green">
-          <TagLabel>All</TagLabel>
+          <TagLabel>{t('category.all')}</TagLabel>
         </Tag>
       </Link>
       <Divider orientation="vertical" />
@@ -27,7 +30,7 @@ export default function CategoryFilter({ categoryList }: Props): JSX.Element {
           return (
             <Link key={fieldValue} to={`/blog/category/${fieldValue}/`}>
               <Tag size="lg" borderRadius="full" variant="outline" colorScheme="green">
-                <TagLabel>{fieldValue}</TagLabel>
+                <TagLabel>{t(`category.${fieldValue}`)}</TagLabel>
               </Tag>
             </Link>
           )

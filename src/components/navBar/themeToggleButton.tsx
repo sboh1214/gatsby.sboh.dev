@@ -1,31 +1,21 @@
 import * as React from 'react'
 import { Button, IconButton, useColorMode } from '@chakra-ui/react'
-import { Acrylic } from '../../utils/style'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   isLarge: boolean
 }
 
 export default function ThemeToggleButton({ isLarge }: Props): JSX.Element {
+  const { t } = useTranslation()
   const { colorMode, toggleColorMode } = useColorMode()
   const icon = colorMode === 'dark' ? <SunIcon /> : <MoonIcon />
-  const text = colorMode === 'dark' ? 'Light theme' : 'Dark theme'
+  const text = colorMode === 'dark' ? t('toolBar.light') : t('toolBar.dark')
 
   if (isLarge) {
     return (
-      <Button
-        leftIcon={icon}
-        style={Acrylic}
-        variant="solid"
-        borderRadius="full"
-        zIndex={100}
-        bottom={isLarge ? 0 : undefined}
-        right={isLarge ? 0 : undefined}
-        position={isLarge ? 'fixed' : undefined}
-        margin={isLarge ? '12px' : undefined}
-        onClick={toggleColorMode}
-      >
+      <Button leftIcon={icon} variant="solid" onClick={toggleColorMode}>
         {text}
       </Button>
     )

@@ -2,9 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Comment from '../components/comment'
-import { Divider, Heading, Text } from '@chakra-ui/react'
-import '../utils/theme.css'
-import Markdown from '../components/markdown'
+import { Divider, Heading, Tag } from '@chakra-ui/react'
+import './theme.css'
+import Markdown from './markdown'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   data: any
@@ -18,6 +19,7 @@ export default function BlogPost({ data }: Props): JSX.Element {
       html,
     },
   } = data
+  const { t } = useTranslation()
 
   return (
     <Layout title={title}>
@@ -26,7 +28,7 @@ export default function BlogPost({ data }: Props): JSX.Element {
           <div>
             <header>
               <div>
-                <Text>{category}</Text>
+                <Tag>{t(`category.${category}`)}</Tag>
               </div>
               <Heading>{title}</Heading>
             </header>

@@ -4,29 +4,26 @@ import {
   Heading,
   HStack,
   useColorMode,
-  useMediaQuery,
   useDisclosure,
   Drawer,
   DrawerOverlay,
   DrawerContent,
   DrawerBody,
   IconButton,
+  useMediaQuery,
+  VStack,
 } from '@chakra-ui/react'
 import { Link } from 'gatsby'
-import { Acrylic } from '../../utils/style'
 import { useTranslation } from 'react-i18next'
-import SelectTranslation from './selectTranslation'
-import ThemeToggleButton from './themeToggleButton'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
+import ToolBar from './toolBar'
+import Links from './links'
 
-type Props = {
-  children: JSX.Element
-}
-
-export default function NavBar({ children }: Props): JSX.Element {
+export default function NavBar(): JSX.Element {
   const { colorMode } = useColorMode()
   const { t } = useTranslation()
-  const [isLarge] = useMediaQuery('(min-width: 560px)')
+  const [isLarge] = useMediaQuery('(min-width: 840px)')
+  const [isMedium] = useMediaQuery('(min-width: 480px)')
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
@@ -34,7 +31,7 @@ export default function NavBar({ children }: Props): JSX.Element {
       bg={colorMode === 'light' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(29, 29, 29, 0.7)'}
       borderBottomColor={colorMode === 'light' ? 'rgba(200, 200, 200, 0.7)' : 'rgba(255, 255, 255, 0.2)'}
       borderBottomWidth="1px"
-      style={Acrylic}
+      style={{ backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' }}
       w="100%"
       h="54px"
       top="0"
@@ -55,14 +52,9 @@ export default function NavBar({ children }: Props): JSX.Element {
         <Heading size="md" marginX="6px" flex={1}>
           <Link to="/">{t('nav.home')}</Link>
         </Heading>
-        {!isLarge && (
-          <>
-            <ThemeToggleButton isLarge={isLarge} />
-            <SelectTranslation isLarge={isLarge} />
-          </>
-        )}
+        {!isLarge && (isMedium ? <ToolBar isLarge={true} /> : <ToolBar isLarge={false} />)}
         {isLarge ? (
-          <>{children}</>
+          <Links />
         ) : (
           <>
             <IconButton
@@ -74,17 +66,17 @@ export default function NavBar({ children }: Props): JSX.Element {
             <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
               <DrawerOverlay>
                 <DrawerContent>
-                  <DrawerBody marginTop="54px">{children}</DrawerBody>
+                  <DrawerBody marginTop="54px">
+                    <VStack>
+                      <Links width="96vw" />
+                    </VStack>
+                  </DrawerBody>
                 </DrawerContent>
               </DrawerOverlay>
             </Drawer>
           </>
         )}
-        {isLarge && (
-          <>
-            <SelectTranslation isLarge={isLarge} />
-          </>
-        )}
+        {isLarge && <ToolBar isLarge={true} />}
       </HStack>
     </Box>
   )

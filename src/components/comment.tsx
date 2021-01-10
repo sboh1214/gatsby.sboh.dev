@@ -7,7 +7,7 @@ const utterancesSelector = 'iframe.utterances-frame'
 const LIGHT_THEME = 'github-light'
 const DARK_THEME = 'github-dark'
 
-const Comment = () => {
+export default function Comment(): JSX.Element {
   const site = useSiteMetadata()
   const { repo } = site.siteMetadata.utterances
   const { colorMode } = useColorMode()
@@ -55,7 +55,3 @@ const Comment = () => {
 
   return <div ref={containerRef} />
 }
-
-Comment.displayName = 'comment'
-
-export default Comment

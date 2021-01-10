@@ -6,6 +6,7 @@ import CategoryFilter from '../components/categoryFilter'
 import useSiteMetadata from '../utils/useSiteMetadata'
 import { IPost } from '../utils/type'
 import { Heading } from '@chakra-ui/react'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   pageContext: any
@@ -13,6 +14,7 @@ type Props = {
 }
 
 export default function Home({ pageContext, data }: Props): JSX.Element {
+  const { t } = useTranslation()
   const [posts, setPosts] = useState<IPost[]>([])
   const currentCategory = pageContext.category
   const postData = data.allMarkdownRemark.edges
@@ -48,7 +50,7 @@ export default function Home({ pageContext, data }: Props): JSX.Element {
   return (
     <Layout title="Blog">
       <CategoryFilter categoryList={data.allMarkdownRemark.group} />
-      <Heading>{postTitle}</Heading>
+      <Heading>{t(`category.${postTitle ?? 'all'}`)}</Heading>
       <PostGrid posts={posts} />
     </Layout>
   )
