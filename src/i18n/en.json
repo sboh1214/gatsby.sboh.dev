@@ -15,6 +15,7 @@
     "name": "Category",
     "all": "All",
     "android": "Android",
-    "js-ts": "JavaScript & TypeScript"
+    "js-ts": "JavaScript & TypeScript",
+    "macOS": "macOS"
   }
 }
