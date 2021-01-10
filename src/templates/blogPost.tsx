@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Comment from '../components/comment'
 import { Divider, Heading, Tag } from '@chakra-ui/react'
-import '../utils/theme.css'
+import './theme.css'
 import Markdown from './markdown'
 import { useTranslation } from 'react-i18next'
 
