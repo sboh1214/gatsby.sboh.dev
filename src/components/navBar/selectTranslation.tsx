@@ -15,7 +15,7 @@ type Props = {
 }
 
 export default function SelectTranslation({ isLarge }: Props): JSX.Element {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [language, setLanguage] = useState<Language>(Language.KO)
 
   function handleChange(value: string) {
@@ -38,7 +38,7 @@ export default function SelectTranslation({ isLarge }: Props): JSX.Element {
           onChange={(value) => {
             handleChange(value as string)
           }}
-          title="Languages"
+          title={t('toolBar.languages')}
           type="radio"
         >
           <MenuItemOption value={Language.KO}>{LanguageNames[Language.KO]}</MenuItemOption>

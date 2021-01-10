@@ -6,6 +6,11 @@
     "libs": "라이브러리",
     "blog": "블로그"
   },
+  "toolBar": {
+    "languages": "언어",
+    "light": "밝은 테마",
+    "dark": "어두운 테마"
+  },
   "category": {
     "name": "분류",
     "all": "전체",
