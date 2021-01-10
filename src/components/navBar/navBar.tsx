@@ -11,17 +11,15 @@ import {
   DrawerBody,
   IconButton,
   useMediaQuery,
+  VStack,
 } from '@chakra-ui/react'
 import { Link } from 'gatsby'
 import { useTranslation } from 'react-i18next'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import ToolBar from './toolBar'
+import Links from './links'
 
-type Props = {
-  children: JSX.Element
-}
-
-export default function NavBar({ children }: Props): JSX.Element {
+export default function NavBar(): JSX.Element {
   const { colorMode } = useColorMode()
   const { t } = useTranslation()
   const [isLarge] = useMediaQuery('(min-width: 840px)')
@@ -56,7 +54,7 @@ export default function NavBar({ children }: Props): JSX.Element {
         </Heading>
         {!isLarge && (isMedium ? <ToolBar isLarge={true} /> : <ToolBar isLarge={false} />)}
         {isLarge ? (
-          <>{children}</>
+          <Links />
         ) : (
           <>
             <IconButton
@@ -68,7 +66,11 @@ export default function NavBar({ children }: Props): JSX.Element {
             <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
               <DrawerOverlay>
                 <DrawerContent>
-                  <DrawerBody marginTop="54px">{children}</DrawerBody>
+                  <DrawerBody marginTop="54px">
+                    <VStack>
+                      <Links width="96vw" />
+                    </VStack>
+                  </DrawerBody>
                 </DrawerContent>
               </DrawerOverlay>
             </Drawer>

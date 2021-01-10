@@ -3,22 +3,34 @@ import { Button } from '@chakra-ui/react'
 import { Link } from 'gatsby'
 import { useTranslation } from 'react-i18next'
 
-export default function Links() {
+type Props = {
+  width?: string
+}
+
+export default function Links({ width }: Props) {
   const { t } = useTranslation()
 
   return (
     <>
       <Link to="/about">
-        <Button variant="ghost">{t('nav.about')}</Button>
+        <Button variant="ghost" flexDirection="column" alignItems="start" width={width}>
+          {t('nav.about')}
+        </Button>
       </Link>
       <Link to="/apps">
-        <Button variant="ghost">{t('nav.apps')}</Button>
+        <Button variant="ghost" flexDirection="column" alignItems="start" width={width}>
+          {t('nav.apps')}
+        </Button>
       </Link>
       <Link to="/libs">
-        <Button variant="ghost">{t('nav.libs')}</Button>
+        <Button variant="ghost" flexDirection="column" alignItems="start" width={width}>
+          {t('nav.libs')}
+        </Button>
       </Link>
       <Link to="/blog">
-        <Button variant="ghost">{t('nav.blog')}</Button>
+        <Button variant="ghost" flexDirection="column" alignItems="start" width={width}>
+          {t('nav.blog')}
+        </Button>
       </Link>
     </>
   )
