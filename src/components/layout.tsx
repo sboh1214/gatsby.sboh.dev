@@ -17,12 +17,14 @@ export default function Layout({ title, description, image, children }: Props) {
   return (
     <>
       <SEO title={t(title)} description={description} image={image} />
-      <NavBar />
-      <Container maxW="1024px">
-        <Heading marginY="24px">{t(title)}</Heading>
-        {children}
-      </Container>
-      <Container centerContent>
+      <div style={{ minHeight: 'calc(100vh - 48px)' }}>
+        <NavBar />
+        <Container maxW="1024px">
+          <Heading marginY="24px">{t(title)}</Heading>
+          {children}
+        </Container>
+      </div>
+      <Container centerContent height="48px">
         <HStack aria-label="Copyright">
           <Text fontSize="md">
             {'Copyright © '}
