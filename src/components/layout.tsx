@@ -1,5 +1,6 @@
 import { Container, Heading, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import NavBar from './navBar/navBar'
 import SEO from './seo'
 
@@ -11,12 +12,14 @@ type Props = {
 }
 
 export default function Layout({ title, description, image, children }: Props) {
+  const { t } = useTranslation()
+
   return (
     <>
-      <SEO title={title} description={description} image={image} />
+      <SEO title={t(title)} description={description} image={image} />
       <NavBar />
       <Container maxW="1024px">
-        <Heading marginY="24px">{title}</Heading>
+        <Heading marginY="24px">{t(title)}</Heading>
         {children}
       </Container>
       <Container centerContent>

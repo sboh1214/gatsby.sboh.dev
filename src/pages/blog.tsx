@@ -48,7 +48,7 @@ export default function Home({ pageContext, data }: Props): JSX.Element {
   const postTitle = currentCategory || site.siteMetadata.postTitle
 
   return (
-    <Layout title={t('nav.blog')}>
+    <Layout title="nav.blog">
       <CategoryFilter categoryList={data.allMarkdownRemark.group} />
       <Heading>{t(`category.${postTitle ?? 'all'}`)}</Heading>
       <PostGrid posts={posts} />
