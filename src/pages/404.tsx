@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 
 export default function NotFound(): JSX.Element {
   return (
-    <Layout title="Not found">
+    <Layout title="nav.notfound">
       <VStack>
         <Heading>404</Heading>
         <Divider />

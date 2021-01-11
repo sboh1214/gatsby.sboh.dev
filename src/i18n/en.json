@@ -1,10 +1,12 @@
 {
   "nav": {
-    "home": "Seungbin Oh",
+    "title": "Seungbin Oh",
+    "home": "Home",
     "about": "About",
     "apps": "Apps",
     "libs": "Libraries",
-    "blog": "Blog"
+    "blog": "Blog",
+    "notfound": "Page Not Found"
   },
   "toolBar": {
     "languages": "Languages",
@@ -15,6 +17,7 @@
     "name": "Category",
     "all": "All",
     "android": "Android",
-    "js-ts": "JavaScript & TypeScript"
+    "js-ts": "JavaScript & TypeScript",
+    "macOS": "macOS"
   }
 }

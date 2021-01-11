@@ -1,7 +1,6 @@
-import { Container, HStack, Text } from '@chakra-ui/react'
-import i18next from '../i18n/config'
+import { Container, Heading, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
-import { I18nextProvider } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import NavBar from './navBar/navBar'
 import SEO from './seo'
 
@@ -13,11 +12,16 @@ type Props = {
 }
 
 export default function Layout({ title, description, image, children }: Props) {
+  const { t } = useTranslation()
+
   return (
-    <I18nextProvider i18n={i18next}>
-      <SEO title={title} description={description} image={image} />
+    <>
+      <SEO title={t(title)} description={description} image={image} />
       <NavBar />
-      <Container maxW="1024px">{children}</Container>
+      <Container maxW="1024px">
+        <Heading marginY="24px">{t(title)}</Heading>
+        {children}
+      </Container>
       <Container centerContent>
         <HStack aria-label="Copyright">
           <Text fontSize="md">
@@ -32,6 +36,6 @@ export default function Layout({ title, description, image, children }: Props) {
           </Text>
         </HStack>
       </Container>
-    </I18nextProvider>
+    </>
   )
 }

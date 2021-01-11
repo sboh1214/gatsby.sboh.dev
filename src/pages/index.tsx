@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 
 export default function Index(): JSX.Element {
   return (
-    <Layout title="Home">
+    <Layout title="nav.home">
       <VStack>
         <Heading>Hello</Heading>
         <Divider />
