@@ -13,7 +13,6 @@ export default function Links({ width }: LinksProps) {
       <LinkButton name="about" width={width} />
       <LinkButton name="apps" width={width} />
       <LinkButton name="libs" width={width} />
-      <LinkButton name="blog" width={width} />
     </>
   )
 }

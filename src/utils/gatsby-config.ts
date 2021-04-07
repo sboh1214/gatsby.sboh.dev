@@ -20,33 +20,7 @@ export const siteMetadata = {
 }
 
 export const plugins = [
-  {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      name: 'contents',
-      path: `${__dirname}/../../contents`,
-    },
-  },
   'gatsby-plugin-sharp',
-  {
-    resolve: 'gatsby-transformer-remark',
-    options: {
-      plugins: [
-        {
-          resolve: 'gatsby-remark-images',
-          options: {
-            maxWidth: 800,
-          },
-        },
-        {
-          resolve: 'gatsby-remark-prismjs',
-          options: {
-            showLineNumbers: true,
-          },
-        },
-      ],
-    },
-  },
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
@@ -88,6 +62,5 @@ export const plugins = [
   'gatsby-plugin-offline',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sitemap',
-  'gatsby-plugin-feed',
   'gatsby-plugin-remove-trailing-slashes',
 ]
