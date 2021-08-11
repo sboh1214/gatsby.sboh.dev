@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import Links from '../links'
 import NavBar from '../navBar'
 import SelectTranslation from '../selectTranslation'
-import ThemeToggleButton from '../themeToggleButton'
+import ThemeToggleButton from '../selectTheme'
 import ToolBar from '../toolBar'
 
 test('render', async () => {

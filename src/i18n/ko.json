@@ -10,6 +10,8 @@
   },
   "toolBar": {
     "languages": "언어",
+    "theme": "테마",
+    "sync": "시스템과 동기화",
     "light": "밝은 테마",
     "dark": "어두운 테마"
   },
