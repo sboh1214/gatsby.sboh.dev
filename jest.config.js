@@ -11,5 +11,5 @@ module.exports = {
   testURL: `http://localhost`,
   testEnvironment: "jsdom",
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
-  setupFilesAfterEnv: ['<rootDir>/__mocks__/gatsby.js'],
+  setupFilesAfterEnv: ['<rootDir>/__mocks__/gatsby.js', '<rootDir>/__mocks__/window.js'],
 }

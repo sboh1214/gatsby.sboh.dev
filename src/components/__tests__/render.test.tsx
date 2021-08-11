@@ -1,7 +1,7 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import renderWithProvider from '../../utils/render'
 import Layout from '../layout'
 
-test('render', async () => {
-  render(<Layout title="Hello">Hello</Layout>)
+test('render Layout', async () => {
+  renderWithProvider(<Layout title="Hello">Hello</Layout>)
 })
