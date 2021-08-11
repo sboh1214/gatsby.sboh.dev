@@ -10,7 +10,7 @@
 
 ## Install
 
-node@12 (because of Netlify Deploy)
+node@14 (because of Netlify Deploy)
 
 ## Credits
 
