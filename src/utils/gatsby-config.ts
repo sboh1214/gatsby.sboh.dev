@@ -62,5 +62,4 @@ export const plugins = [
   'gatsby-plugin-offline',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sitemap',
-  'gatsby-plugin-remove-trailing-slashes',
 ]

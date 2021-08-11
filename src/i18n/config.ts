@@ -18,7 +18,7 @@ i18next.init({
     escapeValue: false, // not needed for react!!
   },
   react: {
-    wait: true,
+    useSuspense: true,
   },
 })
 
