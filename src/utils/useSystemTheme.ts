@@ -7,11 +7,14 @@ export enum Theme {
 }
 
 function getCurrentTheme(): Theme {
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return Theme.DARK
-  } else {
-    return Theme.LIGHT
+  if (typeof window !== 'undefined') {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return Theme.DARK
+    } else {
+      return Theme.LIGHT
+    }
   }
+  return Theme.LIGHT
 }
 
 export default function useSystemTheme() {
