@@ -1,4 +1,3 @@
-import React from 'react'
 import SelectTranslation from './selectTranslation'
 import SelectTheme from './selectTheme'
 

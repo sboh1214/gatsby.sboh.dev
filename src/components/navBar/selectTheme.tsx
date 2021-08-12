@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, createIcon, IconButton, Menu, MenuButton, MenuItemOption, MenuList, MenuOptionGroup, useColorMode } from '@chakra-ui/react'
 import { ChevronDownIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { useTranslation } from 'react-i18next'

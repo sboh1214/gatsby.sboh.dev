@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { Button, createIcon, IconButton, Menu, MenuButton, MenuItemOption, MenuList, MenuOptionGroup } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LanguageNames } from '../../i18n/config'
 
