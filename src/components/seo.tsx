@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet'
 import useSiteMetadata from '../utils/useSiteMetadata'
-const defaultOpenGraphImage = require('../images/og-default.png')
+const defaultOpenGraphImage = require('../../static/og-default.png')
 
 type Props = {
   description?: string

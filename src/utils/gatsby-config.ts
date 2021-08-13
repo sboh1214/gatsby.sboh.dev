@@ -5,7 +5,7 @@ const meta = {
   siteUrl: 'https://sboh.dev',
   lang: 'ko',
   utterances: 'sboh1214/sboh.dev',
-  icon: 'src/images/icon.png',
+  icon: 'static/icon.png',
 }
 
 export const siteMetadata = {

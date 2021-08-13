@@ -9,7 +9,7 @@ module.exports = {
   testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
   transformIgnorePatterns: ['node_modules/(?!(gatsby|gatsby-plugin-mdx)/)'],
   testURL: `http://localhost`,
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
   setupFilesAfterEnv: ['<rootDir>/__mocks__/gatsby.js', '<rootDir>/__mocks__/window.js'],
 }

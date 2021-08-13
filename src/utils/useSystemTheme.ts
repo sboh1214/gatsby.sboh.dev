@@ -6,7 +6,7 @@ export enum Theme {
   DARK = 'dark',
 }
 
-function getCurrentTheme(): Theme {
+export function getCurrentTheme(): Theme {
   if (typeof window !== 'undefined') {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return Theme.DARK
