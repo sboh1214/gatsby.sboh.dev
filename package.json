@@ -4,6 +4,7 @@
   "version": "2002.12.14",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "start": "gatsby develop",
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -12,16 +13,6 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "clean": "gatsby clean"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run lint && npm run tsc"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,md}": [
-      "prettier --write"
-    ]
   },
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^2.0.1",
@@ -36,7 +27,7 @@
     "gatsby-plugin-manifest": "^3.11.0",
     "gatsby-plugin-offline": "^4.11.0",
     "gatsby-plugin-react-helmet": "^4.11.0",
-    "gatsby-plugin-robots-txt": "^1.6.8",
+    "gatsby-plugin-robots-txt": "^1.6.9",
     "gatsby-plugin-sharp": "^3.11.0",
     "gatsby-plugin-sitemap": "^4.7.0",
     "gatsby-plugin-typescript": "^3.11.0",
@@ -52,9 +43,9 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.15.0",
     "@testing-library/react": "^12.0.0",
-    "@types/jest": "^27.0.0",
+    "@types/jest": "^27.0.1",
     "@types/node": "^14.17.9",
-    "@types/react": "^17.0.17",
+    "@types/react": "^17.0.18",
     "@types/react-dom": "^17.0.9",
     "@types/react-helmet": "^6.1.2",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
@@ -67,10 +58,9 @@
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.9.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.3.8",
+    "husky": "^7.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
-    "lint-staged": "^11.1.2",
     "prettier": "^2.3.2"
   },
   "author": {
