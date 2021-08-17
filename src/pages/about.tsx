@@ -15,7 +15,9 @@ function Card(props: Props): JSX.Element {
       }}
     >
       <Image src={props.imgSrc} maxW="120px" />
-      <Heading>{props.title}</Heading>
+      <a href={props.link}>
+        <Heading>{props.title}</Heading>
+      </a>
     </Box>
   )
 }
