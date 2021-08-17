@@ -1,4 +1,3 @@
-import React from 'react'
 import { ICard } from '../../utils/type'
 import { Box, Heading, VStack, Text } from '@chakra-ui/react'
 

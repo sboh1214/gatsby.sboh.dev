@@ -1,27 +1,27 @@
 import React from 'react'
-import { render } from '@testing-library/react'
 import Index from '..'
 import NotFound from '../404'
 import About from '../apps'
 import Apps from '../apps'
 import Libs from '../libs'
+import renderWithProvider from '../../utils/render'
 
-test('render', async () => {
-  render(<NotFound />)
+test('render NotFound', async () => {
+  renderWithProvider(<NotFound />)
 })
 
-test('render', async () => {
-  render(<About />)
+test('render About', async () => {
+  renderWithProvider(<About />)
 })
 
-test('render', async () => {
-  render(<Apps />)
+test('render Apps', async () => {
+  renderWithProvider(<Apps />)
 })
 
-test('render', async () => {
-  render(<Index />)
+test('render Index', async () => {
+  renderWithProvider(<Index />)
 })
 
-test('render', async () => {
-  render(<Libs />)
+test('render Libs', async () => {
+  renderWithProvider(<Libs />)
 })

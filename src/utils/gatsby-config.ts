@@ -5,7 +5,7 @@ const meta = {
   siteUrl: 'https://sboh.dev',
   lang: 'ko',
   utterances: 'sboh1214/sboh.dev',
-  icon: 'src/images/icon.png',
+  icon: 'static/icon.png',
 }
 
 export const siteMetadata = {
@@ -62,5 +62,4 @@ export const plugins = [
   'gatsby-plugin-offline',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-sitemap',
-  'gatsby-plugin-remove-trailing-slashes',
 ]

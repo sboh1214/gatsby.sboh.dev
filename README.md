@@ -10,8 +10,8 @@
 
 ## Install
 
-node@12 (because of Netlify Deploy)
+node@14 (because of Netlify Deploy)
 
 ## Credits
 
-Copyright © 오승빈. Built with [gatsby-starter-apple](https://github.com/sungik-choi/gatsby-starter-apple)
+Copyright © 오승빈. Inspired by [gatsby-starter-apple](https://github.com/sungik-choi/gatsby-starter-apple)

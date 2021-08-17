@@ -10,6 +10,8 @@
   },
   "toolBar": {
     "languages": "Languages",
+    "theme": "Theme",
+    "sync": "Sync with System",
     "light": "Light Theme",
     "dark": "Dark Theme"
   },

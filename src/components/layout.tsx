@@ -1,5 +1,4 @@
 import { Container, Heading, HStack, Text } from '@chakra-ui/react'
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 import NavBar from './navBar/navBar'
 import SEO from './seo'
@@ -29,7 +28,7 @@ export default function Layout({ title, description, image, children }: Props) {
             <a href="mailto:sboh1214@gmail.com" target="_top">
               Seungbin Oh
             </a>
-            {'. Built with '}
+            {'. Inspired by '}
             <a href="https://github.com/sungik-choi/gatsby-starter-apple" target="__blank">
               'gatsby-starter-apple'
             </a>
